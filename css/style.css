@@ -226,13 +226,6 @@ button.close {
   justify-self: end;
 }
 
-.form-consent {
-  font-size: .8rem;
-}
-.form-control {
-  padding: .25rem .5rem;
-  font-size: .85rem;
-}
 /* dropdown menu ===================================================================================================== */
 
 .dropdown-navbar {
