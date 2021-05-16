@@ -41,9 +41,9 @@
           <li><a href="./pages/account.html">Профіль</a></li>
           <li><a href="./pages/rating.html">Рейтинг</a></li>
           <li><a href="./pages/partners.html">Партнери гри</a></li>
-          <li><a href="https://globalcompact.org.ua/contacts/" target="_blank">Контакти</a></li>          
+          <li><a href="https://globalcompact.org.ua/contacts/" target="_blank">Контакти</a></li>
           <li><a href="./pages/team.html">Наша команда</a></li>
-      </ul>
+        </ul>
       </div>
       <!-- end Navbar -->
 
@@ -62,10 +62,10 @@
 
       <div class="control-panel">
         <div class="control-panel-buttons" id="buttons-animate">
-          <img src="img/buttons.png" alt=""  />
+          <img src="img/buttons.png" alt="" />
         </div>
         <div class="control-panel-earth">
-          <img src="img/earth.png" alt=""  />
+          <img src="img/earth.png" alt="" />
         </div>
       </div>
       <!-- end control-panel -->
@@ -98,13 +98,13 @@
               <div class="col-12 col-sm-6">
                 <div class="mb-1">
                   <label for="nikName" class="col-form-label">Нікнейм:</label>
-                  <input type="text" class="form-control" id="nikName" />
+                  <input type="text" class="form-control" title="Будь ласка, заповніть це поле" id="nikName" />
                 </div>
               </div>
               <div class="col-12 col-sm-6">
                 <div class="mb-1">
                   <label for="fullName" class="col-form-label">ПІБ:</label>
-                  <input type="text" class="form-control" id="fullName" />
+                  <input type="text" class="form-control" title="Будь ласка, заповніть це поле" id="fullName" />
                 </div>
               </div>
             </div>
@@ -113,17 +113,17 @@
               <div class="col-12 col-sm-6">
                 <div class="mb-1">
                   <label for="organization" class="col-form-label">Назва організації:</label>
-                  <input type="text" class="form-control" id="organization">
+                  <input type="text" class="form-control" title="Будь ласка, заповніть це поле" id="organization">
                 </div>
               </div>
               <div class="col-12 col-sm-6">
                 <div class="mb-1">
                   <label for="position" class="col-form-label">Посада:</label>
-                  <input type="text" class="form-control" id="position">
+                  <input type="text" class="form-control" title="Будь ласка, заповніть це поле" id="position">
                 </div>
               </div>
             </div>
-            
+
             <div class="row">
               <div class="col-12 col-sm-6">
                 <div class="mb-1">
@@ -134,18 +134,12 @@
               <div class="col-12 col-sm-6">
                 <div class="mb-1">
                   <label for="phone" class="col-form-label">Телефон:</label>
-                  <input 
-                  type="tel" 
-                  class="form-control" 
-                  placeholder="+38 (050) 111-11-11" 
-                  title="Будь ласка, заповніть це поле"
-                  autocorrect="off" autocapitalize="off" 
-                  pattern="[\+]\d{1}\d{1}\s[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}"
-                  minlength="19"
-                  maxlength="19"
-                  id="phone"
-                  required
-                  />
+                  <input type="tel" class="form-control" placeholder="+38 (050) 111-11-11"
+                    title="Будь ласка, заповніть це поле"
+                    pattern="[\+]\d{1}\d{1}\s[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}" 
+                    minlength="19" 
+                    maxlength="19"
+                    id="phone" required />
                 </div>
               </div>
             </div>
@@ -167,13 +161,8 @@
             <div class="row text-center">
               <div class="col">
                 <div id="pd" class="form-account-item">
-                  <input
-                  type="checkbox"
-                  class="form-check-input"
-                  id="blankCheckbox"
-                  title="Щоб продовжити, встановіть цей прапорець"
-                  required
-                  />
+                  <input type="checkbox" class="form-check-input" id="blankCheckbox"
+                    title="Щоб продовжити, встановіть цей прапорець" required />
                   <label for="blankCheckbox" class="form-check-label">Я погоджуюсь на обробку персональних даних</label>
                 </div>
               </div>
@@ -200,17 +189,17 @@
         <div class="modal-body form-bg">
           <button type="button" class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="modal"
             aria-label="Close"></button>
-          <form>
+          <form action="js/signin.js" method="POST">
             <div class="mb-1">
-              <label for="recipient-name" class="col-form-label">Нікнейм:</label>
-              <input type="text" class="form-control" id="sign-in-name" />
+              <label for="nikName" class="col-form-label">Нікнейм:</label>
+              <input type="text" class="form-control" id="nikName" />
             </div>
             <div class="mb-1">
-              <label for="sign-in-password" class="col-form-label">Пароль:</label>
-              <input type="password" class="form-control" id="sign-in-password" />
+              <label for="password" class="col-form-label">Пароль:</label>
+              <input type="password" class="form-control" id="password" />
             </div>
             <div class="d-flex justify-content-center">
-              <button type="button" class="btn btn-primary btn-form-sign-in">
+              <button type="submit" class="btn btn-primary btn-form-sign-in">
                 Вхід
               </button>
             </div>
