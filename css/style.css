@@ -153,10 +153,13 @@ embed {
 .btn-group-game {
   display: none;
 }
+.modal,
 #modalSignIn {
   z-index: 3000;
 }
-
+.modal-dialog-size {
+  max-width: 75%;
+}
 .navi-left,
 .navi-right,
 .navi-right form,
@@ -205,7 +208,8 @@ embed {
 
 .buttons area:focus,
 .btn-main-dropdown:focus,
-.btn-bottom-res:focus {
+.btn-bottom-res:focus,
+.form-account-control:focus {
   outline: none;
 }
 
@@ -588,6 +592,9 @@ button.close {
   .wrapper-dropdown-2 {
     bottom: 0;
   }
+  .modal-dialog-size {
+    max-width: 100%;
+}
 }
 
 @media (max-width: 540px) {
@@ -621,6 +628,9 @@ button.close {
 @media (max-width: 320px) {
   .control-panel {
     width: 12rem;
+  }
+  .modal-dialog-size {
+    padding-left: 0;
   }
 }
 @media (max-width: 280px) {

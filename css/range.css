@@ -126,6 +126,9 @@ input[type="range"]::-moz-range-thumb {
   margin: 2rem auto 1rem auto;
 }
 
+.title-modal {
+  text-align: center; }
+  
 .img__close:hover,
 .button__close:hover {
   background: #fff;

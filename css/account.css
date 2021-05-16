@@ -63,6 +63,16 @@ align-content: space-evenly;
   font: normal 400 2vh Roboto;
   padding: .3vh 0 0 0;
 }
+.form-account-label .text-red {
+  color: red;
+}
+input.form-account-control:invalid:not(:placeholder-shown) {
+  border-color: red;
+}
+input.form-account-control:valid:not(:placeholder-shown) {
+  border-color: green;
+}
+
 .btn-form-ac {
   cursor: pointer;
   font: normal 400 .7rem/.7rem Roboto;
@@ -79,8 +89,8 @@ align-content: space-evenly;
   align-items: center;
 }
 #recipient-pd {
-  width: 80%;
-  height: 80%;
+  width: 90%;
+  height: 90%;
   justify-self: flex-end;
 }
 

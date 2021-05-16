@@ -51,11 +51,15 @@
           </button>
           <ul class="dropdown">
             <li><a href="rules.html">Правила гри</a></li>
-          <li><a href="account.html">Профіль</a></li>
-          <li><a href="rating.html">Рейтинг</a></li>
-          <li><a href="partners.html">Партнери гри</a></li>
-          <li><a href="https://globalcompact.org.ua/contacts/" target="_blank">Контакти</a></li>          
-          <li><a href="team.html">Наша команда</a></li>
+            <li><a href="account.html">Профіль</a></li>
+            <li><a href="rating.html">Рейтинг</a></li>
+            <li><a href="partners.html">Партнери гри</a></li>
+            <li>
+              <a href="https://globalcompact.org.ua/contacts/" target="_blank"
+                >Контакти</a
+              >
+            </li>
+            <li><a href="team.html">Наша команда</a></li>
           </ul>
         </div>
         <!-- end Navbar -->
@@ -64,7 +68,9 @@
           <div class="rating-window rating-account">
             <div class="content-rules-description content-account">
               <h4 class="rating-window-title">Рейтинг гравців</h4>
-              <p class="advice">Для відображення ваших результатів у рейтингу, заповніть профіль</p>
+              <p class="advice">
+                Для відображення ваших результатів у рейтингу, заповніть профіль
+              </p>
               <div class="rating-scroll">
                 <ol class="rating-window-list">
                   <li>............</li>
@@ -95,55 +101,80 @@
             <div class="content-account-description">
               <h4 class="account-window-title">Мої дані:</h4>
 
-              <form class="form-account">
+              <form class="form-account" action="../js/setData.js" method="PUT">
                 <div class="form-account-item">
-                  <label for="recipient-name" class="form-account-label"
-                    >Нікнейм:</label
+                  <label for="nikName" class="form-account-label"
+                    >Нікнейм: <span class="text-red">*</span></label
                   >
                   <input
                     type="text"
+                    id="nikName"
                     class="form-account-control"
-                    id="recipient-name"
+                    placeholder="Нікнейм"
+                    title="Будь ласка, заповніть це поле"
+                    minlength="3" maxlength="25"
+                    required
                   />
                 </div>
                 <div class="form-account-item">
-                  <label for="recipient-noun" class="form-account-label"
-                    >ПІБ:</label
+                  <label for="name" class="form-account-label"
+                    >ПІБ: <span class="text-red">*</span></label
                   >
                   <input
                     type="text"
+                    id="name"
                     class="form-account-control"
-                    id="recipient-noun"
+                    placeholder="ПІБ"
+                    title="Будь ласка, заповніть це поле"
+                    pattern="[\D\s]+"
+                    minlength="3" maxlength="30"
+                    required
                   />
                 </div>
                 <div class="form-account-item">
-                  <label for="recipient-organization" class="form-account-label"
-                    >Назва організації:</label
+                  <label for="organization" class="form-account-label"
+                    >Назва організації: <span class="text-red">*</span></label
                   >
                   <input
                     type="text"
+                    placeholder="Назва організації"
+                    title="Будь ласка, заповніть це поле"
                     class="form-account-control"
-                    id="recipient-organization"
+                    id="organization"
+                    minlength="1" maxlength="30"
+                    required
                   />
                 </div>
                 <div class="form-account-item">
-                  <label for="recipient-position" class="form-account-label"
-                    >Посада:</label
+                  <label for="position" class="form-account-label"
+                    >Посада: <span class="text-red">*</span></label
                   >
                   <input
                     type="text"
+                    placeholder="Посада"
                     class="form-account-control"
-                    id="recipient-position"
+                    id="position"
+                    title="Будь ласка, заповніть це поле"
+                    minlength="3" maxlength="30"
+                    required
                   />
                 </div>
                 <div class="form-account-item">
-                  <label for="recipient-phone" class="form-account-label"
-                    >Телефон:</label
+                  <label for="phone" class="form-account-label"
+                    >Телефон: <span class="text-red">*</span></label
                   >
                   <input
-                    type="text"
+                    type="tel"
+                    name="phone"
+                    id="phone"
                     class="form-account-control"
-                    id="recipient-phone"
+                    placeholder="+38 (050) 111-11-11"
+                    title="Будь ласка, заповніть це поле"
+                    autocorrect="off" autocapitalize="off" 
+                    pattern="[\+]\d{1}\d{1}\s[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}"
+                    minlength="19"
+                    maxlength="19"
+                    required
                   />
                 </div>
                 <div id="pd" class="form-account-item">
@@ -154,9 +185,11 @@
                     type="checkbox"
                     class="form-account-control"
                     id="recipient-pd"
+                    title="Щоб продовжити, встановіть цей прапорець"
+                    required
                   />
                 </div>
-                <button type="button" class="btn-form-ac">
+                <button type="submit" class="btn-form-ac">
                   Застосувати зміни
                 </button>
               </form>
@@ -175,9 +208,9 @@
     </div>
     <!-- end main -->
 
-    <script
-      src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"
-    ></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="../js/dropdown.js"></script>
+    <script src="../js/jquery.maskedinput.min.js"></script>
+    <script src="../js/account.js"></script>
   </body>
 </html>

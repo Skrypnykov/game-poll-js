@@ -460,6 +460,14 @@
   }
 }
 @media (max-width: 992px) {
+  .navi-buttons button:hover,
+.three-buttons button:hover,
+.three-buttons label:hover,
+.navi-buttons form input:hover,
+.three-buttons form input:hover {
+  border-color: #939292;
+  background: #c4c4c4;
+}
   .three-buttons form {
     text-align: center;
   }
