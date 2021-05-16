@@ -1,1 +1,1 @@
-# game-poll-js
+# game-poll

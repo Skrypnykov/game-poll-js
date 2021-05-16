@@ -205,7 +205,8 @@ embed {
 
 .buttons area:focus,
 .btn-main-dropdown:focus,
-.btn-bottom-res:focus {
+.btn-bottom-res:focus,
+.form-account-control:focus {
   outline: none;
 }
 
