@@ -1,0 +1,156 @@
+.rating {
+  grid-template-areas:
+    "wel wel title nav ."
+    ". . rat . ."
+    ". res . go .";
+}
+
+.rating-scroll {
+  height: 70%;
+  width: 95%;
+  position: absolute;
+  overflow: auto;
+  padding: 0.5rem 1.5rem 0 3rem;
+  font: italic 500 0.9rem Roboto;
+  align-self: flex-end;
+  bottom: 5%;
+  z-index: 1;
+}
+
+.rating-window {
+  grid-area: rat;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7rem, 100%));
+  justify-content: space-around;
+  align-self: stretch;
+  justify-self: stretch;
+}
+
+.rating-window-title {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  align-self: center;
+}
+p.advice {
+  font-size: 0.55rem;
+  font-style: italic;
+  padding: 0 0.3rem;
+  color: #f50516;
+}
+.rating-window-list {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  text-align: start;
+}
+
+.rating-window-list li {
+  padding: 0.1rem 0.5rem 0;
+}
+
+.rating-window-list li span {
+  color: red;
+}
+
+.display-result-block {
+  grid-area: res;
+}
+
+.btn-bottom-res {
+  font: normal 400 0.7rem/1rem Roboto;
+  min-width: 15vw;
+  white-space: normal;
+}
+
+
+@media (max-width: 1024px) {
+
+  .rating-best {
+    display: none;
+  }
+  .rating {
+    grid-template-areas:
+      "wel nav"
+      "title title"
+      "rat rat"
+      "res go";
+  }
+  .content-rating {
+    width: 50%;
+  }
+  .rating-scroll {
+    padding: 0 0.5rem 0 2rem;
+  }
+
+  .rating-window-list {
+    font-size: 0.7rem;
+  }
+}
+@media (max-width: 890px) {
+
+  .rating {
+    grid-template-areas:
+      "wel go"
+      "title title"
+      "rat rat"
+      "res nav";
+  }
+}
+@media (max-width: 768px) {
+  .content-rating {
+    width: 60%;
+  }
+}
+
+@media (max-width: 540px) {
+  
+  .rating {
+    grid-template-areas:
+      "wel wel"      
+      "title title"
+      "rat rat"
+      "go nav"
+      "res res";
+  }
+
+  .content-rating {
+    width: 70%;
+  }
+  .btn-bottom-res {
+    width: 100%;
+}
+}
+@media (max-width: 520px) {
+  .rating {
+    grid-template-rows: 7% 10% 53% 10% 10% 10%;
+    grid-template-areas:
+      "wel"      
+      "title"
+      "rat"
+      "res"      
+      "go"     
+      "nav";
+  }
+  .btn-bottom-res {
+    width: 11.88rem;
+  }
+  .content-rating {
+    width: 80%;
+  }
+  }
+@media (max-width: 414px) {
+  .rating-window {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 280px) {
+  .btn-bottom-res {
+    font: normal 400 0.65rem/1rem Roboto;
+  }
+
+  .rating-window-list {
+    font-size: 0.5rem;
+  }
+}

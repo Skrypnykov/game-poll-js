@@ -1,0 +1,165 @@
+.list-block {
+  justify-content: space-around;
+  align-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.navi-list .arrow {
+  width: 100%;
+  border: 0.76vh solid #939292;
+  border-radius: 3vh;
+  background: #c4c4c4;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+}
+.navi-list .list-item1 {
+  border-radius: 3vh 0 0 3vh;
+}
+.navi-list .arrow {
+  border-radius: 0 3vh 3vh 0;
+  border-left-width: 0;
+}
+
+.list-item1:focus,
+.list-item2:focus,
+#dropup {
+  outline: none;
+}
+.listup {
+  display: grid;
+  grid-template-columns: 92% 1.4em;
+  list-style: none;
+  position: relative;
+}
+.three-buttons form input.selectInput,
+.three-buttons form label.selectLabel {
+  border: 0;
+  background: #fff;
+  text-align: left;
+}
+.three-buttons form input.selectInput {
+  height: 1rem;
+  align-self: center;
+}
+.three-buttons form label.selectLabel {
+  height: auto;
+}
+#btnList {
+  z-index: 3;
+}
+
+.selectDiv {
+  display: grid;
+  grid-template-columns: 0.9fr 0.1fr;
+  padding: 0 0 0 0.5rem;
+  font: normal 500 0.75rem/1rem Roboto;
+  word-wrap: break-word;
+}
+
+.scrollSelect {
+  display: none;
+  position: absolute;
+  gap: 0.3rem;
+  padding: 1rem 0 3rem;
+  border: 0.76vh solid #939292;
+  border-radius: 3vh;
+  background-color: #fff;
+  width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  bottom: 1rem;
+}
+.selectDivCommon {
+  display: grid;
+  gap: 0.3rem;
+  overflow: auto;
+  background-color: #fff;
+  max-height: 55vh;
+}
+
+.showList {
+  display: block;
+  max-height: 70vh;
+  overflow: hidden;
+}
+
+.disabled {
+  pointer-events: none;
+}
+.listup:hover .hover {
+  display: grid;
+  gap: 0.3rem;
+  max-height: 70vh;
+  bottom: 1rem;
+}
+.selectDiv label.selectLabel:hover {
+  background-color: #c4c4c4;
+  border-radius: 0;
+}
+.arrow {
+  position: relative;
+  z-index: 2;
+  width: 50px;
+}
+.arrow::after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  right: 0.2em;
+  top: 50%;
+  margin-top: -5px;
+  border-width: 0em 0.35em 0.35em 0.35em;
+  border-style: solid;
+  border-color: #939292 transparent;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.arrow:hover::after {
+  border-color: #fff transparent;
+}
+
+@media (max-width: 992px) {
+  #list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "i2 i3"
+      "lb lb";
+  }
+  .list-block {
+    grid-area: lb;
+    grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+  }
+  .three-buttons .list-block {
+    margin: 0 auto;
+  }
+}
+@media (max-width: 576px) {
+  .list-block {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 414px) {
+  .navi-list {
+    display: grid;
+    grid-template-columns: minmax(200px, 1fr);
+  }
+  .list-block {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 320px) {
+  .navi-list {
+    display: grid;
+    grid-template-columns: minmax(180px, 1fr);
+  }
+  .list-block {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}

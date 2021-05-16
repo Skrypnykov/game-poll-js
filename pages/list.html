@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Poll</title>
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="../css/list.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/09332f583c.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <div class="page page1-bg">
+      <div class="page-hover">
+        <div class="header-logo-mt header-logo-wrapper">
+          <div class="header-wrapper header-logo-bg1">
+            <div class="header-logo1">
+              <a href="../index.html"
+                ><img src="../img/logo_gc.png" alt="" class="img-fluid"
+              /></a>
+            </div>
+            <div class="header-logo2">
+              <a href="../index.html"
+                ><img src="../img/logo_goals.png" alt="" class="img-fluid"
+              /></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="content">
+          <div class="pause">
+            <span class="welcome">Вітаємо,&nbsp;Fighter@gmail.com</span>
+            <div class="tablo">
+              <span class="tablo1"><i class="fas fa-question-circle"></i>&nbsp;15&nbsp;/&nbsp;100&nbsp;<i class="fas fa-star"></i></span>
+              <span class="tablo2">90 c</span>
+            </div>
+            <div class="btn-control">
+              <button class="btn-pause">Пауза</button>
+              <button class="btn-quit">Вихід</button>
+            </div>
+          </div>
+
+          <div class="questions-block">
+            <div class="questions_page1 questions">
+              <img src="../img/questions/GOALS_Ukr1.png" class="goals" alt="" />
+              <p class="questions-text">Що таке евтрофікація?</p>
+            </div>
+          </div>
+
+          <div class="navi-row">
+            <div class="three-buttons navi-list">
+              <div id="list" class="item-block1">
+                <div class="list-block">
+                  <form class="listup">
+                    
+                      <button type='button' id="btnList" class="list-item1" onclick="listshow();">
+                        Оберіть варіанти
+                      </button>
+                      <div id="dropup" class="scrollSelect hover">
+                        <div class="selectDivCommon ">
+                        
+                          <div class="selectDiv">
+                        <label for="s1" class="selectLabel">Україна</label>
+                        <input
+                          id="s1"
+                          type="checkbox"
+                          value="1"
+                          name="selectAnsw"
+                          class="selectInput"
+                        />                        
+                          </div>
+                          <div class="selectDiv">
+                        <label for="s2" class="selectLabel">Росія</label>
+                        <input
+                          id="s2"
+                          type="checkbox"
+                          value="2"
+                          name="selectAnsw"
+                          class="selectInput"
+                        />                        
+                          </div>
+                          <div class="selectDiv">
+                        <label for="s3" class="selectLabel">Греція</label>
+                        <input
+                          id="s3"
+                          type="checkbox"
+                          value="3"
+                          name="selectAnsw"
+                          class="selectInput"
+                        />                        
+                          </div>
+                          <div class="selectDiv">
+                        <label for="s4" class="selectLabel">Франція</label>
+                        <input
+                          id="s4"
+                          type="checkbox"
+                          value="4"
+                          name="selectAnsw"
+                          class="selectInput"
+                        />                        
+                          </div>
+                          <div class="selectDiv">
+                        <label for="s5" class="selectLabel">Чехія</label>
+                        <input
+                          id="s5"
+                          type="checkbox"
+                          value="5"
+                          name="selectAnsw"
+                          class="selectInput"
+                        />                        
+                          </div>
+                          <div class="selectDiv">
+                        <label for="s6" class="selectLabel">Японія</label>
+                        <input
+                          id="s6"
+                          type="checkbox"
+                          value="6"
+                          name="selectAnsw"
+                          class="selectInput"
+                        />                        
+                          </div>
+
+
+
+
+                          <div class="selectDiv">
+                            <label for="s1" class="selectLabel">Україна</label>
+                            <input
+                              id="s1"
+                              type="checkbox"
+                              value="1"
+                              name="selectAnsw"
+                              class="selectInput"
+                            />                        
+                              </div>
+                              <div class="selectDiv">
+                            <label for="s2" class="selectLabel">Росія</label>
+                            <input
+                              id="s2"
+                              type="checkbox"
+                              value="2"
+                              name="selectAnsw"
+                              class="selectInput"
+                            />                        
+                              </div>
+                              <div class="selectDiv">
+                            <label for="s3" class="selectLabel">Греція</label>
+                            <input
+                              id="s3"
+                              type="checkbox"
+                              value="3"
+                              name="selectAnsw"
+                              class="selectInput"
+                            />                        
+                              </div>
+                              <div class="selectDiv">
+                            <label for="s4" class="selectLabel">Франція</label>
+                            <input
+                              id="s4"
+                              type="checkbox"
+                              value="4"
+                              name="selectAnsw"
+                              class="selectInput"
+                            />                        
+                              </div>
+                              <div class="selectDiv">
+                            <label for="s5" class="selectLabel">Чехія</label>
+                            <input
+                              id="s5"
+                              type="checkbox"
+                              value="5"
+                              name="selectAnsw"
+                              class="selectInput"
+                            />                        
+                              </div>
+                              <div class="selectDiv">
+                            <label for="s6" class="selectLabel">Японія</label>
+                            <input
+                              id="s6"
+                              type="checkbox"
+                              value="6"
+                              name="selectAnsw"
+                              class="selectInput"
+                            />                        
+                              </div>
+                              <div class="selectDiv">
+                                <label for="s1" class="selectLabel">Україна</label>
+                                <input
+                                  id="s1"
+                                  type="checkbox"
+                                  value="1"
+                                  name="selectAnsw"
+                                  class="selectInput"
+                                />                        
+                                  </div>
+                                  <div class="selectDiv">
+                                <label for="s2" class="selectLabel">Росія</label>
+                                <input
+                                  id="s2"
+                                  type="checkbox"
+                                  value="2"
+                                  name="selectAnsw"
+                                  class="selectInput"
+                                />                        
+                                  </div>
+                                  <div class="selectDiv">
+                                <label for="s3" class="selectLabel">Греція</label>
+                                <input
+                                  id="s3"
+                                  type="checkbox"
+                                  value="3"
+                                  name="selectAnsw"
+                                  class="selectInput"
+                                />                        
+                                  </div>
+                                  <div class="selectDiv">
+                                <label for="s4" class="selectLabel">Франція</label>
+                                <input
+                                  id="s4"
+                                  type="checkbox"
+                                  value="4"
+                                  name="selectAnsw"
+                                  class="selectInput"
+                                />                        
+                                  </div>
+                                  <div class="selectDiv">
+                                <label for="s5" class="selectLabel">Чехія</label>
+                                <input
+                                  id="s5"
+                                  type="checkbox"
+                                  value="5"
+                                  name="selectAnsw"
+                                  class="selectInput"
+                                />                        
+                                  </div>
+                                  <div class="selectDiv">
+                                <label for="s6" class="selectLabel">Японія</label>
+                                <input
+                                  id="s6"
+                                  type="checkbox"
+                                  value="6"
+                                  name="selectAnsw"
+                                  class="selectInput"
+                                />                        
+                                  </div>
+
+
+
+
+
+
+
+                        </div>
+                      </div>
+                      <div class="arrow" onclick="listshow();"></div>
+                    
+                  </form>
+                </div>
+                
+                <button class="i2 item2">Дати відповідь</button>
+                <button class="i3 item3 ">Пропустити відповідь</button>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/list.js"></script>
+  </body>
+</html>

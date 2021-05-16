@@ -1,0 +1,14 @@
+.bestapp-block {
+  grid-template-columns: repeat(auto-fit, minmax(13.4rem, 1fr));
+  width: 100%;
+  justify-self: center;
+}
+.persona-bestapp {
+  grid-template-columns: 30% 70%;
+}
+
+@media (max-width: 576px) {
+  .persona-bestapp {
+    grid-template-columns: 17% 83%;
+  }
+}
