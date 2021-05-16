@@ -225,6 +225,14 @@ embed {
 button.close {
   justify-self: end;
 }
+
+.form-consent {
+  font-size: .8rem;
+}
+.form-control {
+  padding: .25rem .5rem;
+  font-size: .85rem;
+}
 /* dropdown menu ===================================================================================================== */
 
 .dropdown-navbar {
@@ -624,13 +632,13 @@ button.close {
   /* .down-left {
     display: none;
   } */
+  .modal-dialog-size {
+    padding-left: 0;
+  }
 }
 @media (max-width: 320px) {
   .control-panel {
     width: 12rem;
-  }
-  .modal-dialog-size {
-    padding-left: 0;
   }
 }
 @media (max-width: 280px) {
