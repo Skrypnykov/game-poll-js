@@ -1,9 +1,7 @@
-import onSubmit from "./register.js"
+import {register, signIn} from "./register.js"
 
 const registerForm = document.getElementById( "signUpForm" );
-const signUpFrm = document.forms.signUpForm;
-
-console.log(signUpFrm, registerForm);
+const signInForm = document.getElementById( "signInForm" );
 
 function GetIntRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -27,6 +25,15 @@ registerForm.addEventListener( 'submit', function ( event ) {
   formArray.forEach((value) => {
     userData[value.id] = value.value;
   }) 
-  onSubmit(userData);
+  register(userData);
 });
 
+signInForm.addEventListener( 'submit', function ( event ) {
+  event.preventDefault();
+  const formArray = Array.from(event.target);
+  let userData = {};
+  formArray.forEach((value) => {
+    userData[value.id] = value.value;
+  }) 
+  signIn(userData);
+});
