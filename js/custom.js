@@ -19,6 +19,7 @@ function handler() {
 }
 
 registerForm.addEventListener( 'submit', function ( event ) {
+
   event.preventDefault();
   const formArray = Array.from(event.target);
   let userData = {};
@@ -26,9 +27,11 @@ registerForm.addEventListener( 'submit', function ( event ) {
     userData[value.id] = value.value;
   }) 
   register(userData);
+
 });
 
 signInForm.addEventListener( 'submit', function ( event ) {
+
   event.preventDefault();
   const formArray = Array.from(event.target);
   let userData = {};
@@ -36,4 +39,5 @@ signInForm.addEventListener( 'submit', function ( event ) {
     userData[value.id] = value.value;
   }) 
   signIn(userData);
+  
 });
