@@ -8,13 +8,17 @@ async function setData(url, bearerToken, data) {
      },
      body: JSON.stringify(data)
      };
+
      const res = await fetch(url, requestProp);
  
      if (!res.ok) {
        throw new Error(`Could not fetch ${url}, received ${res.status}`);
      }
+
      const body = await res.json();
+
      return body
    }
  
  export default setData;
+ 
