@@ -9,6 +9,7 @@ async function setData(url, bearerToken, data) {
      },
      body: JSON.stringify(data)
      };
+
      const res = await fetch(url, requestProp);
  
      if (!res.ok) {
@@ -16,8 +17,10 @@ async function setData(url, bearerToken, data) {
      }
 
      const body = await res.json();
+
      return body
 
    }
  
  export default setData;
+ 
