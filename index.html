@@ -128,7 +128,7 @@
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
-            <form action="js/register.js" method="POST">
+            <form id="signUpForm">
               <div class="row">
                 <div class="col-12 col-sm-6">
                   <div class="mb-1">
@@ -140,7 +140,7 @@
                       title="Будь ласка, заповніть це поле"
                       minlength="3"
                       maxlength="25"
-                      id="nikName"
+                      id="nickname"
                       required
                     />
                   </div>
@@ -156,7 +156,7 @@
                       pattern="[\D\s]+"
                       minlength="3"
                       maxlength="30"
-                      id="fullName"
+                      id="fullname"
                       required
                     />
                   </div>
@@ -306,10 +306,10 @@
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
-            <form action="js/signin.js" method="POST">
+            <form id="signInForm">
               <div class="mb-1">
-                <label for="nikName" class="col-form-label">Нікнейм</label>
-                <input type="text" class="form-control" id="nikName" />
+                <label for="email" class="col-form-label">email</label>
+                <input type="text" class="form-control" id="email" />
               </div>
               <div class="mb-1">
                 <label for="password" class="col-form-label">Пароль</label>
@@ -332,7 +332,7 @@
       integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
       crossorigin="anonymous"
     ></script>
-    <script src="js/custom.js"></script>
+    <script type="module" src="js/custom.js"></script>
     <script src="js/dropdown.js"></script>
     <script src="js/jquery.maskedinput.min.js"></script>
     <script src="js/account.js"></script>
