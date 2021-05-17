@@ -47,3 +47,17 @@ form .mb-1 .col-form-label {
     border-color: green;
   }
   
+  @media (max-width: 375px) {
+    .form-account-item{
+      line-height: 1;
+    }
+    .form-control {
+      padding: .2rem .5rem;
+      font-size: .75rem;
+    }
+  }
+  @media (max-width: 280px) {
+    .form-bg {
+      padding: 1rem;
+    }
+  }

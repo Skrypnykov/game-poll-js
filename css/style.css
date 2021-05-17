@@ -628,6 +628,9 @@ button.close {
   .modal-dialog-size {
     padding-left: 0;
   }
+  .col-form-label {
+    padding-top: .375rem;
+  }
 }
 @media (max-width: 320px) {
   .control-panel {
