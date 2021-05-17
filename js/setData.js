@@ -1,4 +1,5 @@
 async function setData(url, bearerToken, data) {
+  
     const requestProp = {
       method: 'PUT',
       headers: {
@@ -13,8 +14,10 @@ async function setData(url, bearerToken, data) {
      if (!res.ok) {
        throw new Error(`Could not fetch ${url}, received ${res.status}`);
      }
+
      const body = await res.json();
      return body
+
    }
  
  export default setData;
