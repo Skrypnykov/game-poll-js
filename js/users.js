@@ -4,6 +4,7 @@ async function apiPost(url, userData) {
   const requestProp = {
     method: 'POST',
     headers: {
+      'Mode': 'NOCORS',
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },

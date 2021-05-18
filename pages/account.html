@@ -102,14 +102,14 @@
             <div class="content-account-description">
               <h4 class="account-window-title">Мої дані:</h4>
 
-              <form class="form-account" action="../js/setData.js" method="PUT">
+              <form class="form-account" id="accountForm">
                 <div class="form-account-item f1">
-                  <label for="nikName" class="form-account-label"
+                  <label for="nickname" class="form-account-label"
                     >Нікнейм: <span class="text-red">*</span></label
                   >
                   <input
                     type="text"
-                    id="nikName"
+                    id="nickname"
                     class="form-account-control"
                     placeholder="Нікнейм"
                     title="Будь ласка, заповніть це поле"
@@ -123,7 +123,7 @@
                   >
                   <input
                     type="text"
-                    id="name"
+                    id="fullname"
                     class="form-account-control"
                     placeholder="ПІБ"
                     title="Будь ласка, заповніть це поле"
