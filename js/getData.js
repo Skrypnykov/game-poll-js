@@ -25,6 +25,7 @@ export async function question () {
 
   apiGet(fullUrl).then(( responseData ) => {
     console.log(responseData);
+    return responseData;
   })
   .catch(error => {
     console.log(error.message)

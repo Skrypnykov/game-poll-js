@@ -1,4 +1,5 @@
 import {register, signIn} from "./users.js"
+import { question } from "./getData.js"
 
 const registerForm = document.getElementById( "signUpForm" );
 const signInForm = document.getElementById( "signInForm" );
