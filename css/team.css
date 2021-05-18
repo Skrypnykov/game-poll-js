@@ -13,7 +13,7 @@
 }
 .team-wrapper {
   grid-template-columns: repeat(auto-fit, minmax(7rem, 100vw));
-  -ms-grid-columns: repeat(auto-fit, minmax(7rem, 100vw));
+  -ms-grid-columns: 1fr;
   background-color: #fff;
 }
 .content-team {
@@ -23,6 +23,8 @@
   background-color: #fff;
   border-radius: 0;
   text-align: start;
+  -ms-grid-columns: 1fr;
+  -ms-grid-rows: 1fr;
 }
 .team-window {
   display: grid;
@@ -43,9 +45,10 @@
   display: grid;
   display: -ms-grid;
   grid-template-columns: repeat(auto-fit, minmax(14.5rem, 1fr));
-  -ms-grid-columns: repeat(auto-fit, minmax(14.5rem, 1fr));
+  -ms-grid-columns: 1fr;
   align-content: space-evenly;
   gap: 0.5rem;
+  -ms-grid-row-align: center;
 }
 .persona-img {
   display: grid;
@@ -82,7 +85,20 @@ p.email {
 
 .partners-block {
   grid-template-columns: repeat(3, 1fr);
-  -ms-grid-columns: repeat(3, 1fr);
+  -ms-grid-columns: 1fr 1fr 1fr;
+}
+.p1, .p2, .p3 {
+  -ms-grid-column-align: center;
+  -ms-grid-row-align: center;
+}
+.p1 {
+  -ms-grid-column: 1;
+}
+.p2 {
+  -ms-grid-column: 2;
+}
+.p3 {
+  -ms-grid-column: 3;
 }
 .partners-img {
   justify-self: center;
