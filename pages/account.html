@@ -37,9 +37,10 @@
       </div>
 
       <div class="rules account">
-        <span class="welcome-main welcome-rules infospan top"
-          >Вітаємо&nbsp;Fighter@gmail.com</span
-        >
+        <div class="welcome-main" >
+          <span class="welcome-rules infospan top"
+            >Вітаємо,&nbsp;Fighter@gmail.com</span
+          ></div>
         <div class="field-block title">
           <span id="rules" class="btn-bottom-bl">Особистий кабінет</span>
         </div>
@@ -102,7 +103,7 @@
               <h4 class="account-window-title">Мої дані:</h4>
 
               <form class="form-account" action="../js/setData.js" method="PUT">
-                <div class="form-account-item">
+                <div class="form-account-item f1">
                   <label for="nikName" class="form-account-label"
                     >Нікнейм: <span class="text-red">*</span></label
                   >
@@ -116,7 +117,7 @@
                     required
                   />
                 </div>
-                <div class="form-account-item">
+                <div class="form-account-item f2">
                   <label for="name" class="form-account-label"
                     >ПІБ: <span class="text-red">*</span></label
                   >
@@ -131,7 +132,7 @@
                     required
                   />
                 </div>
-                <div class="form-account-item">
+                <div class="form-account-item f3">
                   <label for="organization" class="form-account-label"
                     >Назва організації: <span class="text-red">*</span></label
                   >
@@ -145,7 +146,7 @@
                     required
                   />
                 </div>
-                <div class="form-account-item">
+                <div class="form-account-item f4">
                   <label for="position" class="form-account-label"
                     >Посада: <span class="text-red">*</span></label
                   >
@@ -159,7 +160,7 @@
                     required
                   />
                 </div>
-                <div class="form-account-item">
+                <div class="form-account-item f5">
                   <label for="phone" class="form-account-label"
                     >Телефон: <span class="text-red">*</span></label
                   >
@@ -177,7 +178,7 @@
                     required
                   />
                 </div>
-                <div id="pd" class="form-account-item">
+                <div id="pd" class="form-account-item f6">
                   <label for="recipient-pd" class="form-account-label"
                     >Я погоджуюсь на обробку персональних даних</label
                   >
@@ -196,9 +197,9 @@
             </div>
           </div>
         </div>
-        <span class="best infospan bottom"
-          ><a href="bestapp.html">Web-розробник сайту: команда BestApp</a></span
-        >
+        <div class="display-result-block">
+          <button id="result" class="btn-bottom-res">Відображати мої результати у загальному рейтингу</button>
+        </div>
 
         <div class="field-block go">
           <button id="go" class="btn-bottom-bl">Почати гру</button>
