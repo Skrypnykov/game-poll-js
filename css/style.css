@@ -144,6 +144,8 @@ embed {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   -ms-grid-row: 1;
+  text-align: center;
+  -ms-grid-row-align: center;
 }
 .infospan {
   max-width: 19rem;
@@ -284,9 +286,11 @@ button.close {
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
+  justify-items: center;
   display: -ms-grid;
   -ms-grid-columns: 1fr;
-  justify-items: center;
+  -ms-grid-row-align: center;
+  -ms-grid-column-align: center;  
   cursor: pointer;
 }
 .wrapper-dropdown-2 button {
