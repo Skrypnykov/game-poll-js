@@ -48,7 +48,7 @@ embed {
     "wel wel ear nav ."
     ". bl ear br ."; */
   display: -ms-grid;
-  -ms-grid-rows: 20% 1fr;  
+  -ms-grid-rows: 20% 1fr;
   -ms-grid-columns: 5% 27% 36% 27% 5%;
   -ms-grid-row: 2;
   align-items: center;
@@ -94,13 +94,14 @@ embed {
   display: grid;
   display: -ms-grid;
   align-self: flex-end;
+  -ms-grid-row-align: end;
+  -ms-grid-column-align: center;
 }
 .down-left.dropdown-index,
 .down-right.dropdown-index {
   margin-bottom: 2rem;
 }
 .control-panel {
-  position: absolute;
   /* grid-area: ear; */
   display: grid;
   grid-column: 3/4;
@@ -110,12 +111,13 @@ embed {
   -ms-grid-column-span: 2;
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
-  
+
   align-items: center;
   justify-content: center;
   margin-bottom: 3rem;
   justify-self: center;
   max-width: 100%;
+  position: absolute;
 }
 @supports (aspect-ratio: 1 / 1) {
   /* если браузер поддерживает свойство, то */
@@ -124,7 +126,7 @@ embed {
     max-height: 100%;
     aspect-ratio: 1 / 1;
   }
-    }
+}
 .control-panel-buttons {
   z-index: 1040;
 }
@@ -201,7 +203,6 @@ embed {
 .navi-left form {
   display: grid;
   display: -ms-grid;
-  -ms-grid-rows: 1fr 2rem 1fr;
   align-items: center;
 }
 .btn-sign-in {
@@ -290,7 +291,7 @@ button.close {
   display: -ms-grid;
   -ms-grid-columns: 1fr;
   -ms-grid-row-align: center;
-  -ms-grid-column-align: center;  
+  -ms-grid-column-align: center;
   cursor: pointer;
 }
 .wrapper-dropdown-2 button {
@@ -422,7 +423,18 @@ button.close {
   bottom: -4px;
   background-color: rgba(147, 146, 146, 0.8);
 }
-
+/* медиа-запрос для IE */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  img,
+  object,
+  video,
+  embed {
+    max-width: 80%;
+  }
+  .control-panel-earth {
+    text-align: justify;
+  }
+}
 @media (max-width: 1366px) {
   .main {
     grid-template-rows: 6rem 1fr;
@@ -480,9 +492,9 @@ button.close {
       "wel wel nav"
       "ear ear ear"
       "bl . br"; */
-      display: -ms-grid;
-      -ms-grid-rows: 20% 50% 30%;
-      -ms-grid-columns: 35% 30% 35%;
+    display: -ms-grid;
+    -ms-grid-rows: 20% 50% 30%;
+    -ms-grid-columns: 35% 30% 35%;
   }
   .dropdown-navbar {
     /* grid-area: nav; */
@@ -511,7 +523,7 @@ button.close {
     -ms-grid-column: 1;
     -ms-grid-row: 2;
   }
-  
+
   .down-right {
     /* grid-area: br; */
     grid-column: 3;
@@ -611,7 +623,7 @@ button.close {
     grid-template-rows: 5rem 1fr;
     -ms-grid-rows: 5rem 1fr;
   }
-  
+
   .wrapper-dropdown-2.active button.btn-main-dropdown {
     border-radius: 0 0 1rem 1rem;
     border-top-color: rgba(53, 196, 232, 1);
@@ -623,7 +635,7 @@ button.close {
   .wrapper-dropdown-2.active .btn-main-border::before {
     top: -4px;
   }
-  
+
   .welcome-main {
     width: 15rem;
     border-radius: 3.2vh;
@@ -713,7 +725,7 @@ button.close {
   }
   .modal-dialog-size {
     max-width: 100%;
-}
+  }
 }
 
 @media (max-width: 540px) {
@@ -741,12 +753,12 @@ button.close {
   .wrapper-dropdown-2 .dropdown li {
     margin-top: 0.3rem;
   }
-  
+
   .modal-dialog-size {
     padding-left: 0;
   }
   .col-form-label {
-    padding-top: .375rem;
+    padding-top: 0.375rem;
   }
 }
 @media (max-width: 320px) {
