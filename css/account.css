@@ -1,19 +1,42 @@
-.account {
+/* .account {
   grid-template-areas:
   "wel wel title nav ."
   "info info info info info"
   "best best best go .";
+} */
+
+.account .info-window {
+  /* grid-area: info; */
+  grid-column: 1/6;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+
 }
+
 .info-account {
   grid-template-columns: 5% 27% 36% 27% 5%;
-  grid-template-areas: 
-  ". rat ac . .";
+  /* grid-template-areas: 
+  ". rat ac . ."; */
+  -ms-grid-columns: 5% 27% 36% 27% 5%;
+}
+.account .rating-window {
+  /* grid-area: rat; */
+  grid-column: 2;
+  grid-row: 1;
+  -ms-grid-column: 2;
+  -ms-grid-row: 1;
 }
 
 .account-window {
-  grid-area: ac;
+  /* grid-area: ac; */
+  grid-column: 3;
+  grid-row: 1;
+  -ms-grid-column: 3;
+  -ms-grid-row: 1;
   display: grid;
+  display: -ms-grid;
   grid-template-columns: repeat(auto-fit, minmax(7rem, 100%));
+  -ms-grid-columns: repeat(auto-fit, minmax(7rem, 100%));
   justify-content: space-around;
   align-self: stretch;
   justify-self: stretch;
@@ -22,7 +45,9 @@
 
 .content-account-description {
   display: grid;
+  display: -ms-grid;
   grid-template-rows: 12% 1fr;
+  -ms-grid-rows: 12% 1fr;
   justify-items: center;
   justify-self: center;
   width: 90%;
@@ -40,6 +65,7 @@ margin-top: 0;
 }
 .form-account {
 display: grid;
+display: -ms-grid;
 gap: 0.05rem;
 width: 80%;
 justify-items: center;
@@ -47,10 +73,13 @@ align-content: space-evenly;
 }
 .form-account-item {
   display: grid;
+  display: -ms-grid;
   grid-template-columns: 1fr;
+  gap: 0.2vh;
+  -ms-grid-columns: 1fr;
+  -ms-grid-rows: 1fr 0.2vh 1fr;
   width: 100%;
   overflow: hidden;
-  gap: 0.2vh;
 }
 .form-account-label {
   font: normal 400 1.8vh Roboto;
@@ -86,6 +115,7 @@ input.form-account-control:valid:not(:placeholder-shown) {
 }
 #pd {
   grid-template-columns: 0.9fr 0.1fr;
+  -ms-grid-columns: 0.9fr 0.1fr;
   align-items: center;
 }
 #recipient-pd {
@@ -95,34 +125,44 @@ input.form-account-control:valid:not(:placeholder-shown) {
 }
 
 @media (max-width: 1366px) {
-.account {
-  grid-template-areas:
-  "wel wel title nav ."
-  "info info info info info"
-  "best best best go .";
-}
 .info-account {
   grid-template-columns: 3% 32% 30% 32% 3%;
-  grid-template-areas: 
-  ". rat ac . .";
+  -ms-grid-columns: 3% 32% 30% 32% 3%;
 }
 }
 
 @media (max-width: 1024px) {
-  .account {  
-  grid-template-areas:
+  /* .account {  
+    grid-template-areas:
       "wel nav"
       "title title"
       "info info"
       "best go";
-}
+} */
+
 .info-account {
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: 
-  "rat ac";
+  /* grid-template-areas: 
+  "rat ac"; */
+  -ms-grid-columns: 1fr 1fr;
+}
+.account .info-account {
+  grid-column: 1/3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+}
+.account .rating-window {
+  /* grid-area: rat; */
+  grid-column: 1;
+  -ms-grid-column: 1;
+}
+.account .account-window {
+  /* grid-area: ac; */
+  grid-column: 2;
+  -ms-grid-column: 2;
 }
 }
-@media (max-width: 890px) {
+/* @media (max-width: 890px) {
   .account {  
   grid-template-areas:
       "wel go"
@@ -130,16 +170,16 @@ input.form-account-control:valid:not(:placeholder-shown) {
       "info info"
       "best nav";
 }
-}
+} */
  @media (max-width: 540px) {
-    .account {
+    /* .account {
      grid-template-areas:
       "wel wel"      
       "title title"
       "info info"
       "go nav"
       "best best";
-  }  
+  }   */
 
     .content-account-description {
       width: 80%;
@@ -152,7 +192,7 @@ input.form-account-control:valid:not(:placeholder-shown) {
   .rating-account {
     display: none;
 }
-  .account {
+  /* .account {
     grid-template-areas:
       "wel "      
       "title"
@@ -160,11 +200,17 @@ input.form-account-control:valid:not(:placeholder-shown) {
       "go"
       "nav "
       "best ";
-  }
+  } */
+  .account .account-window {
+    /* grid-area: ac; */
+    grid-column: 1;
+    -ms-grid-column: 2;
+}
   .info-account {
     grid-template-columns: 1fr;
-    grid-template-areas: 
-    "ac";
+    /* grid-template-areas: 
+    "ac"; */
+  -ms-grid-columns: 1fr;
   }
 }
 
