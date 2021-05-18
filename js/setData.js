@@ -1,11 +1,9 @@
 async function setData(url, bearerToken, data) {
-  
     const requestProp = {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-       'Accept': 'application/json',
-       'Content-Type': 'application/json',
-       'Authorization': `Bearer ${bearerToken}`
+        "Authorization": "Bearer " + bearerToken,
+        "Content-Type": "application/json"
      },
      body: JSON.stringify(data)
      };
@@ -14,12 +12,11 @@ async function setData(url, bearerToken, data) {
  
      if (!res.ok) {
        throw new Error(`Could not fetch ${url}, received ${res.status}`);
-     }
+     } else {console.log("Данные сохранены")}
 
      const body = await res.json();
-
+     localStorage.setItem("userData", JSON.stringify(body))
      return body
-
    }
  
  export default setData;
