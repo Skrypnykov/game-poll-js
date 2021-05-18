@@ -21,6 +21,7 @@
 }
 .account .rating-window {
   /* grid-area: rat; */
+  -ms-grid-row-align: stretch;
   grid-column: 2;
   grid-row: 1;
   -ms-grid-column: 2;
@@ -33,6 +34,7 @@
   grid-row: 1;
   -ms-grid-column: 3;
   -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
   display: grid;
   display: -ms-grid;
   grid-template-columns: repeat(auto-fit, minmax(7rem, 100%));
@@ -47,7 +49,8 @@
   display: grid;
   display: -ms-grid;
   grid-template-rows: 12% 1fr;
-  -ms-grid-rows: 12% 1fr;
+  -ms-grid-rows: 0.1fr 1.3fr;
+  -ms-grid-column-align: center;
   justify-items: center;
   justify-self: center;
   width: 90%;
@@ -62,6 +65,7 @@ margin-top: 0;
   font-size: 1rem;
   align-self: center;
   margin: 0 auto;
+  -ms-grid-column-align: center;
 }
 .form-account {
 display: grid;
@@ -70,14 +74,32 @@ gap: 0.05rem;
 width: 80%;
 justify-items: center;
 align-content: space-evenly;
+-ms-grid-row: 2;
+-ms-grid-column-align: center;
+-ms-grid-rows: 0.1fr 0.1fr 0.1fr 0.1fr 0.1fr 0.1fr 0.1fr;
 }
+.f2 {
+  -ms-grid-row: 2;
+}
+.f3 {
+  -ms-grid-row: 3;
+}
+.f4 {
+  -ms-grid-row: 4;
+}
+.f5 {
+  -ms-grid-row: 5;
+}
+.f6 {
+  -ms-grid-row: 6;
+} 
 .form-account-item {
   display: grid;
   display: -ms-grid;
   grid-template-columns: 1fr;
   gap: 0.2vh;
   -ms-grid-columns: 1fr;
-  -ms-grid-rows: 1fr 0.2vh 1fr;
+  -ms-grid-rows: 45% 0.2vh 45%;
   width: 100%;
   overflow: hidden;
 }
@@ -112,6 +134,8 @@ input.form-account-control:valid:not(:placeholder-shown) {
   border: 4px solid rgba(147, 146, 146, 0.8);
   border-radius: 3vh;
   text-align: center;
+  -ms-grid-row: 7;
+  -ms-grid-row-align: start;
 }
 #pd {
   grid-template-columns: 0.9fr 0.1fr;
@@ -122,7 +146,15 @@ input.form-account-control:valid:not(:placeholder-shown) {
   width: 90%;
   height: 90%;
   justify-self: flex-end;
+  -ms-grid-column: 2;
+  -ms-grid-column-align: end;
 }
+#nikName, #name,
+#organization, #position,
+#phone {
+  -ms-grid-row: 3;
+} 
+
 
 @media (max-width: 1366px) {
 .info-account {
@@ -189,7 +221,8 @@ input.form-account-control:valid:not(:placeholder-shown) {
   }
 }
 @media (max-width: 520px) {
-  .rating-account {
+  .rating-account,
+  .account .display-result-block {
     display: none;
 }
   /* .account {
@@ -201,6 +234,10 @@ input.form-account-control:valid:not(:placeholder-shown) {
       "nav "
       "best ";
   } */
+  .account {
+    grid-template-rows: 7% 10% 63% 10% 10%;
+    -ms-grid-rows: 7% 10% 63% 10% 10%;
+}
   .account .account-window {
     /* grid-area: ac; */
     grid-column: 1;

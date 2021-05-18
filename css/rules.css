@@ -57,6 +57,7 @@ grid-template-areas:
 }
 .content-rules-description {
   display: grid;
+  grid-template-rows: 0.1fr 0.1fr 1fr;
   justify-content: center;
   justify-self: center;
   align-items: center;
@@ -70,6 +71,7 @@ grid-template-areas:
   text-align: center;
   margin-top: 0.5rem;
   display: -ms-grid;
+  -ms-grid-rows: 0.1fr 0.1fr 0.4fr;
   -ms-grid-column-align: center;
 }
 
