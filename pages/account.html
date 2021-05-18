@@ -101,14 +101,15 @@
             <div class="content-account-description">
               <h4 class="account-window-title">Мої дані:</h4>
 
-              <form class="form-account" action="../js/setData.js" method="PUT">
+              <form class="form-account" id="accountForm">
                 <div class="form-account-item">
-                  <label for="nikName" class="form-account-label"
+                  <label for="nickname" class="form-account-label"
                     >Нікнейм: <span class="text-red">*</span></label
                   >
                   <input
                     type="text"
-                    id="nikName"
+                    id="nickname"
+                    
                     class="form-account-control"
                     placeholder="Нікнейм"
                     title="Будь ласка, заповніть це поле"
@@ -117,12 +118,12 @@
                   />
                 </div>
                 <div class="form-account-item">
-                  <label for="name" class="form-account-label"
+                  <label for="fullname" class="form-account-label"
                     >ПІБ: <span class="text-red">*</span></label
                   >
                   <input
                     type="text"
-                    id="name"
+                    id="fullname"
                     class="form-account-control"
                     placeholder="ПІБ"
                     title="Будь ласка, заповніть це поле"
@@ -184,7 +185,6 @@
                   <input
                     type="checkbox"
                     class="form-account-control"
-                    id="recipient-pd"
                     title="Щоб продовжити, встановіть цей прапорець"
                     required
                   />
@@ -211,6 +211,6 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="../js/dropdown.js"></script>
     <script src="../js/jquery.maskedinput.min.js"></script>
-    <script src="../js/account.js"></script>
+    <script type="module" src="../js/account.js"></script>
   </body>
 </html>
