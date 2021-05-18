@@ -1,7 +1,4 @@
 async function setData(url, bearerToken, data) {
-
-    console.log(url, bearerToken, data)
-
     const requestProp = {
       method: "PUT",
       headers: {
@@ -18,7 +15,6 @@ async function setData(url, bearerToken, data) {
      } else {console.log("Данные сохранены")}
 
      const body = await res.json();
-     console.log(body)
      localStorage.setItem("userData", JSON.stringify(body))
      return body
    }

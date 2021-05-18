@@ -20,7 +20,6 @@ if (userLocalData) {
 accountForm.addEventListener( 'submit', function ( event ) {
   const userId = localStorage.getItem("userId");
   const token = localStorage.getItem("token");
-  console.log(typeof userId, typeof token)
   event.preventDefault();
   const formArray = Array.from(event.target);
   let formData = {};
