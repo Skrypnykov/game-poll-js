@@ -75,6 +75,7 @@ input[type="range"]::-moz-range-thumb {
 }
 .rangemodal {
   display: grid;
+  display: -ms-grid;
   justify-items: center;
   position: fixed;
   width: 100%;
@@ -95,7 +96,9 @@ input[type="range"]::-moz-range-thumb {
 
 .rangemodal__content {
   display: grid;
+  display: -ms-grid;
   grid-template-columns: repeat(auto-fit, minmax(7rem, 30rem));
+  -ms-grid-columns: repeat(auto-fit, minmax(7rem, 30rem));
   background-color: #fff;
   padding: 2rem 3rem;
   position: relative;
@@ -128,7 +131,7 @@ input[type="range"]::-moz-range-thumb {
 
 .title-modal {
   text-align: center; }
-  
+
 .img__close:hover,
 .button__close:hover {
   background: #fff;
@@ -137,6 +140,7 @@ input[type="range"]::-moz-range-thumb {
   #rangeBlock {
     /*Важно!!! Меняем местами 2-ю и 3-ю кнопки */
     grid-template-columns: 80vw;
+    -ms-grid-columns: 80vw;
   }
 
   #numRight {
@@ -156,6 +160,7 @@ input[type="range"]::-moz-range-thumb {
 #rangeBlock {
     /*Важно!!! Меняем местами 2-ю и 3-ю кнопки */
     grid-template-columns: 100vw;
+    -ms-grid-columns: 100vw;
   }
 }
 @media (max-width: 576px) {

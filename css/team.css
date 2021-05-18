@@ -1,12 +1,19 @@
-.team {
+/* .team {
   grid-template-areas:
     "wel wel title nav ."
     "info info info info info"
     "best best best go .";
-}
+} */
+.team .info-window {
+  /* grid-area: info; */
+  grid-column: 1/6;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
 
+}
 .team-wrapper {
   grid-template-columns: repeat(auto-fit, minmax(7rem, 100vw));
+  -ms-grid-columns: repeat(auto-fit, minmax(7rem, 100vw));
   background-color: #fff;
 }
 .content-team {
@@ -19,6 +26,7 @@
 }
 .team-window {
   display: grid;
+  display: -ms-grid;
   justify-self: center;
   padding: 0.3rem 0;
   margin: 0;
@@ -27,21 +35,28 @@
 
 .persona {
   display: grid;
+  display: -ms-grid;
   grid-template-columns: 17% 83%;
+  -ms-grid-columns: 17% 83%;
 }
 .team-block {
   display: grid;
+  display: -ms-grid;
   grid-template-columns: repeat(auto-fit, minmax(14.5rem, 1fr));
+  -ms-grid-columns: repeat(auto-fit, minmax(14.5rem, 1fr));
   align-content: space-evenly;
   gap: 0.5rem;
 }
 .persona-img {
   display: grid;
+  display: -ms-grid;
   align-self: center;
 }
 .persona-text {
   display: grid;
+  display: -ms-grid;
   grid-template-columns: 1fr;
+  -ms-grid-columns: 1fr;
   align-content: center;
   padding-left: 3%;
   gap: 0.2rem;
@@ -67,6 +82,7 @@ p.email {
 
 .partners-block {
   grid-template-columns: repeat(3, 1fr);
+  -ms-grid-columns: repeat(3, 1fr);
 }
 .partners-img {
   justify-self: center;
@@ -87,7 +103,7 @@ align-self: flex-end;
   text-align: center;
 }
 
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
   .team {
     grid-template-areas:
       "wel nav"
@@ -95,32 +111,37 @@ align-self: flex-end;
       "info info"
       "best go";
   }
-}
+} */
 
 @media (max-width: 890px) {
-  .team {
+  /* .team {
     grid-template-areas:
       "wel go"
       "title title"
       "info info"
       "best nav";
-  }
+  } */
   .partners-img p {
     font-size: 0.7rem;
 }
 }
 @media (max-width: 540px) {
-  .team {
+  /* .team {
     grid-template-areas:
       "wel wel"
       "title title"
       "info info"
       "go nav"
       "best best";
-  }
+  } */
+  .team-block {
+    grid-template-columns: repeat(auto-fit, 95%);
+    -ms-grid-columns: repeat(auto-fit, 95%);
+    justify-content: center;
+}
 }
 @media (max-width: 520px) {
-  .team {
+  /* .team {
     grid-template-areas:
       "wel "
       "title"
@@ -128,13 +149,16 @@ align-self: flex-end;
       "go"
       "nav "
       "best ";
-  }
+  } */
   .partners-block {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 0.5fr 0.7fr;
+    -ms-grid-columns: 1fr;
+    -ms-grid-rows: 1fr 0.5fr 0.7fr;
   }
   .partners-img a{
     display: grid;
+    display: -ms-grid;
     justify-items: center;
     width: 100%;
   }
