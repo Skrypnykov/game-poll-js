@@ -12,6 +12,7 @@
 }
 .persona-bestapp {
   grid-template-columns: 4rem 1fr;
+  gap: 3rem;
   -ms-grid-columns: 4rem 1fr;
 }
 .bestwomen {
@@ -44,6 +45,8 @@
   display: -ms-grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
+  width: 90%;
+    justify-self: center;
   -ms-grid-columns: 1fr 1fr 1fr;
   -ms-grid-rows: 1fr;
   -ms-grid-column-align: center;
@@ -51,8 +54,8 @@
 }
 @media (max-width: 1024px) {
   .bestapp-block {
-    grid-template-rows: 1fr 2fr;
-    -ms-grid-rows: 1fr 2fr;
+    grid-template-rows: 1fr 1.55fr;
+    -ms-grid-rows: 1fr 1.55fr;
     width: 80%;
     gap: 0;
   }
@@ -61,7 +64,10 @@
     grid-template-rows: 1fr 1fr;
     -ms-grid-columns: 1fr 1fr;
     -ms-grid-rows: 1fr 1fr;
-    
+    width: 100%;    
+  }
+  .persona-bestapp {
+    gap: 1rem;
   }
   .bestwomen {
     gap: 0;
@@ -79,4 +85,19 @@
   .bestapp-block {
     width: 95%;
   }
+  .persona-bestapp {
+    gap: 0;
+  }
+}
+@media (max-width: 520px) {
+  .bestwomen, .bestmen {
+    grid-template-columns: 1fr;
+    -ms-grid-columns: 1fr;    
+}
+.bestmen {
+  grid-template-rows: 5rem 5rem 5rem;
+}
+.bestwomen {
+  grid-template-rows: 5rem 5rem;
+}
 }
