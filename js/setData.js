@@ -1,4 +1,5 @@
 async function setData(url, bearerToken, data) {
+  console.log(data)
     const requestProp = {
       method: "PUT",
       headers: {
