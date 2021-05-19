@@ -69,6 +69,14 @@ p.advice {
   padding: 0.1rem 0.5rem 0;
 }
 
+.rating-window-list .current-user {
+  background-color: yellowgreen;
+}
+
+.rating-window-list .gray-user {
+  background-color: rgb(184, 184, 184);
+}
+
 .rating-window-list li span {
   color: red;
 }

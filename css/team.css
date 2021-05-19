@@ -43,12 +43,15 @@
 }
 .team-block {
   display: grid;
-  display: -ms-grid;
   grid-template-columns: repeat(auto-fit, minmax(14.5rem, 1fr));
-  -ms-grid-columns: 1fr;
   align-content: space-evenly;
   gap: 0.5rem;
   -ms-grid-row-align: center;
+}
+.team-block-ie {
+  display: -ms-grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
 }
 .persona-img {
   display: grid;
@@ -100,6 +103,22 @@ p.email {
 .p3 {
   -ms-grid-column: 3;
 }
+/* .i1, .i5 {
+  -ms-grid-column: 1;
+} */
+.i2, .i6 {
+  -ms-grid-column: 2;
+}
+.i3, .i7 {
+  -ms-grid-column: 3;
+}
+.i4, .i8 {
+  -ms-grid-column: 4;
+}
+.i5, .i6, .i7, .i8 {
+  -ms-grid-row: 2;
+}
+
 .partners-img {
   justify-self: center;
   align-self: center;
