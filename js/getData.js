@@ -1,7 +1,6 @@
 const url = 'https://pollgame-be.herokuapp.com/'
-// const userData = {nikName:"2nikName",fullName:"2fullName",organization:"2organization",position:"2position",email:"mail@mail.com",phone:"+380953585421",password:"147258369"}
 
-async function apiGet(url) {
+export async function apiGet(url) {
   const requestProp = {
     method: 'GET',
     headers: {
