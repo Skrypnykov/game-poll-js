@@ -28,6 +28,7 @@ accountForm.addEventListener( 'submit', function ( event ) {
     formArray.forEach((value) => {
       if(value.id) formData[value.id] = value.value;
   })
+  formData.rated = true;
   setData(userUrl, token, formData);
   };
 });
