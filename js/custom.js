@@ -1,5 +1,5 @@
 // import { register, signIn } from "./users.js";
-// import { questions } from "./questions.js";
+import "./questions.js";
 
 const registerForm = document.getElementById("signUpForm");
 const signInForm = document.getElementById("signInForm");
