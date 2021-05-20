@@ -1,7 +1,7 @@
 function getTimeRemaining(endtime) {
-    var t = Date.parse(endtime) - Date.parse(new Date());
-    var seconds = Math.floor((t / 1000) % 90);
-    
+    let t = Date.parse(endtime) - Date.parse(new Date());
+    let seconds = Math.floor((t / 1000) % 90);
+    debugger
     return {
       'total': t,
       'seconds': seconds
@@ -9,11 +9,12 @@ function getTimeRemaining(endtime) {
   }
    
   function initializeClock(id, endtime) {
-    var clock = document.getElementById(id);
-    var secondsSpan = clock.querySelector('.seconds');
-   
+    let clock = document.getElementById(id);
+    let secondsSpan = clock.querySelector('.seconds');
+    
     function updateClock() {
-      var t = getTimeRemaining(endtime);
+      let t = getTimeRemaining(endtime);
+      
       secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
    
       if (t.total <= 0) {
@@ -40,12 +41,12 @@ function getTimeRemaining(endtime) {
     timeinterval = null;
     }
     
-  var toggleElement = document.getElementById('timerpause');
-  var timeinterval = null;
-
+  let toggleElement = document.getElementById('timerpause');
+  let timeinterval = null;
+  
   toggleElement.addEventListener( 'click', event_click_startpause );
   toggleElement.click();
   }
    
-  var deadline = new Date(Date.parse(new Date()) + 1.5 * 60 * 1000); // for endless timer
+  let deadline = new Date(Date.parse(new Date()) + 1.5 * 60 * 1000); // for endless timer
   initializeClock('timer', deadline);
