@@ -1,7 +1,7 @@
 function getTimeRemaining(endtime) {
     let t = Date.parse(endtime) - Date.parse(new Date());
     let seconds = Math.floor((t / 1000) % 90);
-    debugger
+    
     return {
       'total': t,
       'seconds': seconds
