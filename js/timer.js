@@ -20,9 +20,31 @@ function getTimeRemaining(endtime) {
         clearInterval(timeinterval);
       }
     }
-   
+    function event_click_startpause( event ){
+
+    if( timeinterval === null ){
+      start();
+      event.target.innerText = 'Пауза';
+    } else {
+      pause();
+      event.target.innerText = 'Старт';
+    }
+  }
+
+  function start(){
     updateClock();
-    var timeinterval = setInterval(updateClock, 1000);
+    timeinterval = setInterval(updateClock, 1000);
+  }
+  function pause() {
+    clearInterval( timeinterval );
+    timeinterval = null;
+    }
+    
+  var toggleElement = document.getElementById('timerpause');
+  var timeinterval = null;
+
+  toggleElement.addEventListener( 'click', event_click_startpause );
+  toggleElement.click();
   }
    
   var deadline = new Date(Date.parse(new Date()) + 1.5 * 60 * 1000); // for endless timer
