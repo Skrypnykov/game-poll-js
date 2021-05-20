@@ -48,13 +48,13 @@ const answerIsTrue = (target) => {
 };
 
 const answerIsWrong = (target) => {
-  console.log("wrong")
+  console.log("wrong", trueAnswer)
   nextQuestion();
 };
 
 const verifyAnswer = (target) => {
   const answer = target.innerText;
-  console.log(answer, trueAnswer)
+  console.log(answer)
   if (answer === trueAnswer) answerIsTrue(target);
     else answerIsWrong(target);
 };
@@ -99,9 +99,10 @@ const setButtons = (answers) => {
 
 const setRange = (answers) => {
   console.log(answers)
+  const { max, min } = answers;
   let answer = "";
   const p = create("p", "myRange", "", null);
-  const inputRange = create("input", "myRange", null, null, ["type", "range"], ["id", "numRight"], ["min", "1"], ["max", "100"]);
+  const inputRange = create("input", "myRange", null, null, ["type", "range"], ["id", "numRight"], ["min", min], ["max", max]);
   const btnEnter = create("button", "myRange", "Перевірити", null, ["type", "button"], ["id", "enter"]);
   const btnSkip = create("button", "myRange", "Скасовати", null, ["type", "button"], ["id", "skip"]);
   const rangeBlock1 = create("div", "range-block1", [inputRange, p], answersBlock);
