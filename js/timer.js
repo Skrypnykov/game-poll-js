@@ -1,29 +1,49 @@
-function getTimeRemaining(endtime) {
-    var t = Date.parse(endtime) - Date.parse(new Date());
-    var seconds = Math.floor((t / 1000) % 90);
+let elem = document.getElementById("timer");
+elem.value = 90;
+let time = 2;
+function Timer() {
+  // функция таймера (подсчёт количества секунд)
+  if (elem.value <= 0) {
+    window.clearInterval(window.TimerId);
+    time = 1;
+  } else {
+    elem.value = parseInt(elem.value) - 1;
+  }
+}
+
+function start() {
+  // функция запуска таймера  
+  stop();//убедимся, что все интервалы очищены, это предотвращает их удвоение
+  window.TimerId = window.setInterval(Timer, 1000);
+  time = 2;
+  toggleElement.innerText = "Пауза";  
+  showEarth('0', 'hidden');
+}
+
+function stop() {
+  // функция остановки таймера
+  window.clearInterval(window.TimerId);
+  time = 1;
+  toggleElement.innerText = "Старт";
+  showEarth('1', 'visible');
+}
+function event_click_startpause(event) {
+  if (time === 1) {
+    start();
+  } else {
+    stop();
+
+  }
+}
+let toggleElement = document.getElementById("timerpause");
+
+toggleElement.addEventListener("click", event_click_startpause);
+toggleElement.click();
+start();
+
+//modal window
+function showEarth(op, vis) {
+    document.getElementById("pauseModal").style.opacity = op;
+    document.getElementById("pauseModal").style.visibility = vis;
     
-    return {
-      'total': t,
-      'seconds': seconds
-    };
   }
-   
-  function initializeClock(id, endtime) {
-    var clock = document.getElementById(id);
-    var secondsSpan = clock.querySelector('.seconds');
-   
-    function updateClock() {
-      var t = getTimeRemaining(endtime);
-      secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-   
-      if (t.total <= 0) {
-        clearInterval(timeinterval);
-      }
-    }
-   
-    updateClock();
-    var timeinterval = setInterval(updateClock, 1000);
-  }
-   
-  var deadline = new Date(Date.parse(new Date()) + 1.5 * 60 * 1000); // for endless timer
-  initializeClock('timer', deadline);

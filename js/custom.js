@@ -1,7 +1,8 @@
-import { register, signIn } from "./users.js";
+import { verifyAuth, register, signIn } from "./users.js";
 
 const registerForm = document.getElementById("signUpForm");
 const signInForm = document.getElementById("signInForm");
+const signInOutButton = document.getElementById("signInOutButton");
 
 registerForm.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -18,7 +19,9 @@ signInForm.addEventListener("submit", function (event) {
   const formArray = Array.from(event.target);
   let userData = {};
   formArray.forEach((value) => {
-    userData[value.id] = value.value;
+    userData[value.name] = value.value;
   });
   signIn(userData);
 });
+
+verifyAuth();

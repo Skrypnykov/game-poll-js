@@ -33,8 +33,7 @@
           >Вітаємо,&nbsp;Fighter@gmail.com</span
         > -->
         <div class="welcome-main">
-          <span class="welcome-rules infospan top"
-            >Вітаємо,&nbsp;Fighter@gmail.com</span
+          <span class="welcome-rules infospan top" id="userInfo"></span
           >
         </div>
         <!-- Navbar -->
@@ -72,6 +71,7 @@
               class="btn btn-primary btn-sign-in"
               data-bs-toggle="modal"
               data-bs-target="#modalSignIn"
+              id="signInOutButton"
             >
               Вхід
             </button>
@@ -139,6 +139,7 @@
                       minlength="3"
                       maxlength="25"
                       id="nickname"
+                      name="nickname"
                       required
                     />
                   </div>
@@ -155,6 +156,7 @@
                       minlength="3"
                       maxlength="30"
                       id="fullname"
+                      name="fullname"
                       required
                     />
                   </div>
@@ -175,6 +177,7 @@
                       minlength="1"
                       maxlength="30"
                       id="organization"
+                      name="organization"
                     />
                   </div>
                 </div>
@@ -189,6 +192,7 @@
                       minlength="3"
                       maxlength="30"
                       id="position"
+                      name="position"
                     />
                   </div>
                 </div>
@@ -205,6 +209,7 @@
                       minlength="10"
                       maxlength="30"
                       id="email"
+                      name="email"
                       required
                     />
                   </div>
@@ -221,6 +226,7 @@
                       minlength="19"
                       maxlength="19"
                       id="phone"
+                      name="phone"
                       required
                     />
                   </div>
@@ -231,10 +237,13 @@
                   <div class="mb-1">
                     <label for="password" class="col-form-label">Пароль</label>
                     <input
+                      title="Будь ласка, заповніть це поле"
                       type="password"
                       class="form-control"
                       placeholder="пароль"
+                      pattern=".{8,}$"
                       id="password"
+                      name="password"
                       required
                     />
                   </div>
@@ -273,7 +282,7 @@
                   </div>
                 </div>
               </div>
-
+              <span class="badge badge-pill badge-info" id="status2Text">Пароль не менше 8 символів</span>
               <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary btn-form-reg">
                   Реєстрація
@@ -307,12 +316,13 @@
             <form id="signInForm">
               <div class="mb-1">
                 <label for="emailIn" class="col-form-label">email</label>
-                <input type="text" class="form-control" id="emailIn" />
+                <input type="text" class="form-control" id="emailIn" name="email" required/>
               </div>
               <div class="mb-1">
                 <label for="passwordIn" class="col-form-label">Пароль</label>
-                <input type="password" class="form-control" id="passwordIn" />
+                <input type="password" class="form-control" id="passwordIn" name="password" required/>
               </div>
+              <span class="badge badge-pill badge-info" id="statusText">Введите данные</span>
               <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary btn-form-sign-in">
                   Вхід
