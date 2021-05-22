@@ -314,15 +314,17 @@
               aria-label="Close"
             ></button>
             <form id="signInForm">
+              <legend>Введіть дані</legend>
               <div class="mb-1">
-                <label for="emailIn" class="col-form-label">email</label>
-                <input type="text" class="form-control" id="emailIn" name="email" required/>
+                <label for="email" class="col-form-label">email</label>
+                <input type="text" class="form-control" id="email" name="email" required/>
               </div>
               <div class="mb-1">
-                <label for="passwordIn" class="col-form-label">Пароль</label>
-                <input type="password" class="form-control" id="passwordIn" name="password" required/>
+                <label for="password" class="col-form-label">Пароль</label>
+                <input type="password" class="form-control" id="password" name="password" required/>
               </div>
-              <span class="badge badge-pill badge-info" id="statusText">Введіть реєстраційні дані</span>
+              <span class="badge badge-pill badge-info" id="statusText"><a href="" data-bs-toggle="modal"
+                data-bs-target="#modalRecovery"> Забули пароль?</a></span>
               <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary btn-form-sign-in">
                   Вхід
@@ -333,6 +335,43 @@
         </div>
       </div>
     </div>
+
+     <!-- Modal Password Recovery -->
+     <div
+     class="modal fade"
+     id="modalRecovery"
+     data-bs-backdrop="static"
+     data-bs-keyboard="false"
+     tabindex="-1"
+     aria-labelledby="staticBackdropLabel"
+     aria-hidden="true"
+   >
+     <div class="modal-dialog modal-dialog-centered">
+       <div class="modal-content">
+         <div class="modal-body form-bg">
+           <button
+             type="button"
+             class="btn-close position-absolute top-0 end-0 m-2"
+             data-bs-dismiss="modal"
+             aria-label="Close"
+           ></button>
+           <form id="recoveryForm">
+            <legend>Відновлення паролю</legend>
+             <div class="mb-1">
+               <label for="email" class="col-form-label">email</label>
+               <input type="text" class="form-control" id="email" name="email" required/>
+             </div>
+             <span class="badge badge-pill badge-info" id="statusText">Введіть реєстраційні дані</span>
+             <div class="d-flex justify-content-center">
+               <button type="submit" class="btn btn-primary btn-form-sign-in">
+                Відновити
+               </button>
+             </div>
+           </form>
+         </div>
+       </div>
+     </div>
+   </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
