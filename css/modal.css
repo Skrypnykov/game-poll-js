@@ -17,6 +17,9 @@
     margin-bottom: 0;
     width: 20rem;
   }
+  .pause-control-panel-buttons{
+      height: 20rem;
+  }
   .rangemodal__window {
     min-height: 100%;
     display: flex;
@@ -70,13 +73,24 @@
       width: 90%;
     }
     .pause-control-panel {
-        width: 90%;
+        width: 14rem;
       }
+      .pause-control-panel-buttons{
+        height: 14rem;
+    }
 }
 @media (max-width: 375px) {
     .rangemodal__content {
      min-width: 90%;
      padding: 1.5rem 2rem;
     }
+  }
+  @media (max-width: 320px){
+    .pause-control-panel {
+    width: 12rem;
+}
+.pause-control-panel-buttons{
+    height: 12rem;
+}
   }
   
