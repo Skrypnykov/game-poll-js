@@ -62,15 +62,26 @@
 .btn-pause,
 .btn-quit,
 .tablo1,
-.tablo2 {
+.tablo2,
+#timer {
   cursor: pointer;
   font: normal 700 1.1rem/1.1rem Roboto;
   text-align: center;
   color: #ffffff;
-  background: rgba(53, 196, 232, 0.8);
+}
+.btn-pause,
+.btn-quit,
+.tablo1,
+.tablo2 {
   border: 0.6vh solid rgba(147, 146, 146, 0.8);
   border-radius: 3vh;
   padding: 0.5rem 1rem;
+  background: rgba(53, 196, 232, 0.8);
+}
+#timer {
+  width: 100%;
+  border: none;
+  background: rgba(53, 196, 232, 0);
 }
 
 .tablo1 {

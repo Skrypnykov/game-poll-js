@@ -1,52 +1,39 @@
-function getTimeRemaining(endtime) {
-    let t = Date.parse(endtime) - Date.parse(new Date());
-    let seconds = Math.floor((t / 1000) % 90);
-    
-    return {
-      'total': t,
-      'seconds': seconds
-    };
+let elem = document.getElementById("timer");
+elem.value = 90;
+let time = 2;
+function Timer() {
+  // функция таймера (подсчёт количества секунд)
+  if (elem.value <= 0) {
+    window.clearInterval(window.TimerId);
+    time = 1;
+  } else {
+    elem.value = parseInt(elem.value) - 1;
   }
-   
-  function initializeClock(id, endtime) {
-    let clock = document.getElementById(id);
-    let secondsSpan = clock.querySelector('.seconds');
-    
-    function updateClock() {
-      let t = getTimeRemaining(endtime);
-      
-      secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-   
-      if (t.total <= 0) {
-        clearInterval(timeinterval);
-      }
-    }
-    function event_click_startpause( event ){
+}
 
-    if( timeinterval === null ){
-      start();
-      event.target.innerText = 'Пауза';
-    } else {
-      pause();
-      event.target.innerText = 'Старт';
-    }
-  }
+function start() {
+  // функция запуска таймера  
+  stop();//убедимся, что все интервалы очищены, это предотвращает их удвоение
+  window.TimerId = window.setInterval(Timer, 1000);
+  time = 2;
+}
 
-  function start(){
-    updateClock();
-    timeinterval = setInterval(updateClock, 1000);
+function stop() {
+  // функция остановки таймера
+  window.clearInterval(window.TimerId);
+  time = 1;
+}
+function event_click_startpause(event) {
+  if (time === 1) {
+    start();
+    event.target.innerText = "Пауза";
+  } else {
+    stop();
+    event.target.innerText = "Старт";
   }
-  function pause() {
-    clearInterval( timeinterval );
-    timeinterval = null;
-    }
-    
-  let toggleElement = document.getElementById('timerpause');
-  let timeinterval = null;
-  
-  toggleElement.addEventListener( 'click', event_click_startpause );
-  toggleElement.click();
-  }
-   
-  let deadline = new Date(Date.parse(new Date()) + 1.5 * 60 * 1000); // for endless timer
-  initializeClock('timer', deadline);
+}
+let toggleElement = document.getElementById("timerpause");
+
+toggleElement.addEventListener("click", event_click_startpause);
+toggleElement.click();
+start();
