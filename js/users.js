@@ -1,5 +1,11 @@
 const url = 'https://pollgame-be.herokuapp.com/'
 
+const statusText = document.getElementById("statusText");
+const status2Text = document.getElementById("status2Text");
+const modalSignIn = document.getElementById("modalSignIn");
+const signInOutButton = document.getElementById("signInOutButton");
+const userInfo = document.getElementById("userInfo");
+
 async function apiPost(url, userData) {
   const requestProp = {
     method: 'POST',
@@ -22,33 +28,51 @@ async function apiPost(url, userData) {
 }
 
 export async function register (userData) {
-  console.log('Выполняется регистрация...');
+  status2Text.innerText="Виконується реєстрація ...";
   const fullUrl = `${url}users`;
   console.log(userData);
 
   apiPost(fullUrl, userData).then(( responseData ) => {
-    console.log("Регистрация выполнена");
-    console.log(responseData);
+    status2Text.innerText="Реєстрація виконана";
+    $('#modalSignUp').modal('hide');
+    signIn(userData)
   })
   .catch(error => {
     console.log(error.message)
     if (error.message === "417 Expectation Failed")  {
-      console.log("Такой email уже зарегистрирован");
+      status2Text.innerText="Такий email або телефон вже зареєстрований";
     } else {
-      console.log("Ошибка регистрации");
+      status2Text.innerText="Помилка реєстрації";
     }
   })
+};
+
+const setSignIn = () => {
+  localStorage.clear();
+  userInfo.innerText = "";
+  signInOutButton.innerText = "Вхiд";
+  signInOutButton.dataset.bsToggle = "modal";
+  signInOutButton.dataset.bsTarget = "#modalSignIn";
+};
+
+const setSignOut = () => {
+  signInOutButton.innerText = "Вихiд";
+  signInOutButton.addEventListener("click", setSignIn);
+  console.log(signInOutButton.dataset);
+  delete signInOutButton.dataset.bsToggle;
+  delete signInOutButton.dataset.bsTarget;
 };
 
 export async function signIn (userData) {
   const fullUrl = url + "signin";
 
   apiPost(fullUrl, userData).then(( responseData ) => {
-      console.log("Вход выполнен");
-      console.log(responseData);
-      const UserData = {phone: "", nickname: "", fullname: ""};
+      if(statusText)statusText.innerText="Вхід виконано";
+      userInfo.innerText = "Вітаємо " + responseData.email;
+      setTimeout(() => $('#modalSignIn').modal('hide'), 1000);
+      setSignOut();
+
       if(responseData) {
-        console.log(responseData);
         localStorage.setItem("token", responseData.token);
         localStorage.setItem("refreshToken", responseData.refreshToken);
         localStorage.setItem("userId", responseData.userId);
@@ -61,11 +85,36 @@ export async function signIn (userData) {
     .catch((error) => {
       console.log(error.message);
       if (error.message === "403 Forbidden") {
-        console.log("Неверный пароль");
+        statusText.innerText="Невірний пароль";
       } else if (error.message === "404 Not Found") {
-        console.log("Пользователь с таким email не найден");
+        statusText.innerText="Користувач з таким email не найден";
       } else if (error.message) {
-        console.log("Ошибка входа");
+        statusText.innerText="Помилка входу";
       }
     });
+};
+
+export async function verifyAuth () {
+  const bearerToken = localStorage.getItem("token");
+  const userId = localStorage.getItem("userId");
+  const requestProp = {
+    method: 'GET',
+    headers: {
+      'Mode': 'NOCORS',
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      "Authorization": "Bearer " + bearerToken,
+    },
+  };
+  const fullUrl = url + "users/" + userId;
+
+  const res = await fetch(fullUrl, requestProp);
+    
+  if (!res.ok) {
+    const error = res.status + " " + res.statusText;
+    throw new Error(error)
+  } else {
+    const body = await res.json();
+    setSignOut();
+  }
 };

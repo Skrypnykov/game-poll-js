@@ -1,7 +1,8 @@
-import { register, signIn } from "./users.js";
+import { verifyAuth, register, signIn } from "./users.js";
 
 const registerForm = document.getElementById("signUpForm");
 const signInForm = document.getElementById("signInForm");
+const signInOutButton = document.getElementById("signInOutButton");
 
 registerForm.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -23,3 +24,4 @@ signInForm.addEventListener("submit", function (event) {
   signIn(userData);
 });
 
+verifyAuth();
