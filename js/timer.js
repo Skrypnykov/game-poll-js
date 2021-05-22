@@ -30,6 +30,7 @@ function event_click_startpause(event) {
     start();
   } else {
     stop();
+
   }
 }
 let toggleElement = document.getElementById("timerpause");
