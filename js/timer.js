@@ -16,7 +16,8 @@ function start() {
   stop();//убедимся, что все интервалы очищены, это предотвращает их удвоение
   window.TimerId = window.setInterval(Timer, 1000);
   time = 2;
-  toggleElement.innerText = "Пауза";
+  toggleElement.innerText = "Пауза";  
+  showEarth('0', 'hidden');
 }
 
 function stop() {
@@ -24,6 +25,7 @@ function stop() {
   window.clearInterval(window.TimerId);
   time = 1;
   toggleElement.innerText = "Старт";
+  showEarth('1', 'visible');
 }
 function event_click_startpause(event) {
   if (time === 1) {
@@ -38,3 +40,10 @@ let toggleElement = document.getElementById("timerpause");
 toggleElement.addEventListener("click", event_click_startpause);
 toggleElement.click();
 start();
+
+//modal window
+function showEarth(op, vis) {
+    document.getElementById("pauseModal").style.opacity = op;
+    document.getElementById("pauseModal").style.visibility = vis;
+    
+  }
