@@ -112,7 +112,8 @@ export async function verifyAuth () {
     
   if (!res.ok) {
     const error = res.status + " " + res.statusText;
-    throw new Error(error)
+    setSignIn();
+    throw new Error(error);
   } else {
     const body = await res.json();
     setSignOut();
