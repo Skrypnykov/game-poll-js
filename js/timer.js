@@ -16,20 +16,20 @@ function start() {
   stop();//убедимся, что все интервалы очищены, это предотвращает их удвоение
   window.TimerId = window.setInterval(Timer, 1000);
   time = 2;
+  toggleElement.innerText = "Пауза";
 }
 
 function stop() {
   // функция остановки таймера
   window.clearInterval(window.TimerId);
   time = 1;
+  toggleElement.innerText = "Старт";
 }
 function event_click_startpause(event) {
   if (time === 1) {
     start();
-    event.target.innerText = "Пауза";
   } else {
     stop();
-    event.target.innerText = "Старт";
   }
 }
 let toggleElement = document.getElementById("timerpause");
