@@ -6,7 +6,11 @@
     <title>Game Poll</title>
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <link href="../css/pages.css" rel="stylesheet" type="text/css" />
-    <script src="https://kit.fontawesome.com/09332f583c.js" crossorigin="anonymous"></script>
+    <link href="../css/modal.css" rel="stylesheet" type="text/css" />
+    <script
+      src="https://kit.fontawesome.com/09332f583c.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
@@ -31,11 +35,18 @@
           <div class="pause">
             <span class="welcome">Вітаємо,&nbsp;Fighter@gmail.com</span>
             <div class="tablo">
-              <span class="tablo1"><i class="fas fa-question-circle"></i>&nbsp;15&nbsp;/&nbsp;100&nbsp;<i class="fas fa-star"></i></span>
-              <span class="tablo2">90 c</span>
+              <div class="tablo1">
+                <span
+                  ><i class="fas fa-question-circle"></i
+                  >&nbsp;15&nbsp;/&nbsp;100&nbsp;<i class="fas fa-star"></i
+                ></span>
+              </div>
+              <div class="tablo2">
+                  <input type="text" value="90" id="timer">
+              </div>
             </div>
             <div class="btn-control">
-              <button class="btn-pause">Пауза</button>
+              <button id="timerpause" class="btn-pause">Пауза</button>
               <button class="btn-quit">Вихід</button>
             </div>
           </div>
@@ -69,6 +80,18 @@
       </div>
     </div>
 
-    <script src="../js/custom.js"></script>
+    <div class="pauseModal" id="pauseModal" onclick="start();">
+      
+      <div class="control-panel pause-control-panel">
+        <div class="control-panel-buttons" id="buttons-animate" onclick="start();">
+          <img src="../img/buttons.png" alt="" onclick="start();" />
+        </div>
+        <div class="control-panel-earth" onclick="start();">
+          <img src="../img/earth.png" alt="" onclick="start();" />
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/timer.js"></script>
   </body>
 </html>

@@ -1,44 +1,27 @@
-import {register, signIn} from "./users.js"
-import { question } from "./getData.js"
+// import { register, signIn } from "./users.js";
+import "./questions.js";
 
-const registerForm = document.getElementById( "signUpForm" );
-const signInForm = document.getElementById( "signInForm" );
+const registerForm = document.getElementById("signUpForm");
+const signInForm = document.getElementById("signInForm");
 
-function GetIntRandom(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+// registerForm.addEventListener("submit", function (event) {
+//   event.preventDefault();
+//   const formArray = Array.from(event.target);
+//   let userData = {};
+//   formArray.forEach((value) => {
+//     userData[value.id] = value.value;
+//   });
+//   register(userData);
+// });
 
-function onClickSpin() {
-    document.getElementById('buttons-animate').classList.toggle('animated');
-    setTimeout(function () {
-        handler()
-    }, 1000);
-}
+// signInForm.addEventListener("submit", function (event) {
+//   event.preventDefault();
+//   const formArray = Array.from(event.target);
+//   let userData = {};
+//   formArray.forEach((value) => {
+//     userData[value.id] = value.value;
+//   });
+//   signIn(userData);
+// });
 
-function handler() {
-    location.href = "pages/" + "page" + GetIntRandom(1, 16) + ".html";
-}
-
-registerForm.addEventListener( 'submit', function ( event ) {
-
-  event.preventDefault();
-  const formArray = Array.from(event.target);
-  let userData = {};
-  formArray.forEach((value) => {
-    userData[value.id] = value.value;
-  }) 
-  register(userData);
-
-});
-
-signInForm.addEventListener( 'submit', function ( event ) {
-
-  event.preventDefault();
-  const formArray = Array.from(event.target);
-  let userData = {};
-  formArray.forEach((value) => {
-    userData[value.id] = value.value;
-  }) 
-  signIn(userData);
-  
-});
+// questions();

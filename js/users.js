@@ -1,10 +1,10 @@
 const url = 'https://pollgame-be.herokuapp.com/'
-// const userData = {nikName:"2nikName",fullName:"2fullName",organization:"2organization",position:"2position",email:"mail@mail.com",phone:"+380953585421",password:"147258369"}
 
 async function apiPost(url, userData) {
   const requestProp = {
     method: 'POST',
     headers: {
+      'Mode': 'NOCORS',
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
@@ -45,8 +45,18 @@ export async function signIn (userData) {
 
   apiPost(fullUrl, userData).then(( responseData ) => {
       console.log("Вход выполнен");
-      localStorage.setItem("usedData", JSON.stringify(responseData));
       console.log(responseData);
+      const UserData = {phone: "", nickname: "", fullname: ""};
+      if(responseData) {
+        console.log(responseData);
+        localStorage.setItem("token", responseData.token);
+        localStorage.setItem("refreshToken", responseData.refreshToken);
+        localStorage.setItem("userId", responseData.userId);
+        delete responseData.token;
+        delete responseData.refreshToken;
+        delete responseData.userId;
+        localStorage.setItem("userData", JSON.stringify(responseData));
+      }
     })
     .catch((error) => {
       console.log(error.message);
