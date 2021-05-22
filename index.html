@@ -139,6 +139,7 @@
                       minlength="3"
                       maxlength="25"
                       id="nickname"
+                      name="nickname"
                       required
                     />
                   </div>
@@ -155,6 +156,7 @@
                       minlength="3"
                       maxlength="30"
                       id="fullname"
+                      name="fullname"
                       required
                     />
                   </div>
@@ -175,6 +177,7 @@
                       minlength="1"
                       maxlength="30"
                       id="organization"
+                      name="organization"
                     />
                   </div>
                 </div>
@@ -189,6 +192,7 @@
                       minlength="3"
                       maxlength="30"
                       id="position"
+                      name="position"
                     />
                   </div>
                 </div>
@@ -205,6 +209,7 @@
                       minlength="10"
                       maxlength="30"
                       id="email"
+                      name="email"
                       required
                     />
                   </div>
@@ -221,6 +226,7 @@
                       minlength="19"
                       maxlength="19"
                       id="phone"
+                      name="phone"
                       required
                     />
                   </div>
@@ -235,6 +241,7 @@
                       class="form-control"
                       placeholder="пароль"
                       id="password"
+                      name="password"
                       required
                     />
                   </div>
@@ -307,11 +314,11 @@
             <form id="signInForm">
               <div class="mb-1">
                 <label for="emailIn" class="col-form-label">email</label>
-                <input type="text" class="form-control" id="emailIn" />
+                <input type="text" class="form-control" id="emailIn" name="email"/>
               </div>
               <div class="mb-1">
                 <label for="passwordIn" class="col-form-label">Пароль</label>
-                <input type="password" class="form-control" id="passwordIn" />
+                <input type="password" class="form-control" id="passwordIn" name="password"/>
               </div>
               <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary btn-form-sign-in">
