@@ -58,7 +58,6 @@ const setSignIn = () => {
 const setSignOut = () => {
   signInOutButton.innerText = "Вихiд";
   signInOutButton.addEventListener("click", setSignIn);
-  console.log(signInOutButton.dataset);
   delete signInOutButton.dataset.bsToggle;
   delete signInOutButton.dataset.bsTarget;
 };
@@ -117,5 +116,6 @@ export async function verifyAuth () {
   } else {
     const body = await res.json();
     setSignOut();
+    userInfo.innerText = "Вітаємо " + body.email;
   }
 };
