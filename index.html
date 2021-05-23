@@ -235,7 +235,7 @@
                       id="phone"
                       name="phone"
                       required
-                      oninvalid="this.setCustomValidity('Будь ласка, заповніть це поле')" oninput="setCustomValidity('')"
+                      oninvalid="this.setCustomValidity('Будь ласка, введіть свій телефон')" oninput="setCustomValidity('')"
                     />
                   </div>
                 </div>
@@ -252,7 +252,7 @@
                       id="password"
                       name="password"
                       required 
-                      oninvalid="this.setCustomValidity('Будь ласка, заповніть це поле')" oninput="setCustomValidity('')"
+                      oninvalid="this.setCustomValidity('Будь ласка, введіть свій пароль')" oninput="setCustomValidity('')"
                     />
                   </div>
                 </div>
@@ -267,7 +267,7 @@
                       placeholder="пароль"
                       id="password1"
                       required 
-                      oninvalid="this.setCustomValidity('Будь ласка, заповніть це поле')" oninput="setCustomValidity('')"
+                      oninvalid="this.setCustomValidity('Будь ласка, повторно введіть свій пароль')" oninput="setCustomValidity('')"
                     />
                   </div>
                 </div>
@@ -348,17 +348,17 @@
                   oninvalid="this.setCustomValidity('Будь ласка, введіть свій пароль')" oninput="setCustomValidity('')"
                 />
               </div>
-              <span class="badge badge-pill badge-info" id="statusText"
-                >Введіть реєстраційні дані.</span
-              >
+              <span class="badge badge-pill badge-info" id="statusText">
+                Введіть реєстраційні дані.
+              </span>
               <span
                 class="badge"
                 role="button"
                 data-bs-toggle="modal"
                 data-bs-target="#modalRecovery"
                 data-bs-dismiss="modal"
-                >Забули пароль?</span
-              >
+              >Забули пароль?
+              </span>
               <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary btn-form-sign-in">
                   Вхід
@@ -369,7 +369,6 @@
         </div>
       </div>
     </div>
-
 
      <!-- Modal Password Recovery -->
      <div
@@ -413,51 +412,6 @@
        </div>
      </div>
    </div>
-
-    <!-- Modal Password Recovery -->
-    <div
-      class="modal fade"
-      id="modalRecovery"
-      data-bs-backdrop="static"
-      data-bs-keyboard="false"
-      tabindex="-1"
-      aria-labelledby="staticBackdropLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-body form-bg">
-            <button
-              type="button"
-              class="btn-close position-absolute top-0 end-0 m-2"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-            <form id="recoveryForm">
-              <legend>Відновлення паролю</legend>
-              <div class="mb-1">
-                <label for="email" class="col-form-label">email</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="email"
-                  name="email"
-                  required
-                />
-              </div>
-              <span class="badge badge-pill badge-info" id="statusText"
-                >Введіть адресу електронної пошти</span
-              >
-              <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary btn-form-sign-in">
-                  Відновити
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script
