@@ -1,3 +1,9 @@
+.modal-dialog-in {
+  max-width: 600px;
+}
+.text-change-color{
+  color: white;
+}
 .form-bg {
     background: #61808A;
     padding: 1rem 2rem;

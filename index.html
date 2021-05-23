@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game Poll</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
     <!-- CSS style-->
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="css/forms.css" rel="stylesheet" type="text/css" />
@@ -33,8 +38,7 @@
           >Вітаємо,&nbsp;Fighter@gmail.com</span
         > -->
         <div class="welcome-main">
-          <span class="welcome-rules infospan top" id="userInfo"></span
-          >
+          <span class="welcome-rules infospan top" id="userInfo"></span>
         </div>
         <!-- Navbar -->
         <div id="dd" class="wrapper-dropdown-2 dropdown-navbar">
@@ -135,12 +139,12 @@
                       type="text"
                       class="form-control"
                       placeholder="Нікнейм"
-                      title="Будь ласка, заповніть це поле"
                       minlength="3"
                       maxlength="25"
                       id="nickname"
                       name="nickname"
-                      required
+                      required 
+                      oninvalid="this.setCustomValidity('Будь ласка, заповніть це поле')" oninput="setCustomValidity('')"
                     />
                   </div>
                 </div>
@@ -151,13 +155,13 @@
                       type="text"
                       class="form-control"
                       placeholder="ПІБ"
-                      title="Будь ласка, заповніть це поле"
                       pattern="[\D\s]+"
                       minlength="3"
                       maxlength="30"
                       id="fullname"
                       name="fullname"
-                      required
+                      required 
+                      oninvalid="this.setCustomValidity('Будь ласка, заповніть це поле')" oninput="setCustomValidity('')"
                     />
                   </div>
                 </div>
@@ -173,11 +177,12 @@
                       type="text"
                       class="form-control"
                       placeholder="Назва організації"
-                      title="Будь ласка, заповніть це поле"
                       minlength="1"
                       maxlength="30"
                       id="organization"
                       name="organization"
+                      required 
+                      oninvalid="this.setCustomValidity('Будь ласка, заповніть це поле')" oninput="setCustomValidity('')"
                     />
                   </div>
                 </div>
@@ -193,6 +198,8 @@
                       maxlength="30"
                       id="position"
                       name="position"
+                      required 
+                      oninvalid="this.setCustomValidity('Будь ласка, заповніть це поле')" oninput="setCustomValidity('')"
                     />
                   </div>
                 </div>
@@ -210,7 +217,8 @@
                       maxlength="30"
                       id="email"
                       name="email"
-                      required
+                      required 
+                      oninvalid="this.setCustomValidity('Будь ласка, введіть адресу електронної пошти')" oninput="setCustomValidity('')"
                     />
                   </div>
                 </div>
@@ -221,13 +229,13 @@
                       type="tel"
                       class="form-control"
                       placeholder="+38 (050) 111-11-11"
-                      title="Будь ласка, заповніть це поле"
                       pattern="[\+]\d{1}\d{1}\s[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}"
                       minlength="19"
                       maxlength="19"
                       id="phone"
                       name="phone"
                       required
+                      oninvalid="this.setCustomValidity('Будь ласка, заповніть це поле')" oninput="setCustomValidity('')"
                     />
                   </div>
                 </div>
@@ -237,14 +245,14 @@
                   <div class="mb-1">
                     <label for="password" class="col-form-label">Пароль</label>
                     <input
-                      title="Будь ласка, заповніть це поле"
                       type="password"
                       class="form-control"
                       placeholder="пароль"
                       pattern=".{8,}$"
                       id="password"
                       name="password"
-                      required
+                      required 
+                      oninvalid="this.setCustomValidity('Будь ласка, заповніть це поле')" oninput="setCustomValidity('')"
                     />
                   </div>
                 </div>
@@ -258,7 +266,8 @@
                       class="form-control"
                       placeholder="пароль"
                       id="password1"
-                      required
+                      required 
+                      oninvalid="this.setCustomValidity('Будь ласка, заповніть це поле')" oninput="setCustomValidity('')"
                     />
                   </div>
                 </div>
@@ -271,8 +280,8 @@
                       type="checkbox"
                       class="form-check-input"
                       id="blankCheckbox"
-                      title="Щоб продовжити, встановіть цей прапорець"
                       required
+                      oninvalid="this.setCustomValidity('Щоб продовжити, встановіть цей прапорець')" oninput="setCustomValidity('')"
                     />
                     <label
                       for="blankCheckbox"
@@ -282,7 +291,9 @@
                   </div>
                 </div>
               </div>
-              <span class="badge badge-pill badge-info" id="status2Text">Пароль не менше 8 символів</span>
+              <span class="badge badge-pill badge-info" id="status2Text"
+                >Пароль не менше 8 символів</span
+              >
               <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary btn-form-reg">
                   Реєстрація
@@ -304,7 +315,7 @@
       aria-labelledby="staticBackdropLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-in">
         <div class="modal-content">
           <div class="modal-body form-bg">
             <button
@@ -314,36 +325,40 @@
               aria-label="Close"
             ></button>
             <form id="signInForm">
-              <legend>Введіть дані</legend>
+              <legend class="text-change-color">Введіть дані</legend>
               <div class="mb-1">
-<<<<<<< HEAD
-                <label for="emailIn" class="col-form-label">email</label>
-<<<<<<< HEAD
-                <input type="text" class="form-control" id="emailIn" />
-              </div>
-              <div class="mb-1">
-                <label for="passwordIn" class="col-form-label">Пароль</label>
-                <input type="password" class="form-control" id="passwordIn" />
-=======
-                <input type="text" class="form-control" id="emailIn" name="email" required/>
-              </div>
-              <div class="mb-1">
-                <label for="passwordIn" class="col-form-label">Пароль</label>
-                <input type="password" class="form-control" id="passwordIn" name="password" required/>
->>>>>>> origin/valid
-              </div>
-              <span class="badge badge-pill badge-info" id="statusText">Введите данные</span>
-=======
                 <label for="email" class="col-form-label">email</label>
-                <input type="text" class="form-control" id="email" name="email" required/>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  required
+                  oninvalid="this.setCustomValidity('Будь ласка, введіть адресу електронної пошти')" oninput="setCustomValidity('')"
+                />
               </div>
               <div class="mb-1">
                 <label for="password" class="col-form-label">Пароль</label>
-                <input type="password" class="form-control" id="password" name="password" required/>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  name="password"
+                  required
+                  oninvalid="this.setCustomValidity('Будь ласка, введіть свій пароль')" oninput="setCustomValidity('')"
+                />
               </div>
-              <span class="badge badge-pill badge-info" id="statusText">Введіть реєстраційні дані.</span>
-              <span class="badge" role="button" data-bs-toggle="modal" data-bs-target="#modalRecovery" data-bs-dismiss="modal" >Забули пароль?</span>
->>>>>>> f1c298889b5b7b16b6db2eee6b89340874c46746
+              <span class="badge badge-pill badge-info" id="statusText"
+                >Введіть реєстраційні дані.</span
+              >
+              <span
+                class="badge"
+                role="button"
+                data-bs-toggle="modal"
+                data-bs-target="#modalRecovery"
+                data-bs-dismiss="modal"
+                >Забули пароль?</span
+              >
               <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary btn-form-sign-in">
                   Вхід
@@ -355,6 +370,7 @@
       </div>
     </div>
 
+
      <!-- Modal Password Recovery -->
      <div
      class="modal fade"
@@ -365,7 +381,7 @@
      aria-labelledby="staticBackdropLabel"
      aria-hidden="true"
    >
-     <div class="modal-dialog modal-dialog-centered">
+     <div class="modal-dialog modal-dialog-centered modal-dialog-in">
        <div class="modal-content">
          <div class="modal-body form-bg">
            <button
@@ -375,10 +391,16 @@
              aria-label="Close"
            ></button>
            <form id="recoveryForm">
-            <legend>Відновлення паролю</legend>
+            <legend class="text-change-color">Відновлення паролю</legend>
              <div class="mb-1">
                <label for="email" class="col-form-label">email</label>
-               <input type="text" class="form-control" id="email" name="email" required/>
+               <input 
+                type="text" 
+                class="form-control" 
+                id="email" 
+                name="email" 
+                required 
+                oninvalid="this.setCustomValidity('Будь ласка, введіть адресу електронної пошти')" oninput="setCustomValidity('')"/>
              </div>
              <span class="badge badge-pill badge-info" id="statusText">Введіть адресу електронної пошти</span>
              <div class="d-flex justify-content-center">
@@ -392,18 +414,60 @@
      </div>
    </div>
 
+    <!-- Modal Password Recovery -->
+    <div
+      class="modal fade"
+      id="modalRecovery"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body form-bg">
+            <button
+              type="button"
+              class="btn-close position-absolute top-0 end-0 m-2"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+            <form id="recoveryForm">
+              <legend>Відновлення паролю</legend>
+              <div class="mb-1">
+                <label for="email" class="col-form-label">email</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  required
+                />
+              </div>
+              <span class="badge badge-pill badge-info" id="statusText"
+                >Введіть адресу електронної пошти</span
+              >
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary btn-form-sign-in">
+                  Відновити
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="js/custom.js"></script>
     <script src="js/dropdown.js"></script>
     <script src="js/jquery.maskedinput.min.js"></script>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     <script src="js/valid.js"></script>
->>>>>>> origin/valid
-=======
-    <script src="js/valid.js"></script>
->>>>>>> f1c298889b5b7b16b6db2eee6b89340874c46746
   </body>
 </html>

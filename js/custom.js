@@ -16,12 +16,6 @@ function onClickSpin() {
   }, 1000);
 }
 
-import { verifyAuth, register, signIn } from "./users.js";
-
-const registerForm = document.getElementById("signUpForm");
-const signInForm = document.getElementById("signInForm");
-const signInOutButton = document.getElementById("signInOutButton");
-
 registerForm.addEventListener("submit", function (event) {
   event.preventDefault();
   const formArray = Array.from(event.target);
