@@ -1,32 +1,21 @@
-<<<<<<< HEAD
-// import { register, signIn } from "./users.js";
-import "./questions.js";
+import { verifyAuth, register, signIn } from "./users.js";
+import * as handler from "./questions.js";
 
 const registerForm = document.getElementById("signUpForm");
 const signInForm = document.getElementById("signInForm");
+const signInOutButton = document.getElementById("signInOutButton");
+const btnStart = document.querySelector(".btn-start");
 
-// registerForm.addEventListener("submit", function (event) {
-//   event.preventDefault();
-//   const formArray = Array.from(event.target);
-//   let userData = {};
-//   formArray.forEach((value) => {
-//     userData[value.id] = value.value;
-//   });
-//   register(userData);
-// });
+btnStart.addEventListener("click", onClickSpin);
 
-// signInForm.addEventListener("submit", function (event) {
-//   event.preventDefault();
-//   const formArray = Array.from(event.target);
-//   let userData = {};
-//   formArray.forEach((value) => {
-//     userData[value.id] = value.value;
-//   });
-//   signIn(userData);
-// });
+function onClickSpin() {
+  document.getElementById("buttons-animate").classList.toggle("animated");
+  setTimeout(function () {
+    location.href = "pages/question.html";
+    handler();
+  }, 1000);
+}
 
-// questions();
-=======
 import { verifyAuth, register, signIn } from "./users.js";
 
 const registerForm = document.getElementById("signUpForm");
@@ -54,4 +43,3 @@ signInForm.addEventListener("submit", function (event) {
 });
 
 verifyAuth();
->>>>>>> origin/valid
