@@ -4,19 +4,20 @@ import create from "./create.js";
 const url = "https://pollgame-be.herokuapp.com/questions";
 
 let questionNum = 1;
-let questionMax = 20;
+let scores = 0;
 let trueAnswer = "";
 let questionsArr = [];
 let questionText = document.getElementById("question");
 const questionsProgress = document.getElementById("questionsProgress");
 const questionBlock = document.getElementById("questionBlock");
+const headerBlock = document.querySelector(".header-wrapper");
+const goals = document.querySelector(".goals");
+const bg = document.querySelector(".page");
 const answersBlock = document.getElementById("answersBlock");
 
 async function handler() {
   apiGet(url).then((responseData) => {
     const questions = responseData;
-    // записываем в локал объект с вопросами для передачи на другую страницу
-    // localStorage.setItem("questionsArr", JSON.stringify(questionsArr));
     if (questions) {
       setQuestion(questions);
     }
@@ -32,7 +33,7 @@ const seeResult = () => {
 };
 
 const nextQuestion = () => {
-  if (questionNum === questionMax) seeResult();
+  if (questionNum === scores) seeResult();
   else {
     questionNum = questionNum + 1;
     questionText.innerText = "";
@@ -42,6 +43,7 @@ const nextQuestion = () => {
 };
 
 const answerIsTrue = (target) => {
+  scores = scores + 5;
   console.log("true");
   nextQuestion();
 };
@@ -59,7 +61,7 @@ const verifyAnswer = (target) => {
 };
 
 const questionProgressUpdate = () => {
-  questionsProgress.innerText = ` ${questionNum} / ${questionMax} `;
+  questionsProgress.innerText = ` ${questionNum} / ${scores} `;
 };
 
 const setQuestion = (questions) => {
@@ -70,6 +72,9 @@ const setQuestion = (questions) => {
     trueAnswer = question.trueAnswer;
     console.log(question);
     questionBlock.classList = `questions_page${question.category} questions`;
+    headerBlock.classList = `header-wrapper header-logo-bg${question.category}`;
+    goals.src = `../img/questions/GOALS_Ukr${question.category}.png`;
+    bg.style.backgroundImage = `url(../img/bg/bg_${question.category}.jpg)`;
     questionText.innerText = `${question.question}`;
     switch (question.view) {
       case "range":
@@ -94,6 +99,17 @@ const setButtons = (answers) => {
     btn.addEventListener("click", (e) => verifyAnswer(e.target));
     btnsArr.push(btn);
   });
+
+  const btnSkip = create(
+    "button",
+    "myRange",
+    "Скасовати",
+    null,
+    ["type", "button"],
+    ["id", "skip"]
+  );
+  btnSkip.addEventListener("click", (e) => verifyAnswer(e.target));
+  btnsArr.push(btnSkip);
 
   const itemBlock1 = create("div", "item-block1", btnsArr, answersBlock);
 };
