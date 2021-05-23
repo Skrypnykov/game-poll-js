@@ -310,7 +310,7 @@
       aria-labelledby="staticBackdropLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-in">
         <div class="modal-content">
           <div class="modal-body form-bg">
             <button
@@ -320,7 +320,7 @@
               aria-label="Close"
             ></button>
             <form id="signInForm">
-              <legend>Введіть дані</legend>
+              <legend class="text-change-color">Введіть дані</legend>
               <div class="mb-1">
                 <label for="email" class="col-form-label">email</label>
                 <input
@@ -362,6 +362,44 @@
         </div>
       </div>
     </div>
+
+
+     <!-- Modal Password Recovery -->
+     <div
+     class="modal fade"
+     id="modalRecovery"
+     data-bs-backdrop="static"
+     data-bs-keyboard="false"
+     tabindex="-1"
+     aria-labelledby="staticBackdropLabel"
+     aria-hidden="true"
+   >
+     <div class="modal-dialog modal-dialog-centered modal-dialog-in">
+       <div class="modal-content">
+         <div class="modal-body form-bg">
+           <button
+             type="button"
+             class="btn-close position-absolute top-0 end-0 m-2"
+             data-bs-dismiss="modal"
+             aria-label="Close"
+           ></button>
+           <form id="recoveryForm">
+            <legend class="text-change-color">Відновлення паролю</legend>
+             <div class="mb-1">
+               <label for="email" class="col-form-label">email</label>
+               <input type="text" class="form-control" id="email" name="email" required/>
+             </div>
+             <span class="badge badge-pill badge-info" id="statusText">Введіть адресу електронної пошти</span>
+             <div class="d-flex justify-content-center">
+               <button type="submit" class="btn btn-primary btn-form-sign-in">
+                Відновити
+               </button>
+             </div>
+           </form>
+         </div>
+       </div>
+     </div>
+   </div>
 
     <!-- Modal Password Recovery -->
     <div
