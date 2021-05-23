@@ -16,9 +16,13 @@ export default function create(el, classNames, child, parent, ...dataAttr) {
     throw new Error("Unable to create HTMLelement! Give a proper tag name");
   }
 
-  if (classNames) { element.classList.add(...classNames.split(" ")); }
+  if (classNames) {
+    element.classList.add(...classNames.split(" "));
+  }
   if (child && Array.isArray(child)) {
-    child.forEach(childElement => childElement && element.appendChild(childElement));
+    child.forEach(
+      (childElement) => childElement && element.appendChild(childElement)
+    );
   } else if (child && typeof child === "object") {
     element.appendChild(child);
   } else if (child && typeof child === "string") {

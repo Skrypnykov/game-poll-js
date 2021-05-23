@@ -15,8 +15,6 @@ const answersBlock = document.getElementById("answersBlock");
 async function handler() {
   apiGet(url).then((responseData) => {
     const questions = responseData;
-    // записываем в локал объект с вопросами для передачи на другую страницу
-    // localStorage.setItem("questionsArr", JSON.stringify(questionsArr));
     if (questions) {
       setQuestion(questions);
     }
