@@ -275,7 +275,7 @@ box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 .fas:focus,
 .fas:hover {
   transform: rotate(360deg);
-  opacity: 0.6;
+  color: rgba(159, 218, 238, 1);
   transition: all 0.5s ease-out;
 }
 /* pages bg, color */
