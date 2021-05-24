@@ -4,6 +4,8 @@ const statusText = document.getElementById("statusText");
 const status2Text = document.getElementById("status2Text");
 const modalSignIn = document.getElementById("modalSignIn");
 const signInOutButton = document.getElementById("signInOutButton");
+const registerButton = document.getElementById("registerButton");
+const startButton = document.getElementById("click");
 const userInfo = document.getElementById("userInfo");
 
 async function apiPost(url, userData) {
@@ -54,6 +56,8 @@ const setSignIn = () => {
   signInOutButton.innerText = "Вхiд";
   signInOutButton.dataset.bsToggle = "modal";
   signInOutButton.dataset.bsTarget = "#modalSignIn";
+  registerButton.classList.remove("hidden");
+  startButton.classList.add("hidden");
 };
 
 const setSignOut = () => {
@@ -61,6 +65,8 @@ const setSignOut = () => {
   signInOutButton.addEventListener("click", setSignIn);
   delete signInOutButton.dataset.bsToggle;
   delete signInOutButton.dataset.bsTarget;
+  registerButton.classList.add("hidden");
+  startButton.classList.remove("hidden");
 };
 
 export async function signIn(userData) {
