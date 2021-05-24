@@ -11,6 +11,7 @@
     left: 0;
     opacity: 0;
     visibility: hidden;
+    z-index: 2500;
   }
   .pause-control-panel {
     align-self: center;
