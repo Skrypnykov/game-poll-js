@@ -30,6 +30,7 @@
   grid-template-columns: 35% 35% 30%;
   -ms-grid-columns: 35% 35% 30%;
   align-items: center;
+  z-index: 2;
 }
 
 .welcome {
@@ -49,10 +50,11 @@
 .fas span {
   margin-left: -999em;
   position: absolute;
-  padding: 0.5em 0.8em 0.8em 2em; 
+  padding: 0.5em 0.5em 0.5em 2em; 
   background: #9FDAEE; 
   border: 1px solid #2BB0D7;
   border-radius: 5px 5px;
+  color: rgba(0, 0, 0, 1);
 -moz-border-radius: 5px;
 -webkit-border-radius: 5px;
 box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
@@ -137,6 +139,7 @@ box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
   -ms-grid-columns: repeat(auto-fit, minmax(13rem, 35rem));
   justify-content: space-around;
   align-items: flex-end;
+  z-index: 1;
 }
 
 .questions {
