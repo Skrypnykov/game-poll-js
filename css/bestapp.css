@@ -30,7 +30,8 @@
   width: 60%;
   justify-self: end;
 }
-.pb2, .pb4 {
+.pb2,
+.pb4 {
   -ms-grid-column: 2;
 }
 .pb3 {
@@ -46,7 +47,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   width: 90%;
-    justify-self: center;
+  justify-self: center;
   -ms-grid-columns: 1fr 1fr 1fr;
   -ms-grid-rows: 1fr;
   -ms-grid-column-align: center;
@@ -64,7 +65,7 @@
     grid-template-rows: 1fr 1fr;
     -ms-grid-columns: 1fr 1fr;
     -ms-grid-rows: 1fr 1fr;
-    width: 100%;    
+    width: 100%;
   }
   .persona-bestapp {
     gap: 1rem;
@@ -90,14 +91,15 @@
   }
 }
 @media (max-width: 520px) {
-  .bestwomen, .bestmen {
+  .bestwomen,
+  .bestmen {
     grid-template-columns: 1fr;
-    -ms-grid-columns: 1fr;    
-}
-.bestmen {
-  grid-template-rows: 5rem 5rem 5rem;
-}
-.bestwomen {
-  grid-template-rows: 5rem 5rem;
-}
+    -ms-grid-columns: 1fr;
+  }
+  .bestmen {
+    grid-template-rows: 5rem 5rem 5rem;
+  }
+  .bestwomen {
+    grid-template-rows: 5rem 5rem;
+  }
 }

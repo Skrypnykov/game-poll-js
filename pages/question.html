@@ -38,11 +38,13 @@
               <div class="tablo1">
                 <span
                   ><i class="fas fa-question-circle"></i
-                  >&nbsp;15&nbsp;/&nbsp;100&nbsp;<i class="fas fa-star"></i
+                  ><span id="questionsProgress"
+                    >&nbsp;1&nbsp;/&nbsp;20&nbsp;</span
+                  ><i class="fas fa-star"></i
                 ></span>
               </div>
               <div class="tablo2">
-                  <input type="text" value="90" id="timer">
+                <input type="text" value="90" id="timer" />
               </div>
             </div>
             <div class="btn-control">
@@ -52,38 +54,26 @@
           </div>
 
           <div class="questions-block">
-            <div class="questions_page1 questions">
+            <div class="questions_page3 questions" id="questionBlock">
               <img src="../img/questions/GOALS_Ukr1.png" class="goals" alt="" />
-              <p class="questions-text">Що таке евтрофікація?</p>
+              <p class="questions-text" id="question"></p>
             </div>
           </div>
 
           <div class="navi-row">
-            <div class="navi-buttons">
-              <div class="item-block1">
-                <button class="item1">
-                  А. Забруднення вод океану діоксидами вуглецю
-                </button>
-                <button class="item2">
-                  Б. Надмірна концентрація біогенних елементів у водах океану
-                </button>
-              </div>
-              <div class="item-block2">
-                <button class="item3">
-                  В. Відсутність біорізноманіття у водах океану
-                </button>
-                <button class="item4"></button>
-              </div>
-            </div>
+            <div class="navi-buttons" id="answersBlock"></div>
           </div>
         </div>
       </div>
     </div>
 
     <div class="pauseModal" id="pauseModal" onclick="start();">
-      
       <div class="control-panel pause-control-panel">
-        <div class="control-panel-buttons" id="buttons-animate" onclick="start();">
+        <div
+          class="control-panel-buttons pause-control-panel-buttons"
+          id="buttons-animate"
+          onclick="start();"
+        >
           <img src="../img/buttons.png" alt="" onclick="start();" />
         </div>
         <div class="control-panel-earth" onclick="start();">
@@ -93,5 +83,6 @@
     </div>
 
     <script src="../js/timer.js"></script>
+    <script type="module" src="../js/questions.js"></script>
   </body>
 </html>
