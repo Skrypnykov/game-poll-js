@@ -15,11 +15,15 @@
   .pause-control-panel {
     align-self: center;
     margin-bottom: 0;
-    width: 20rem;
+    grid-template-rows: 18rem;
+    grid-template-columns: 18rem;
   }
   .pause-control-panel-buttons{
-      height: 20rem;
-  }
+    align-self: center;
+    justify-self: center;
+    height: 18rem;
+}
+  
   .rangemodal__window {
     min-height: 100%;
     display: flex;
@@ -73,6 +77,10 @@
       width: 90%;
     }
     .pause-control-panel {
+      grid-template-rows: 14rem;
+      grid-template-columns: 14rem;
+  }
+    .pause-control-panel {
         width: 14rem;
       }
       .pause-control-panel-buttons{
@@ -86,6 +94,10 @@
     }
   }
   @media (max-width: 320px){
+    .pause-control-panel {
+      grid-template-rows: 12rem;
+      grid-template-columns: 12rem;
+  }
     .pause-control-panel {
     width: 12rem;
 }
