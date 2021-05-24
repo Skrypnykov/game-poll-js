@@ -1,3 +1,5 @@
+import { apiGet } from "./getData.js";
+
 const url = "https://pollgame-be.herokuapp.com/";
 
 const statusText = document.getElementById("statusText");
@@ -118,9 +120,7 @@ export async function verifyAuth() {
   const res = await fetch(fullUrl, requestProp);
 
   if (!res.ok) {
-    const error = res.status + " " + res.statusText;
     setSignIn();
-    throw new Error(error);
   } else {
     const body = await res.json();
     setSignOut();
