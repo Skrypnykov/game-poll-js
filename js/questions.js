@@ -14,6 +14,7 @@ const headerBlock = document.querySelector(".header-wrapper");
 const goals = document.querySelector(".goals");
 const bg = document.querySelector(".page");
 const answersBlock = document.getElementById("answersBlock");
+const highlighting = document.querySelector(".item-block1");
 
 async function handler() {
   apiGet(url).then((responseData) => {
@@ -56,8 +57,13 @@ const answerIsWrong = (target) => {
 const verifyAnswer = (target) => {
   const answer = target.innerText;
   console.log(answer);
-  if (answer === trueAnswer) answerIsTrue(target);
-  else answerIsWrong(target);
+  if (answer === trueAnswer) {
+    setTimeout(() => answerIsTrue(target), 1000);
+    target.style.backgroundColor = "rgba(76, 161, 70, 0.6)";
+  } else {
+    setTimeout(() => answerIsWrong(target), 1000);
+    target.style.backgroundColor = "rgba(229, 35, 61, 0.6)";
+  }
 };
 
 const questionProgressUpdate = () => {
@@ -139,7 +145,7 @@ const setRange = (answers) => {
   );
   const btnSkip = create(
     "button",
-    "myRange",
+    "i3 item3 skip-answer",
     "Скасувати",
     null,
     ["type", "button"],
