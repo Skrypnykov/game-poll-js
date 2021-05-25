@@ -103,7 +103,7 @@ const setButtons = (answers) => {
   const btnSkip = create(
     "button",
     "myRange",
-    "Скасовати",
+    "Скасувати",
     null,
     ["type", "button"],
     ["id", "skip"]
@@ -140,7 +140,7 @@ const setRange = (answers) => {
   const btnSkip = create(
     "button",
     "myRange",
-    "Скасовати",
+    "Скасувати",
     null,
     ["type", "button"],
     ["id", "skip"]
