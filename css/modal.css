@@ -16,7 +16,6 @@
   .pause-control-panel {
     align-self: center;
     margin-bottom: 0;
-    grid-template-rows: 36%;
   }
   .pause-control-panel-buttons{
     align-self: flex-start;
