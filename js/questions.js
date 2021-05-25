@@ -62,14 +62,22 @@ const verifyAnswer = (target) => {
   else answerIsWrong(target);
 };
 
-const questionProgressUpdate = () => {
-  questionsProgress.innerText = ` ${questionNum} / ${scores} `;
+// const questionProgressUpdate = () => {
+//   questionsProgress.innerText = ` ${questionNum} / ${scores} `;
+// };
+const questionsQuantityUpdate = () => {
+  questionsQuantity.innerText = questionNum;
+};
+
+const questionsScoreUpdate = () => {
+  questionsScore.innerText = scores;
 };
 
 const setQuestion = (questions) => {
   if (questions) questionsArr = questions;
   if (questionsArr) {
-    questionProgressUpdate();
+    questionsQuantityUpdate();
+    questionsScoreUpdate();
     const question = questionsArr[questionNum - 1];
     trueAnswer = question.trueAnswer;
     console.log(question);
