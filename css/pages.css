@@ -47,7 +47,7 @@
   border: none;
 }
 /* подсказки */
-.fas span {
+.progress span.info-que {
   margin-left: -999em;
   position: absolute;
   padding: 0.5em 0.5em 0.5em 2em;
@@ -61,10 +61,10 @@
   -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
 }
-.fas:hover span {
-  top: 2.5em;
+.progress:hover span.info-que {
+  top: 115%;
   z-index: 2500;
-  margin-left: 0;
+  margin-left: -50%;
   font: normal 700 0.9rem/0.9rem Roboto;
 }
 .fa-question-circle:hover span {
@@ -73,17 +73,10 @@
 .fa-star:hover span {
   left: -6em;
 }
-.fas:hover img {
+.progress:hover img {
   border: 0;
   margin: -20px 0 0 -55px;
   float: left;
-}
-.fas:hover em {
-  font-family: Candara, Tahoma, Geneva, sans-serif;
-  font-size: 1.2em;
-  font-weight: bold;
-  display: block;
-  padding: 0.2em 0 0.6em 0;
 }
 
 /* End подсказки */
@@ -128,6 +121,7 @@
 
 .tablo1 {
   max-width: 10.5rem;
+  position: relative;
 }
 
 .tablo1,
@@ -602,6 +596,9 @@
     -ms-grid-columns: 55% 45%;
     gap: 0;
   }
+  .progress:hover span.info-que {
+    margin-left: -10%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -734,5 +731,8 @@
   .questions-block {
     grid-template-columns: repeat(auto-fit, minmax(10rem, 14rem));
     -ms-grid-columns: repeat(auto-fit, minmax(10rem, 14rem));
+  }
+  .progress:hover span.info-que {
+    margin-left: -20%;
   }
 }
