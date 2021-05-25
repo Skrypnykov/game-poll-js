@@ -99,7 +99,7 @@ export async function signIn(userData) {
       if (error.message === "403 Forbidden") {
         statusText.innerText = "Невірний пароль";
       } else if (error.message === "404 Not Found") {
-        statusText.innerText = "Користувач з таким email не найден";
+        statusText.innerText = "Користувача з таким email не знайдено";
       } else if (error.message) {
         statusText.innerText = "Помилка входу";
       }
