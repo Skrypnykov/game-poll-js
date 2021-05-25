@@ -47,24 +47,24 @@
   border: none;
 }
 /* подсказки */
-.fas span {
+.progress span.info-que {
   margin-left: -999em;
   position: absolute;
-  padding: 0.5em 0.5em 0.5em 2em; 
-  background: #9FDAEE; 
-  border: 1px solid #2BB0D7;
+  padding: 0.5em 0.5em 0.5em 2em;
+  background: #9fdaee;
+  border: 1px solid #2bb0d7;
   border-radius: 5px 5px;
   color: rgba(0, 0, 0, 1);
--moz-border-radius: 5px;
--webkit-border-radius: 5px;
-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
--webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
--moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
 }
-.fas:hover span {
-  top: 2.5em;
+.progress:hover span.info-que {
+  top: 115%;
   z-index: 2500;
-  margin-left: 0;
+  margin-left: -50%;
   font: normal 700 0.9rem/0.9rem Roboto;
 }
 .fa-question-circle:hover span {
@@ -73,17 +73,10 @@ box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 .fa-star:hover span {
   left: -6em;
 }
-.fas:hover img {
+.progress:hover img {
   border: 0;
   margin: -20px 0 0 -55px;
   float: left;
-}
-.fas:hover em {
-  font-family: Candara, Tahoma, Geneva, sans-serif;
-  font-size: 1.2em;
-  font-weight: bold;
-  display: block;
-  padding: 0.2em 0 0.6em 0;
 }
 
 /* End подсказки */
@@ -128,6 +121,7 @@ box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 
 .tablo1 {
   max-width: 10.5rem;
+  position: relative;
 }
 
 .tablo1,
@@ -270,7 +264,7 @@ box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 #timer:focus,
 #timer:active,
 #timer:hover {
-  cursor:default;
+  cursor: default;
   caret-color: transparent;
 }
 
@@ -544,13 +538,13 @@ box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
 @media (max-width: 992px) {
   .navi-buttons button:hover,
-.three-buttons button:hover,
-.three-buttons label:hover,
-.navi-buttons form input:hover,
-.three-buttons form input:hover {
-  border-color: #939292;
-  background: #c4c4c4;
-}
+  .three-buttons button:hover,
+  .three-buttons label:hover,
+  .navi-buttons form input:hover,
+  .three-buttons form input:hover {
+    border-color: #939292;
+    background: #c4c4c4;
+  }
   .three-buttons form {
     text-align: center;
   }
@@ -576,9 +570,10 @@ box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
   #skipAnswer {
     padding: 0 0 0.7rem 0;
   }
-  button.skip-answer, .skip-answer {
+  button.skip-answer,
+  .skip-answer {
     width: 60%;
-    justify-self: center;	
+    justify-self: center;
   }
   .pause {
     display: grid;
@@ -600,6 +595,9 @@ box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
     grid-template-columns: 55% 45%;
     -ms-grid-columns: 55% 45%;
     gap: 0;
+  }
+  .progress:hover span.info-que {
+    margin-left: -10%;
   }
 }
 
@@ -733,5 +731,8 @@ box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
   .questions-block {
     grid-template-columns: repeat(auto-fit, minmax(10rem, 14rem));
     -ms-grid-columns: repeat(auto-fit, minmax(10rem, 14rem));
+  }
+  .progress:hover span.info-que {
+    margin-left: -20%;
   }
 }

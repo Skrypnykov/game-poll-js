@@ -38,12 +38,31 @@
             <span class="welcome">Вітаємо,&nbsp;Fighter@gmail.com</span>
             <div class="tablo">
               <div class="tablo1">
-                <span
-                  ><i class="fas fa-question-circle"><span class="info-que"><img src="../img/Info.png" alt="Информация" height="48" width="48" />Поточне&nbsp;питання</span></i
-                  ><span id="questionsProgress" 
-                    ><span>&nbsp;1&nbsp;</span>/<span>&nbsp;20&nbsp;</span></span
-                  ><i class="fas fa-star"><span class="info-que"><img src="../img/Info.png" alt="Информация" height="48" width="48" />Загальна кількість&nbsp;балів</span></span></i
-                >
+                <span class="progress">
+                  <span class="info-que">
+                    <img
+                      src="../img/Info.png"
+                      alt="Информация"
+                      height="48"
+                      width="48"
+                    />Поточне&nbsp;питання
+                  </span>
+                  <i class="fas fa-question-circle"></i>
+                  <span id="questionsQuantity"></span>
+                </span>
+                <span>/</span>
+                <span class="progress">
+                  <span class="info-que">
+                    <img
+                      src="../img/Info.png"
+                      alt="Информация"
+                      height="48"
+                      width="48"
+                    />Загальна кількість&nbsp;балів
+                  </span>
+                  <span id="questionsScore"></span>
+                  <i class="fas fa-star"></i>
+                </span>
               </div>
               <div class="tablo2">
                 <input type="text" value="90" id="timer" />

@@ -8,7 +8,9 @@ let scores = 0;
 let trueAnswer = "";
 let questionsArr = [];
 let questionText = document.getElementById("question");
-const questionsProgress = document.getElementById("questionsProgress");
+// const questionsProgress = document.getElementById("questionsProgress");
+const questionsQuantity = document.getElementById("questionsQuantity");
+const questionsScore = document.getElementById("questionsScore");
 const questionBlock = document.getElementById("questionBlock");
 const headerBlock = document.querySelector(".header-wrapper");
 const goals = document.querySelector(".goals");
@@ -66,14 +68,22 @@ const verifyAnswer = (target) => {
   }
 };
 
-const questionProgressUpdate = () => {
-  questionsProgress.innerText = ` ${questionNum} / ${scores} `;
+// const questionProgressUpdate = () => {
+//   questionsProgress.innerText = ` ${questionNum} / ${scores} `;
+// };
+const questionsQuantityUpdate = () => {
+  questionsQuantity.innerText = questionNum;
+};
+
+const questionsScoreUpdate = () => {
+  questionsScore.innerText = scores;
 };
 
 const setQuestion = (questions) => {
   if (questions) questionsArr = questions;
   if (questionsArr) {
-    questionProgressUpdate();
+    questionsQuantityUpdate();
+    questionsScoreUpdate();
     const question = questionsArr[questionNum - 1];
     trueAnswer = question.trueAnswer;
     console.log(question);
