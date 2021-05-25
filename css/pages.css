@@ -50,16 +50,16 @@
 .fas span {
   margin-left: -999em;
   position: absolute;
-  padding: 0.5em 0.5em 0.5em 2em; 
-  background: #9FDAEE; 
-  border: 1px solid #2BB0D7;
+  padding: 0.5em 0.5em 0.5em 2em;
+  background: #9fdaee;
+  border: 1px solid #2bb0d7;
   border-radius: 5px 5px;
   color: rgba(0, 0, 0, 1);
--moz-border-radius: 5px;
--webkit-border-radius: 5px;
-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
--webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
--moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
 }
 .fas:hover span {
   top: 2.5em;
@@ -270,7 +270,7 @@ box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 #timer:focus,
 #timer:active,
 #timer:hover {
-  cursor:default;
+  cursor: default;
   caret-color: transparent;
 }
 
@@ -544,13 +544,13 @@ box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
 @media (max-width: 992px) {
   .navi-buttons button:hover,
-.three-buttons button:hover,
-.three-buttons label:hover,
-.navi-buttons form input:hover,
-.three-buttons form input:hover {
-  border-color: #939292;
-  background: #c4c4c4;
-}
+  .three-buttons button:hover,
+  .three-buttons label:hover,
+  .navi-buttons form input:hover,
+  .three-buttons form input:hover {
+    border-color: #939292;
+    background: #c4c4c4;
+  }
   .three-buttons form {
     text-align: center;
   }
@@ -576,9 +576,10 @@ box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
   #skipAnswer {
     padding: 0 0 0.7rem 0;
   }
-  button.skip-answer, .skip-answer {
+  button.skip-answer,
+  .skip-answer {
     width: 60%;
-    justify-self: center;	
+    justify-self: center;
   }
   .pause {
     display: grid;
