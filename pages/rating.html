@@ -37,8 +37,7 @@
 
       <div class="rules rating">
         <div class="welcome-main" >
-          <span class="welcome-rules infospan top"
-            >Вітаємо,&nbsp;Fighter@gmail.com</span
+          <span class="welcome-rules infospan top" id="welcomeInfo">Вітаємо,&nbsp;Fighter@gmail.com</span
           ></div>
         <div class="field-block title">
           <span id="rules" class="btn-bottom-bl">Рейтинг</span>
@@ -59,13 +58,13 @@
       <!-- end Navbar -->
 
       <div class="display-result-block">
-        <button id="result" class="btn-bottom-res">Відображати мої результати у загальному рейтингу</button>
+        <button id="result" class="btn-bottom-res hidden">Відображати мої результати у загальному рейтингу</button>
       </div>
     
       <div class="rating-window">
         <div class="content-rules-description content-rating">
           <h4 class="rating-window-title">Рейтинг гравців</h4>
-          <p class="advice">Для відображення ваших результатів у рейтингу, заповніть профіль</p>
+          <p class="advice hidden" id="advice">Для відображення ваших результатів у рейтингу, заповніть профіль</p>
           <div class="rating-scroll">
             <ol class="rating-window-list" id="rating-ol">
             </ol>
@@ -74,7 +73,7 @@
       </div>
             
         <div class="field-block go">
-          <button id="go" class="btn-bottom-bl">Почати гру</button>
+          <button id="go" class="btn-bottom-bl hidden">Почати гру</button>
         </div>
       </div>
       <!-- end content-wrapper -->
