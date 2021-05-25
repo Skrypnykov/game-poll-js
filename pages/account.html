@@ -38,9 +38,8 @@
 
       <div class="rules account">
         <div class="welcome-main" >
-          <span class="welcome-rules infospan top"
-            >Вітаємо,&nbsp;Fighter@gmail.com</span
-          ></div>
+          <span class="welcome-rules infospan top hidden" id="welcomeInfo"></span>
+        </div>
         <div class="field-block title">
           <span id="rules" class="btn-bottom-bl">Особистий кабінет</span>
         </div>
@@ -69,7 +68,7 @@
           <div class="rating-window rating-account">
             <div class="content-rules-description content-account">
               <h4 class="rating-window-title">Рейтинг гравців</h4>
-              <p class="advice">
+              <p class="advice hidden" id="advice">
                 Для відображення ваших результатів у рейтингу, заповніть профіль
               </p>
               <div class="rating-scroll">
@@ -176,12 +175,12 @@
             </div>
           </div>
         </div>
-        <div class="display-result-block">
+        <div class="display-result-block hidden">
           <button id="result" class="btn-bottom-res">Відображати мої результати у загальному рейтингу</button>
         </div>
 
         <div class="field-block go">
-          <button id="go" class="btn-bottom-bl">Почати гру</button>
+          <button id="go" class="btn-bottom-bl hidden">Почати гру</button>
         </div>
       </div>
       <!-- end content-wrapper -->

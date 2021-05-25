@@ -17,7 +17,7 @@ registerForm.addEventListener("submit", function (event) {
   const formArray = Array.from(event.target);
   let userData = {};
   formArray.forEach((value) => {
-    userData[value.id] = value.value;
+    userData[value.name] = value.value;
   });
   register(userData);
 });

@@ -1,6 +1,5 @@
 import { apiGet } from "./getData.js";
-
-const url = "https://pollgame-be.herokuapp.com/";
+import { URL } from "./constants.js";
 
 const statusText = document.getElementById("statusText");
 const status2Text = document.getElementById("status2Text");
@@ -33,8 +32,12 @@ async function apiPost(url, userData) {
 
 export async function register(userData) {
   status2Text.innerText = "Виконується реєстрація ...";
-  const fullUrl = `${url}users`;
+  const fullUrl = `${URL}users`;
   console.log(userData);
+  if (userData.password !== userData.password1) {
+    status2Text.innerText = "Пароль і його повтор не збігаються";
+    return
+  };
 
   apiPost(fullUrl, userData)
     .then((responseData) => {
@@ -72,7 +75,7 @@ const setSignOut = () => {
 };
 
 export async function signIn(userData) {
-  const fullUrl = url + "signin";
+  const fullUrl = URL + "signin";
 
   apiPost(fullUrl, userData)
     .then((responseData) => {
@@ -106,6 +109,10 @@ export async function signIn(userData) {
 export async function verifyAuth() {
   const bearerToken = localStorage.getItem("token");
   const userId = localStorage.getItem("userId");
+  if (!userId || !bearerToken) {
+    setSignIn();
+    return
+  };
   const requestProp = {
     method: "GET",
     headers: {
@@ -115,7 +122,7 @@ export async function verifyAuth() {
       Authorization: "Bearer " + bearerToken,
     },
   };
-  const fullUrl = url + "users/" + userId;
+  const fullUrl = URL + "users/" + userId;
 
   const res = await fetch(fullUrl, requestProp);
 
