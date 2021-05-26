@@ -1,7 +1,9 @@
 import { verifyAuth, register, signIn } from "./users.js";
+import { sendEmail } from "./newpassword.js";
 
 const registerForm = document.getElementById("signUpForm");
 const signInForm = document.getElementById("signInForm");
+const recoveryForm = document.getElementById("recoveryForm");
 const signInOutButton = document.getElementById("signInOutButton");
 const btnStart = document.querySelector(".btn-start");
 
@@ -30,6 +32,16 @@ signInForm.addEventListener("submit", function (event) {
     userData[value.name] = value.value;
   });
   signIn(userData);
+});
+
+recoveryForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const formArray = Array.from(event.target);
+  let userData = {};
+  formArray.forEach((value) => {
+    userData[value.name] = value.value;
+  });
+  sendEmail(userData);
 });
 
 verifyAuth();
