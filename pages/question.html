@@ -38,12 +38,31 @@
             <span class="welcome">Вітаємо,&nbsp;Fighter@gmail.com</span>
             <div class="tablo">
               <div class="tablo1">
-                <span
-                  ><i class="fas fa-question-circle"><span class="info-que"><img src="../img/Info.png" alt="Информация" height="48" width="48" />Поточне&nbsp;питання</span></i
-                  ><span id="questionsProgress" 
-                    ><span>&nbsp;1&nbsp;</span>/<span>&nbsp;20&nbsp;</span></span
-                  ><i class="fas fa-star"><span class="info-que"><img src="../img/Info.png" alt="Информация" height="48" width="48" />Загальна кількість&nbsp;балів</span></span></i
-                >
+                <span class="progress">
+                  <span class="info-que">
+                    <img
+                      src="../img/Info.png"
+                      alt="Информация"
+                      height="48"
+                      width="48"
+                    />Поточне&nbsp;питання
+                  </span>
+                  <i class="fas fa-question-circle"></i>
+                  <span id="questionsQuantity"></span>
+                </span>
+                <span>/</span>
+                <span class="progress">
+                  <span class="info-que">
+                    <img
+                      src="../img/Info.png"
+                      alt="Информация"
+                      height="48"
+                      width="48"
+                    />Загальна кількість&nbsp;балів
+                  </span>
+                  <span id="questionsScore"></span>
+                  <i class="fas fa-star"></i>
+                </span>
               </div>
               <div class="tablo2">
                 <input type="text" value="90" id="timer" />
@@ -57,7 +76,7 @@
 
           <div class="questions-block">
             <div class="questions_page3 questions" id="questionBlock">
-              <img src="../img/questions/GOALS_Ukr1.png" class="goals" alt="" />
+              <img class="goals" alt="" />
               <p class="questions-text" id="question"></p>
             </div>
           </div>
@@ -69,7 +88,7 @@
       </div>
     </div>
 
-    <div class="pauseModal" id="pauseModal" onclick="start();">
+    <div class="pauseModal" id="pauseModal">
       <div class="control-panel pause-control-panel">
         <div
           class="control-panel-buttons pause-control-panel-buttons"
@@ -84,7 +103,22 @@
       </div>
     </div>
 
-    <script src="../js/timer.js"></script>
+    <div class="rangemodal" id="rangeModal" onclick="show('0', 'hidden');">
+      <div class="rangemodal__window">
+        <div class="rangemodal__content">
+          <img
+            class="img__close"
+            src="../img/close.png"
+            alt=""
+            onclick="show('0', 'hidden');"
+          />
+          <p>Потрібно дати відповідь :-)</p>
+          <button class="button__close">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="../js/timer.js"></script>
     <script type="module" src="../js/questions.js"></script>
   </body>
 </html>

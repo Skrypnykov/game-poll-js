@@ -16,13 +16,11 @@
   .pause-control-panel {
     align-self: center;
     margin-bottom: 0;
-    grid-template-rows: 18rem;
-    grid-template-columns: 18rem;
   }
   .pause-control-panel-buttons{
-    align-self: center;
+    align-self: flex-start;
     justify-self: center;
-    height: 18rem;
+    display: grid;
 }
   
   .rangemodal__window {
