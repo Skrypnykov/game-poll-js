@@ -1,11 +1,13 @@
-import { getData } from "./getData";
-
-const url = "https://pollgame-be.herokuapp.com/users/recovery/";
+import { apiGet } from "./getData.js";
+import { URL } from "./constants.js";
 
 const sendMailButton = document.getElementById("sendMailButton");
 
-const sendData = (event) => {
-    console.log(event.target)
-};
+export const sendEmail = (userData) => {
+    console.log(userData.email);
+    const fullUrl = URL + "recovery/" + userData.email;
 
-sendMailButton.addEventListener("click", event => sendData(event));
+    apiGet(fullUrl)
+    .then(ResponseData => console.log(ResponseData))
+    .catch(error => console.log(error.message))
+};
