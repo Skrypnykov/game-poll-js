@@ -1,25 +1,25 @@
 import { apiGet } from "./getData.js";
 import create from "./create.js";
+import { URL, questionMax } from "./constants.js";
 
-const url = "https://pollgame-be.herokuapp.com/questions";
+const questionsQuantity = document.getElementById("questionsQuantity"),
+      questionsScore = document.getElementById("questionsScore"),
+      questionBlock = document.getElementById("questionBlock"),
+      answersBlock = document.getElementById("answersBlock"),
+      headerBlock = document.querySelector(".header-wrapper"),
+      questionText = document.getElementById("question"),
+      highlighting = document.querySelector(".item-block1"),
+      goals = document.querySelector(".goals"),
+      bg = document.querySelector(".page"),
+      fullUrl = URL + "questions/all";
 
-let questionNum = 1;
-let scores = 0;
-let trueAnswer = "";
-let questionsArr = [];
-let questionText = document.getElementById("question");
-// const questionsProgress = document.getElementById("questionsProgress");
-const questionsQuantity = document.getElementById("questionsQuantity");
-const questionsScore = document.getElementById("questionsScore");
-const questionBlock = document.getElementById("questionBlock");
-const headerBlock = document.querySelector(".header-wrapper");
-const goals = document.querySelector(".goals");
-const bg = document.querySelector(".page");
-const answersBlock = document.getElementById("answersBlock");
-const highlighting = document.querySelector(".item-block1");
+let questionNum = 1,
+    scores = 0,
+    trueAnswer = "",
+    questionsArr = [];
 
 async function handler() {
-  apiGet(url).then((responseData) => {
+  apiGet(fullUrl).then((responseData) => {
     const questions = responseData;
     if (questions) {
       setQuestion(questions);
@@ -36,7 +36,7 @@ const seeResult = () => {
 };
 
 const nextQuestion = () => {
-  if (questionNum === scores) seeResult();
+  if (questionNum === questionMax) seeResult();
   else {
     questionNum = questionNum + 1;
     questionText.innerText = "";
@@ -57,20 +57,27 @@ const answerIsWrong = (target) => {
 };
 
 const verifyAnswer = (target) => {
-  const answer = target.innerText;
-  console.log(answer);
-  if (answer === trueAnswer) {
-    setTimeout(() => answerIsTrue(target), 1000);
-    target.style.backgroundColor = "rgba(76, 161, 70, 0.6)";
+  if(!Array.isArray(target)) {
+    const answer = target.innerText;
+    console.log(answer);
+    if (answer === trueAnswer) {
+      setTimeout(() => answerIsTrue(target), 1000);
+      target.style.backgroundColor = "rgba(76, 161, 70, 0.6)";
+    } else {
+      setTimeout(() => answerIsWrong(target), 1000);
+      target.style.backgroundColor = "rgba(229, 35, 61, 0.6)";
+    }
   } else {
-    setTimeout(() => answerIsWrong(target), 1000);
-    target.style.backgroundColor = "rgba(229, 35, 61, 0.6)";
-  }
+    if (target === trueAnswer) {
+      setTimeout(() => answerIsTrue(), 1000);
+      console.log("true");
+    } else {
+      setTimeout(() => answerIsWrong(), 1000);
+      console.log("Wrong");
+    }
+  };
 };
 
-// const questionProgressUpdate = () => {
-//   questionsProgress.innerText = ` ${questionNum} / ${scores} `;
-// };
 const questionsQuantityUpdate = () => {
   questionsQuantity.innerText = questionNum;
 };
@@ -119,7 +126,7 @@ const setButtons = (answers) => {
   const btnSkip = create(
     "button",
     "myRange",
-    "Скасувати",
+    "Пропустити відповідь",
     null,
     ["type", "button"],
     ["id", "skip"]
@@ -131,14 +138,18 @@ const setButtons = (answers) => {
 };
 
 const setRange = (answers) => {
+  const nr = 20; //правильный ответ из базы данных
+  const nd = 18; //правильный нижний диапазон числа из базы данных
+  const nu = 22; //правильный верхний диапазон числа из базы данных
+  const ed = "%"; //единицы измерения из базы данных
   console.log(answers);
   const { max, min } = answers;
   let answer = "";
-  const p = create("p", "myRange", "", null);
+  const p = create("p", "myRange", "", null, ["id", "gen"]);
   const inputRange = create(
     "input",
     "myRange",
-    null,
+    "",
     null,
     ["type", "range"],
     ["id", "numRight"],
@@ -148,7 +159,7 @@ const setRange = (answers) => {
   const btnEnter = create(
     "button",
     "myRange",
-    "Перевірити",
+    "Дати відповідь",
     null,
     ["type", "button"],
     ["id", "enter"]
@@ -156,7 +167,7 @@ const setRange = (answers) => {
   const btnSkip = create(
     "button",
     "i3 item3 skip-answer",
-    "Скасувати",
+    "Пропустити відповідь",
     null,
     ["type", "button"],
     ["id", "skip"]
@@ -179,32 +190,102 @@ const setRange = (answers) => {
     p.innerText = answer;
   });
 
-  btnEnter.addEventListener("click", () => verifyAnswer(p));
+  btnEnter.addEventListener("click", () => verifyRange(p));
   btnSkip.addEventListener("click", () => answerIsWrong());
-  // <div class="range-block1">
-  //     <input
-  //       type="range"
-  //       id="numRight"
-  //       min="1"
-  //       max="100"
-  //       class="myRange"
-  //       oninput="catchNum()"
-  //       />
-  //       <p id="gen" class="myRange"></p>
-  //     </div>
-  //     <div class="range-block2">
-  //       <button
-  //         type="button"
-  //         onclick="onClickNum()"
-  //         id="enter"
-  //         class="myRange"
-  //       ></button>
-  //       <button type="button" id="skip" class="myRange"></button>
-  //     </div>
+
+  const verifyRange = () => {
+
+    let sms = "";
+    let enter = document.getElementById("enter");
+
+    if (p.innerHTML === "") { //проверка на то, что ползунок не двигали
+      show('1', 'visible'); //вывод модального окна
+    } else {//если ползунок двигали, сравниваем его значение с нижней и верхней границей
+    
+    if ((rng.valueAsNumber >= nd) && (rng.valueAsNumber <= nu)) {
+      enter.style.backgroundColor = "rgba(76, 161, 70, 0.6)";//правильный ответ - зеленая кнопка
+    } else {
+      enter.style.backgroundColor = "rgba(229, 35, 61, 0.6)";//неправильный ответ - красная кнопка
+    }
+    sms = nr + ed + " (від " + nd + " до " + nu + ")";//правильный ответ
+    enter.innerHTML = sms;//вывод правильного ответа в кнопку
+  }
+  }; 
 };
 
+function show(op, vis) {
+  document.getElementById("rangeModal").style.opacity = op;
+  document.getElementById("rangeModal").style.visibility = vis;
+  
+}
+
 const setList = (answers) => {
+  let answer;
+  
+  const btnSkip = create(
+    "button",
+    "i3 item3",
+    "Пропустити відповідь",
+    null,
+    ["type", "button"],
+    ["id", "skip"]
+  );
+  btnSkip.addEventListener("click", () => answerIsWrong());
+
+  const selectDivs = [];
+  answers.forEach((answer, i) => {
+    const s = "s" + i;
+    const label = create("label", "selectLabel", answer, null, ["for", s]);
+    const input = create("input",
+      "selectInput",
+      answer,
+      null,
+      ["id", s], ["type", "checkbox"], ["value", answer], ["name", "selectAnsw"]
+    );
+    const selectDiv = create("div", "selectDiv", [label, input], null);
+    selectDivs.push(selectDiv);
+  });
+
+  const listItem1 = create("button",
+    "list-item1",
+    "Оберіть варіанти",
+    null,
+    ["type", "button"], ["id", "btnList", "onclick", "listshow()"]);
+
+  const arrow = create("div", "arrow", null, null, ["onclick", "listshow()"]);
+  const selectDivCommon = create("div", "selectDivCommon", selectDivs, null);
+  const scrollSelect = create("div", "scrollSelect hover", selectDivCommon, null, ["id", "dropup"]);
+  const listup = create("form", "listup", [listItem1, scrollSelect, arrow], null, ["id", "listup"]);
+    const btnEnter = create(
+    "button",
+    "i2 item2",
+    "Дати відповідь",
+    null,
+    ["type", "submit"],
+    ["form", "listup"],
+    ["id", "enter"]
+  );
+  const listBlock = create("div", "list-block", [listup], null);
+  const itemBlock1 = create("div", "item-block1", [listBlock, btnEnter, btnSkip], null, ["id", "list"]);
+  const naviList = create("div", "three-buttons navi-list", [itemBlock1], answersBlock);
+  listup.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const formArray = Array.from(event.target);
+    let answer = [];
+    formArray.forEach((value) => {
+      if(value.checked) answer.push(value.value);
+    });
+    verifyAnswer(answer);
+  });
+
   console.log(answers);
+
+  function listshow() {
+    let list = document.getElementById("dropup");
+
+    list.classList.remove("hover");
+    list.classList.toggle("showList");
+  }
 };
 
 handler();

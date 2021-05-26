@@ -35,7 +35,7 @@ export default function create(el, classNames, child, parent, ...dataAttr) {
 
   // <span id="" data-code=""></span> el.dataset.code = ""  disabled
   if (dataAttr.length) {
-    const atrReg = /value|id|placeholder|type|onClick|min|max|src|alt|onChange/;
+    const atrReg = /value|id|placeholder|type|onClick|min|max|src|alt|onChange|form|for|name|checked/;
     dataAttr.forEach(([attrName, attrValue]) => {
       if (attrValue === "") {
         element.setAttribute(attrName, "");
