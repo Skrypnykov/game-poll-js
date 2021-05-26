@@ -76,7 +76,7 @@
 
           <div class="questions-block">
             <div class="questions_page3 questions" id="questionBlock">
-              <img src="../img/questions/GOALS_Ukr1.png" class="goals" alt="" />
+              <img class="goals" alt="" />
               <p class="questions-text" id="question"></p>
             </div>
           </div>
@@ -88,7 +88,7 @@
       </div>
     </div>
 
-    <div class="pauseModal" id="pauseModal" onclick="start();">
+    <div class="pauseModal" id="pauseModal">
       <div class="control-panel pause-control-panel">
         <div
           class="control-panel-buttons pause-control-panel-buttons"
@@ -103,7 +103,22 @@
       </div>
     </div>
 
-    <script src="../js/timer.js"></script>
+    <div class="rangemodal" id="rangeModal" onclick="show('0', 'hidden');">
+      <div class="rangemodal__window">
+        <div class="rangemodal__content">
+          <img
+            class="img__close"
+            src="../img/close.png"
+            alt=""
+            onclick="show('0', 'hidden');"
+          />
+          <p>Потрібно дати відповідь :-)</p>
+          <button class="button__close">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="../js/timer.js"></script>
     <script type="module" src="../js/questions.js"></script>
   </body>
 </html>
