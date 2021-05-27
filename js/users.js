@@ -45,6 +45,7 @@ export async function register(userData) {
       statusTextRegister.innerText = "Реєстрація виконана";
       $("#modalSignUp").modal("hide");
       signIn(userData);
+      setTimeout(() => statusTextRegister.innerText = "Пароль не менше 8 символів.", 3000);
     })
     .catch((error) => {
       console.log(error.message);
@@ -53,6 +54,7 @@ export async function register(userData) {
       } else {
         statusTextRegister.innerText = "Помилка реєстрації";
       }
+      setTimeout(() => statusTextRegister.innerText = "Пароль не менше 8 символів.", 3000);
     });
 }
 
@@ -93,6 +95,7 @@ export async function signIn(userData) {
         delete responseData.userId;
         localStorage.setItem("userData", JSON.stringify(responseData));
       } else { statusTextSignIn.innerText = "Неверни данни" };
+      setTimeout(() => statusTextSignIn.innerText = "Введіть реєстраційні дані.", 3000);
     })
     .catch((error) => {
       if (error.message === "403 Forbidden") {
@@ -102,6 +105,7 @@ export async function signIn(userData) {
       } else if (error.message) {
         statusTextSignIn.innerText = "Помилка входу";
       }
+      setTimeout(() => statusTextSignIn.innerText = "Введіть реєстраційні дані.", 3000);
     });
 }
 
@@ -142,6 +146,7 @@ export async function recovery(userData) {
       if (responseData) {
         statusTextRecovery.innerText = "Лист відправлено";
         setTimeout(() => $("#modalRecovery").modal("hide"), 2000);
+        setTimeout(() => statusTextRecovery.innerText = "Введіть адресу електронної пошти", 3000);
       };
     })
     .catch((error)=>{ 
@@ -152,5 +157,6 @@ export async function recovery(userData) {
       } else if (error.message) {
         statusTextRecovery.innerText = "Помилка";
       }
+      setTimeout(() => statusTextRecovery.innerText = "Введіть адресу електронної пошти", 3000);
     });
 }
