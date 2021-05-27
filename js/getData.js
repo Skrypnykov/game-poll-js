@@ -12,7 +12,8 @@ export async function apiGet(URL) {
   const response = await fetch(URL, requestProp);
 
   if (!response.ok) {
-    const error = response.status + " " + response.statusText;
+    const error = {status: response.status, statusText: response.statusText};
+    return error
     throw new Error(error);
   }
   const body = await response.json();

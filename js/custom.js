@@ -1,5 +1,4 @@
-import { verifyAuth, register, signIn } from "./users.js";
-import { sendEmail } from "./newpassword.js";
+import { verifyAuth, register, signIn, recovery } from "./users.js";
 
 const registerForm = document.getElementById("signUpForm");
 const signInForm = document.getElementById("signInForm");
@@ -41,7 +40,8 @@ recoveryForm.addEventListener("submit", function (event) {
   formArray.forEach((value) => {
     userData[value.name] = value.value;
   });
-  sendEmail(userData);
+  
+  recovery(userData);  
 });
 
 verifyAuth();
