@@ -1,4 +1,3 @@
-import { apiGet } from "./getData.js";
 import { URL } from "./constants.js";
 
 const statusTextSignIn = document.getElementById("statusTextSignIn");
