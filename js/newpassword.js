@@ -1,31 +1,41 @@
-// import { URL } from "./constants.js";
+import { URL } from "./constants.js";
+import setData from "./setData.js";
 
 const newPassForm = document.getElementById("newPassForm");
 const newPassText = document.getElementById("newPassText");
 
-//  var currentURL = window.location.href;
- var currentURL = window.location.search;
- let params = (new URL(document.location)).searchParams; 
-  console.log(params.get("data"));
- console.log(currentURL, typeof currentURL)
+var currentURL = window.location.search;
+const prefs = currentURL.split("&");
+const userId = prefs[0].slice(6);
+const token = prefs[1].slice(6);
 
 newPassForm.addEventListener("submit", function (event) {
   event.preventDefault();
-  const formArray = Array.from(event.target);
-  let userData = {};
-  formArray.forEach((value) => {
-    userData[value.name] = value.value;
-  });
+  if(userId && token) {
+    const fullUrl = URL + "users/" + userId;
+    const formArray = Array.from(event.target);
+    let formData = {};
+    formArray.forEach((value) => {
+      formData[value.name] = value.value;
+    });
 
-  if(userData.password !== userData.password2) {
+  if(formData.password !== formData.password2) {
     newPassText.innerText = "Пароль і його повтор не збігаються";
-    setTimeout(() => {newPassText.innerText = "Пароль не менше 8 символів"}, 5000);
+    setTimeout(() => {newPassText.innerText = "Пароль не менше 8 символів"}, 4000);
     return
+  } else {
+
+    setData(fullUrl, token, formData).then((res) => {
+      if(res.status) newPassText.innerText = "Пароль встановлений";
+    })
+    .catch((error) => {console.log(error)});
+
   };   
 
-  // signIn(userData);
-
-  newPassText.innerText = "Пароль встановлений";
+  } else { 
+    newPassText.innerText = "Помилка, спробуйте ще раз"; 
+    setTimeout(() => {location.href = "../index.html"}, 4000);
+  }
 
   setTimeout(() => {location.href = "../index.html"}, 4000);
 });
