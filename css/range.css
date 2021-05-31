@@ -104,7 +104,7 @@ input[type="range"]::-moz-range-thumb {
   #enter,
   #skip,
   #btnList {
-    font: normal 500 0.9rem/1rem Roboto;
+    font: normal 500 0.6rem/0.8rem Roboto;
   }
   #gen {
     font: normal 700 1.1rem/1.1rem Roboto;
