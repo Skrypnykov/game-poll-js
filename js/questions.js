@@ -121,9 +121,10 @@ const setQuestion = (questions) => {
 const setButtons = (answers) => {
   const btnsArr = [];
   let naviButtons;
-  
-  if(answers.length > 2) naviButtons = create ("div", "navi-buttons", null, answersBlock);
-    else naviButtons = create ("div", "three-buttons", null, answersBlock);
+
+  if (answers.length > 2)
+    naviButtons = create("div", "navi-buttons", null, answersBlock);
+  else naviButtons = create("div", "three-buttons", null, answersBlock);
 
   // <div class="three-buttons"> <div id="buttons3" class="item-block1">
   // <button class="i1 item1">YES
@@ -132,15 +133,15 @@ const setButtons = (answers) => {
 
   answers.forEach((answer, i) => {
     let btn;
-    if(answers.length > 2) btn = create("button", `item${i}`, answer);
-      else btn = create("button", `i${i + 1} item${i + 1}`, answer);
+    if (answers.length > 2) btn = create("button", `item${i}`, answer);
+    else btn = create("button", `i${i + 1} item${i + 1}`, answer);
     btn.addEventListener("click", (e) => verifyAnswer(e.target));
     btnsArr.push(btn);
   });
 
   const btnSkip = create(
     "button",
-    "item3 skip-answer",
+    "i3 item3 skip-answer",
     "Наступне питання",
     null,
     ["type", "button"],
@@ -149,8 +150,13 @@ const setButtons = (answers) => {
   btnSkip.addEventListener("click", (e) => verifyAnswer(e.target));
   btnsArr.push(btnSkip);
   let itemBlock1;
-  if(answers.length > 2) itemBlock1 = create("div", "item-block1", btnsArr, naviButtons);
-    else itemBlock1 = create("div", "item-block1", btnsArr, naviButtons, ["id", "buttons3"]);
+  if (answers.length > 2)
+    itemBlock1 = create("div", "item-block1", btnsArr, naviButtons);
+  else
+    itemBlock1 = create("div", "item-block1", btnsArr, naviButtons, [
+      "id",
+      "buttons3",
+    ]);
 };
 
 const setRange = (answers) => {
@@ -163,7 +169,10 @@ const setRange = (answers) => {
   let answer = "";
   const p = create("p", "myRange", "", null, ["id", "gen"]);
 
-  const naviButtons = create ("div", "navi-buttons", null, answersBlock, ["id", "rangeBlock"]);
+  const naviButtons = create("div", "navi-buttons", null, answersBlock, [
+    "id",
+    "rangeBlock",
+  ]);
 
   const inputRange = create(
     "input",
@@ -185,7 +194,7 @@ const setRange = (answers) => {
   );
   const btnSkip = create(
     "button",
-    "i3 item3 skip-answer",
+    "myRange",
     "Наступне питання",
     null,
     ["type", "button"],

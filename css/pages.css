@@ -557,15 +557,12 @@
   }
   .i1 {
     grid-area: i1;
-    -ms-grid-area: i1;
   }
   .i2 {
     grid-area: i2;
-    -ms-grid-area: i2;
   }
   .i3 {
     grid-area: i3;
-    -ms-grid-area: i3;
   }
   #skipAnswer {
     padding: 0 0 0.7rem 0;
