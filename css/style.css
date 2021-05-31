@@ -166,6 +166,10 @@ embed {
   justify-self: start;
 }
 
+.newpassform {
+  min-width: 20rem;
+}
+
 /* animate buttons */
 @media (prefers-reduced-motion: no-preference) {
   .control-panel-buttons {
