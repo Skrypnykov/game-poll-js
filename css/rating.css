@@ -6,7 +6,7 @@
 } */
 
 .rating-scroll {
-  height: 80%;
+  height: 70%;
   width: 95%;
   position: absolute;
   overflow-y: auto;
@@ -51,6 +51,13 @@
   margin-bottom: 0;
   align-self: center;
   -ms-grid-row: 1;
+}
+p.advice {
+  font-size: 0.55rem;
+  font-style: italic;
+  padding: 0 0.3rem;
+  color: #f50516;
+  -ms-grid-row: 2;
 }
 
 .rating-window-list {
@@ -185,8 +192,8 @@
   }
   .rating .wrapper-dropdown-2 {
     /* grid-area: nav; */
-    grid-row: 6;
-    -ms-grid-row: 6;
+    grid-row: 4;
+    -ms-grid-row: 4;
   }
   .btn-bottom-res {
     width: 11.88rem;
