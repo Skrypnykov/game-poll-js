@@ -297,8 +297,11 @@ const setList = (answers) => {
     ["type", "button"],
     ["id", "btnList", "onclick", "listshow()"]
   );
+  const arrow = create("div", "arrow", null, null);
 
-  const arrow = create("div", "arrow", null, null, ["onclick", "listshow()"]);
+  listItem1.addEventListener("click", listshow);
+  arrow.addEventListener("click", listshow);
+
   const selectDivCommon = create("div", "selectDivCommon", selectDivs, null);
   const scrollSelect = create(
     "div",
@@ -337,6 +340,7 @@ const setList = (answers) => {
     [itemBlock1],
     answersBlock
   );
+
   listup.addEventListener("submit", function (event) {
     event.preventDefault();
     const formArray = Array.from(event.target);
