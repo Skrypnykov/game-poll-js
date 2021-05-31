@@ -17,6 +17,7 @@ const questionsQuantity = document.getElementById("questionsQuantity"),
 let questionNum = 1,
   scores = 0,
   trueAnswer = "",
+  trueAnswerBlock = {},
   questionsArr = [];
 let elem = document.getElementById("timer");
 
@@ -71,6 +72,7 @@ const verifyAnswer = (target) => {
     } else {
       setTimeout(() => answerIsWrong(target), 1000);
       target.style.backgroundColor = "rgba(229, 35, 61, 0.6)";
+      trueAnswerBlock.style.backgroundColor = "rgba(76, 161, 70, 0.6)";
     }
   } else {
     if (target === trueAnswer) {
@@ -141,6 +143,7 @@ const setButtons = (answers) => {
     if (answers.length > 2) btn = create("button", `item${i}`, answer);
     else btn = create("button", `i${i + 1} item${i + 1}`, answer);
     btn.addEventListener("click", (e) => verifyAnswer(e.target));
+    if(answer === trueAnswer) trueAnswerBlock = btn;
     btnsArr.push(btn);
   });
 
