@@ -126,11 +126,6 @@ const setButtons = (answers) => {
     naviButtons = create("div", "navi-buttons", null, answersBlock);
   else naviButtons = create("div", "three-buttons", null, answersBlock);
 
-  // <div class="three-buttons"> <div id="buttons3" class="item-block1">
-  // <button class="i1 item1">YES
-  // <button class="i2 item2">NO
-  // <button class="i3 item3 skip-answer">Проп
-
   answers.forEach((answer, i) => {
     let btn;
     if (answers.length > 2) btn = create("button", `item${i}`, answer);
@@ -139,9 +134,11 @@ const setButtons = (answers) => {
     btnsArr.push(btn);
   });
 
+  const skipClass = answers.length > 2 ? "item3" : "i3 item3 skip-answer";
+  
   const btnSkip = create(
     "button",
-    "i3 item3 skip-answer",
+    skipClass,
     "Наступне питання",
     null,
     ["type", "button"],
@@ -150,9 +147,13 @@ const setButtons = (answers) => {
   btnSkip.addEventListener("click", (e) => verifyAnswer(e.target));
   btnsArr.push(btnSkip);
   let itemBlock1;
-  if (answers.length > 2)
-    itemBlock1 = create("div", "item-block1", btnsArr, naviButtons);
-  else
+  let itemBlock2;
+
+  if (answers.length > 2) {
+    console.log(btnsArr.slice(0, 2))
+    itemBlock1 = create("div", "item-block1", btnsArr.slice(0, 2), naviButtons);
+    itemBlock2 = create("div", "item-block2", btnsArr.slice(2), naviButtons);
+  } else
     itemBlock1 = create("div", "item-block1", btnsArr, naviButtons, [
       "id",
       "buttons3",
