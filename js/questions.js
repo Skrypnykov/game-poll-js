@@ -8,6 +8,7 @@ const questionsQuantity = document.getElementById("questionsQuantity"),
   questionBlock = document.getElementById("questionBlock"),
   answersBlock = document.getElementById("answersBlock"),
   headerBlock = document.querySelector(".header-wrapper"),
+  userInfo = document.getElementById("userInfo"),
   questionText = document.getElementById("question"),
   goals = document.querySelector(".goals"),
   bg = document.querySelector(".page"),
@@ -25,6 +26,7 @@ async function handler() {
     if (questions) {
       setQuestion(questions);
     }
+    setUserInfo();
   });
   // ПОСЛЕ РАЗРАБОТКИ РАСКОММЕНТИРОВАТЬ
   // .catch((error) => {
@@ -87,6 +89,14 @@ const questionsQuantityUpdate = () => {
 
 const questionsScoreUpdate = () => {
   questionsScore.innerText = scores;
+};
+
+const setUserInfo = () => {
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  console.log(userData.email)
+
+  if (userData) userInfo.innerText = "Вітаємо " + userData.email;
+
 };
 
 const setQuestion = (questions) => {

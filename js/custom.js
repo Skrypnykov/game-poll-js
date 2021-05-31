@@ -3,7 +3,6 @@ import { verifyAuth, register, signIn, recovery } from "./users.js";
 const registerForm = document.getElementById("signUpForm");
 const signInForm = document.getElementById("signInForm");
 const recoveryForm = document.getElementById("recoveryForm");
-const signInOutButton = document.getElementById("signInOutButton");
 const btnStart = document.querySelector(".btn-start");
 
 btnStart.addEventListener("click", onClickSpin);
