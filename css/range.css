@@ -56,6 +56,7 @@ input[type="range"]::-moz-range-thumb {
 .myRange,
 #gen,
 #enter,
+#skip,
 .navi-buttons input {
   height: 3.5rem;
   border: 0.76vh solid #939292;
@@ -95,20 +96,22 @@ input[type="range"]::-moz-range-thumb {
 @media (max-width: 768px) {
   #rangeBlock {
     /*Важно!!! Меняем местами 2-ю и 3-ю кнопки */
-    grid-template-columns: 100vw;
-    -ms-grid-columns: 100vw;
+    grid-template-columns: calc(100vw - 0.6rem);
+    -ms-grid-columns: calc(100vw - 0.6rem);
   }
 }
 @media (max-width: 576px) {
-  #gen,
-  #enter {
+  #enter,
+  #skip {
+    font: normal 500 0.9rem/1rem Roboto;
+  }
+  #gen {
     font: normal 700 1.1rem/1.1rem Roboto;
   }
 }
 
 @media (max-width: 375px) {
-  #gen,
-  #enter {
+  #gen {
     font: normal 500 0.9rem/0.9rem Roboto;
   }
 }
