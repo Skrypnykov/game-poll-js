@@ -293,7 +293,7 @@
                   </div>
                 </div>
               </div>
-              <span class="badge badge-pill badge-info" id="status2Text"
+              <span class="badge badge-pill badge-info" id="statusTextRegister"
                 >Пароль не менше 8 символів</span
               >
               <div class="d-flex justify-content-center">
@@ -350,7 +350,7 @@
                   oninvalid="this.setCustomValidity('Будь ласка, введіть свій пароль')" oninput="setCustomValidity('')"
                 />
               </div>
-              <span class="badge badge-pill badge-info" id="statusText">
+              <span class="badge badge-pill badge-info" id="statusTextSignIn">
                 Введіть реєстраційні дані.
               </span>
               <span
@@ -400,10 +400,9 @@
                 class="form-control" 
                 id="email2" 
                 name="email" 
-                required 
-                oninvalid="this.setCustomValidity('Будь ласка, введіть адресу електронної пошти')" oninput="setCustomValidity('')"/>
+                required />
              </div>
-             <span class="badge badge-pill badge-info" id="statusText">Введіть адресу електронної пошти</span>
+             <span class="badge badge-pill badge-info" id="statusTextRecovery">Введіть адресу електронної пошти</span>
              <div class="d-flex justify-content-center">
                <button type="submit" class="btn btn-primary btn-form-sign-in" id="sendMailButton">
                 Відновити
