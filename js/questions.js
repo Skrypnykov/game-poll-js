@@ -10,8 +10,10 @@ const questionsQuantity = document.getElementById("questionsQuantity"),
   headerBlock = document.querySelector(".header-wrapper"),
   userInfo = document.getElementById("userInfo"),
   questionText = document.getElementById("question"),
+  modalText = document.getElementById("modalText"),
   goals = document.querySelector(".goals"),
   bg = document.querySelector(".page"),
+  timer = document.getElementById("timer"),
   fullUrl = URL + "questions/all";
 
 let questionNum = 1,
@@ -19,7 +21,6 @@ let questionNum = 1,
   trueAnswer = "",
   trueAnswerBlock = {},
   questionsArr = [];
-let elem = document.getElementById("timer");
 
 async function handler() {
   apiGet(fullUrl).then((responseData) => {
@@ -45,8 +46,8 @@ const nextQuestion = () => {
     questionNum = questionNum + 1;
     questionText.innerText = "";
     answersBlock.innerText = "";
-    elem.value = 90;
-    start(elem.value);
+    timer.value = 90;
+    start(timer.value);
     setQuestion();
   }
 };
@@ -174,12 +175,15 @@ const setButtons = (answers) => {
 };
 
 const setRange = (answers) => {
-  const nr = 20; //правильный ответ из базы данных
-  const nd = 18; //правильный нижний диапазон числа из базы данных
-  const nu = 22; //правильный верхний диапазон числа из базы данных
-  const ed = "%"; //единицы измерения из базы данных
+  // const nr = 20; //правильный ответ из базы данных
   console.log(answers);
-  const { max, min } = answers;
+  const trueAnswerArr = trueAnswer.split("-");
+  const nr = trueAnswer; //правильный ответ из базы данных
+  const nd = trueAnswerArr[0]; //правильный нижний диапазон числа из базы данных
+  const nu = trueAnswerArr[1]; //правильный верхний диапазон числа из базы данных
+  const ed = answers[2]; //единицы измерения из базы данных
+  const min = answers[0];
+  const max = answers[1];
   let answer = "";
   const p = create("p", "myRange", "", null, ["id", "gen"]);
 
@@ -242,12 +246,14 @@ const setRange = (answers) => {
     if (p.innerHTML === "") {
       $("#modalRange").modal("show");
     } else {
-      if (rng.valueAsNumber >= nd && rng.valueAsNumber <= nu) {
+      if (inputRange.valueAsNumber >= nd && inputRange.valueAsNumber <= nu) {
         enter.style.backgroundColor = "rgba(76, 161, 70, 0.6)"; //правильный ответ - зеленая кнопка
+        setTimeout(() => answerIsTrue(), 2000);
       } else {
         enter.style.backgroundColor = "rgba(229, 35, 61, 0.6)"; //неправильный ответ - красная кнопка
+        setTimeout(() => answerIsWrong(), 3000);
       }
-      sms = nr + ed + " (від " + nd + " до " + nu + ")"; //правильный ответ
+      sms = trueAnswer + ed + " (від " + nd + " до " + nu + ")"; //правильный ответ
       enter.innerHTML = sms; //вывод правильного ответа в кнопку
     }
   };
