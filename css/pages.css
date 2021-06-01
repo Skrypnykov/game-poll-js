@@ -94,6 +94,9 @@
   width: 7rem;
   justify-self: center;
 }
+.tablo1 {
+  min-width: 7rem;
+}
 .btn-pause,
 .btn-quit,
 .tablo1,
@@ -167,17 +170,19 @@
   content: "";
   width: 16%;
   margin-top: -0.6rem;
-  margin-left: -0.6rem;
+  margin-left: -0.5rem;
   float: left;
   aspect-ratio: 1/1;
 }
 .text-wrapper {
   position: relative;
   height: 100%;
+  width: 100%;
 }
 .questions-text {
   padding: 1rem 2rem;
   text-align: center;
+  margin-bottom: 0;
 }
 
 .navi-row {
