@@ -47,7 +47,7 @@
   border: none;
 }
 /* подсказки */
-.progress span.info-que {
+.progres span.info-que {
   margin-left: -999em;
   position: absolute;
   padding: 0.5em 0.5em 0.5em 2em;
@@ -61,7 +61,7 @@
   -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
 }
-.progress:hover span.info-que {
+.progres:hover span.info-que {
   top: 115%;
   z-index: 2500;
   margin-left: -50%;
@@ -73,7 +73,7 @@
 .fa-star:hover span {
   left: -6em;
 }
-.progress:hover img {
+.progres:hover img {
   border: 0;
   margin: -20px 0 0 -55px;
   float: left;
@@ -610,7 +610,7 @@
     -ms-grid-columns: 55% 45%;
     gap: 0;
   }
-  .progress:hover span.info-que {
+  .progres:hover span.info-que {
     margin-left: -10%;
   }
 }
@@ -754,7 +754,7 @@
     grid-template-columns: repeat(auto-fit, minmax(10rem, 14rem));
     -ms-grid-columns: repeat(auto-fit, minmax(10rem, 14rem));
   }
-  .progress:hover span.info-que {
+  .progres:hover span.info-que {
     margin-left: -20%;
   }
 }

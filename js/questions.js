@@ -57,7 +57,7 @@ const answerIsTrue = (target) => {
   nextQuestion();
 };
 
-const answerIsWrong = (target) => {
+export const answerIsWrong = (target) => {
   console.log("wrong", trueAnswer);
   nextQuestion();
 };
@@ -240,11 +240,8 @@ const setRange = (answers) => {
     let enter = document.getElementById("enter");
 
     if (p.innerHTML === "") {
-      //проверка на то, что ползунок не двигали
-      show("1", "visible"); //вывод модального окна
+      $("#modalRange").modal("show");
     } else {
-      //если ползунок двигали, сравниваем его значение с нижней и верхней границей
-
       if (rng.valueAsNumber >= nd && rng.valueAsNumber <= nu) {
         enter.style.backgroundColor = "rgba(76, 161, 70, 0.6)"; //правильный ответ - зеленая кнопка
       } else {
@@ -256,7 +253,7 @@ const setRange = (answers) => {
   };
 };
 
-function show(op, vis) {
+export function toggleShow(op, vis) {
   document.getElementById("rangeModal").style.opacity = op;
   document.getElementById("rangeModal").style.visibility = vis;
 }
@@ -351,7 +348,8 @@ const setList = (answers) => {
     formArray.forEach((value) => {
       if (value.checked) answer.push(value.value);
     });
-    verifyAnswer(answer);
+    if(answer.length < 1) $("#modalRange").modal("show");
+    else verifyAnswer(answer);
   });
 
   console.log(answers);
@@ -365,4 +363,3 @@ const setList = (answers) => {
 };
 
 handler();
-export default answerIsWrong;
