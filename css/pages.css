@@ -149,7 +149,7 @@
   background-color: #f4f3f3;
   position: relative;
   border: 0.6rem solid;
-  font: normal 500 0.9rem/0.9rem Roboto;
+  font: normal 500 0.9rem/1rem Roboto;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -621,6 +621,9 @@
 }
 
 @media (max-width: 768px) {
+  .questions {
+    font: normal 500 0.8rem/1rem Roboto;
+  }
   .pause {
     display: grid;
     display: -ms-grid;
