@@ -4,7 +4,6 @@ import create from "./create.js";
 import { URL } from "./constants.js";
 import start from "./timer.js";
 
-
 const questionsQuantity = document.getElementById("questionsQuantity"),
   questionsScore = document.getElementById("questionsScore"),
   questionBlock = document.getElementById("questionBlock"),
@@ -41,8 +40,8 @@ async function handler() {
 }
 
 const seeResult = () => {
-  localStorage.setItem("result", scores)
-  setTimeout(() => location.href = "./result.html", 1000);
+  localStorage.setItem("result", scores);
+  setTimeout(() => (location.href = "./result.html"), 1000);
 };
 
 const nextQuestion = () => {
@@ -101,10 +100,9 @@ const questionsScoreUpdate = () => {
 
 const setUserInfo = () => {
   const userData = JSON.parse(localStorage.getItem("userData"));
-  console.log(userData.email)
+  console.log(userData.email);
 
   if (userData) userInfo.innerText = "Вітаємо " + userData.email;
-
 };
 
 const setQuestion = (questions) => {
@@ -148,13 +146,15 @@ const setButtons = (answers) => {
     let btn;
     if (answers.length > 2) btn = create("button", `item${i}`, answer);
     else btn = create("button", `i${i + 1} item${i + 1}`, answer);
-    btn.addEventListener("click", (e) => verifyAnswer(e.target));
-    if(answer === trueAnswer) trueAnswerBlock = btn;
+    btn.addEventListener("click", (e) => verifyAnswer(e.target), {
+      once: true,
+    });
+    if (answer === trueAnswer) trueAnswerBlock = btn;
     btnsArr.push(btn);
   });
 
   const skipClass = answers.length > 2 ? "item3" : "i3 item3 skip-answer";
-  
+
   const btnSkip = create(
     "button",
     skipClass,
@@ -163,13 +163,15 @@ const setButtons = (answers) => {
     ["type", "button"],
     ["id", "skip"]
   );
-  btnSkip.addEventListener("click", (e) => verifyAnswer(e.target));
+  btnSkip.addEventListener("click", (e) => verifyAnswer(e.target), {
+    once: true,
+  });
   btnsArr.push(btnSkip);
   let itemBlock1;
   let itemBlock2;
 
   if (answers.length > 2) {
-    console.log(btnsArr.slice(0, 2))
+    console.log(btnsArr.slice(0, 2));
     itemBlock1 = create("div", "item-block1", btnsArr.slice(0, 2), naviButtons);
     itemBlock2 = create("div", "item-block2", btnsArr.slice(2), naviButtons);
   } else
@@ -241,7 +243,7 @@ const setRange = (answers) => {
     p.innerText = answer;
   });
 
-  btnEnter.addEventListener("click", () => verifyRange(p));
+  btnEnter.addEventListener("click", () => verifyRange(p), { once: true });
   btnSkip.addEventListener("click", () => answerIsWrong());
 
   const verifyRange = () => {
@@ -250,6 +252,7 @@ const setRange = (answers) => {
 
     if (p.innerHTML === "") {
       $("#modalRange").modal("show");
+      btnEnter.addEventListener("click", () => verifyRange(p), { once: true });
     } else {
       if (inputRange.valueAsNumber >= nd && inputRange.valueAsNumber <= nu) {
         enter.style.backgroundColor = "rgba(76, 161, 70, 0.6)"; //правильный ответ - зеленая кнопка
@@ -288,7 +291,7 @@ const setList = (answers) => {
   btnSkip.addEventListener("click", () => {
     setTimeout(() => answerIsWrong(), 1000);
     btnEnter.style.backgroundColor = "rgba(229, 35, 61, 0.6)";
-    });
+  });
 
   const selectDivs = [];
   answers.forEach((answer, i) => {
@@ -358,7 +361,7 @@ const setList = (answers) => {
     formArray.forEach((value) => {
       if (value.checked) answer.push(value.value);
     });
-    if(answer.length < 1) $("#modalRange").modal("show");
+    if (answer.length < 1) $("#modalRange").modal("show");
     else verifyAnswer(answer);
   });
 
