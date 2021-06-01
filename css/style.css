@@ -565,7 +565,7 @@ button.close {
 @media (max-width: 890px) {
   .new {
     grid-template-columns: 1fr;
-    grid-template-rows: 12% 46% 12% 10% 10% 10%;
+    grid-template-rows: 12% 44% 11% 11% 11% 11%;
     /* grid-template-areas:
       "wel"
       "ear"
@@ -574,7 +574,7 @@ button.close {
       "bl"
       "bl"; */
     -ms-grid-columns: 1fr;
-    -ms-grid-rows: 12% 46% 12% 10% 10% 10%;
+    -ms-grid-rows: 12% 44% 11% 11% 11% 11%;
     justify-content: stretch;
   }
   .welcome-main,
@@ -587,13 +587,13 @@ button.close {
   }
   .dropdown-navbar {
     /* grid-area: nav; */
-    grid-row: 3;
-    -ms-grid-row: 3;
+    grid-row: 4;
+    -ms-grid-row: 4;
   }
   .down-right {
     /* grid-area: br; */
-    grid-row: 4;
-    -ms-grid-row: 4;
+    grid-row: 3;
+    -ms-grid-row: 3;
   }
   .down-left {
     /* grid-area: bl; */
@@ -601,7 +601,14 @@ button.close {
     -ms-grid-row: 5;
     -ms-grid-row-span: 2;
   }
-
+  .btn-sign-up {
+    grid-row: 2;
+    -ms-grid-row: 2;
+  }
+  .btn-sign-in {
+    grid-row: 1;
+    -ms-grid-row: 1;
+  }
   .navi-left .btn-sign-up,
   .navi-left .btn-sign-in,
   .navi-right .btn-start,
@@ -679,7 +686,7 @@ button.close {
   }
 
   .wrapper-dropdown-2 .dropdown {
-    top: -18rem;
+    top: -21rem;
     padding-bottom: 15%;
     border-bottom: none;
     border-top: 4px solid rgba(147, 146, 146, 0.8);

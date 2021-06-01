@@ -47,7 +47,7 @@
   border: none;
 }
 /* подсказки */
-.progress span.info-que {
+.progres span.info-que {
   margin-left: -999em;
   position: absolute;
   padding: 0.5em 0.5em 0.5em 2em;
@@ -61,7 +61,7 @@
   -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
 }
-.progress:hover span.info-que {
+.progres:hover span.info-que {
   top: 115%;
   z-index: 2500;
   margin-left: -50%;
@@ -73,7 +73,7 @@
 .fa-star:hover span {
   left: -6em;
 }
-.progress:hover img {
+.progres:hover img {
   border: 0;
   margin: -20px 0 0 -55px;
   float: left;
@@ -94,6 +94,9 @@
   width: 7rem;
   justify-self: center;
 }
+.tablo1 {
+  min-width: 7rem;
+}
 .btn-pause,
 .btn-quit,
 .tablo1,
@@ -110,7 +113,7 @@
 .tablo2 {
   border: 0.6vh solid rgba(147, 146, 146, 0.8);
   border-radius: 3vh;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.5rem;
   background: rgba(53, 196, 232, 0.8);
 }
 #timer {
@@ -148,19 +151,38 @@
   border: 0.6rem solid;
   font: normal 500 0.9rem/1rem Roboto;
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .goals {
   width: 16%;
-  position: relative;
+  position: absolute;
   top: -0.6rem;
   left: -0.6rem;
   float: left;
   margin-right: 0.5rem;
 }
 
+.text-wrapper::before {
+  display: inline-block;
+  content: "";
+  width: 16%;
+  margin-top: -0.6rem;
+  margin-left: -0.5rem;
+  float: left;
+  aspect-ratio: 1/1;
+}
+.text-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
 .questions-text {
   padding: 1rem 2rem;
+  text-align: center;
+  margin-bottom: 0;
 }
 
 .navi-row {
@@ -593,12 +615,15 @@
     -ms-grid-columns: 55% 45%;
     gap: 0;
   }
-  .progress:hover span.info-que {
+  .progres:hover span.info-que {
     margin-left: -10%;
   }
 }
 
 @media (max-width: 768px) {
+  .questions {
+    font: normal 500 0.8rem/1rem Roboto;
+  }
   .pause {
     display: grid;
     display: -ms-grid;
@@ -617,6 +642,14 @@
   .page-hover {
     grid-template-rows: 5rem 1fr;
     -ms-grid-rows: 5rem 1fr;
+  }
+  .questions {
+    border-width: 0.5rem;
+  }
+
+  .goals {
+    top: -0.5rem;
+    left: -0.5rem;
   }
 }
 
@@ -645,7 +678,7 @@
   .three-buttons button,
   .navi-buttons form input,
   .three-buttons form input {
-    font: normal 500 0.6rem/0.8rem Roboto;
+    font: normal 500 0.6rem/0.7rem Roboto;
   }
 }
 @media (max-width: 375px) {
@@ -683,7 +716,7 @@
   }
   .tablo1,
   .tablo2 {
-    padding: 0.4rem 1rem;
+    padding: 0.4rem 0.5rem;
   }
   .item-block1,
   .item-block2,
@@ -729,7 +762,7 @@
     grid-template-columns: repeat(auto-fit, minmax(10rem, 14rem));
     -ms-grid-columns: repeat(auto-fit, minmax(10rem, 14rem));
   }
-  .progress:hover span.info-que {
+  .progres:hover span.info-que {
     margin-left: -20%;
   }
 }
