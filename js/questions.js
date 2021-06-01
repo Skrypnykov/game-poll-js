@@ -30,7 +30,7 @@ async function handler() {
     const questions = responseData;
     if (questions) {
       setQuestion(questions);
-      // questionMax = questions.length;
+      questionMax = questions.length;
     }
     setUserInfo();
   });
@@ -267,6 +267,15 @@ const setRange = (answers) => {
 const setList = (answers) => {
   let answer;
 
+  const btnEnter = create(
+    "button",
+    "i2 item2",
+    "Дати відповідь",
+    null,
+    ["type", "submit"],
+    ["form", "listup"],
+    ["id", "enter"]
+  );
   const btnSkip = create(
     "button",
     "i3 item3",
@@ -275,7 +284,11 @@ const setList = (answers) => {
     ["type", "button"],
     ["id", "skip"]
   );
-  btnSkip.addEventListener("click", () => serTimeout(() => answerIsWrong(), 1000));
+
+  btnSkip.addEventListener("click", () => {
+    setTimeout(() => answerIsWrong(), 1000);
+    btnEnter.style.backgroundColor = "rgba(229, 35, 61, 0.6)";
+    });
 
   const selectDivs = [];
   answers.forEach((answer, i) => {
@@ -322,15 +335,6 @@ const setList = (answers) => {
     [listItem1, scrollSelect, arrow],
     null,
     ["id", "listup"]
-  );
-  const btnEnter = create(
-    "button",
-    "i2 item2",
-    "Дати відповідь",
-    null,
-    ["type", "submit"],
-    ["form", "listup"],
-    ["id", "enter"]
   );
   const listBlock = create("div", "list-block", [listup], null);
   const itemBlock1 = create(
