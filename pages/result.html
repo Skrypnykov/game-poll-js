@@ -36,9 +36,7 @@
       </div>
 
       <div class="rules result">
-        <span class="welcome-main welcome-rules infospan top"
-          >Вітаємо,&nbsp;Fighter@gmail.com</span
-        >
+        <span class="welcome-main welcome-rules infospan top" id="userInfo"></span>
         <div class="field-block title">
           <span id="rules" class="btn-bottom-bl">Ваш результат</span>
         </div>
@@ -68,9 +66,7 @@
           <div class="content-rules-description content-rating">
             <div class="scroll scroll-result">
               <h2>Вітаємо,</h2>
-              <p class="scores-result">
-                <b>Fighter@gmail.com, <br />ви набрали 60&nbsp;балів.</b>
-              </p>
+              <p class="scores-result" id="scoreResult"></p>
               <p class="text-result">
                 Тепер ви на&nbsp;крок ближче до&nbsp;досягнення Цілей сталого
                 розвитку ООН
@@ -94,5 +90,17 @@
     <!-- end main -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="../js/dropdown.js"></script>
+    <script>
+      const result = localStorage.getItem("result");
+      const userData = JSON.parse(localStorage.getItem("userData"));
+      const scoreResult = document.getElementById("scoreResult");
+      const userInfo = document.getElementById("userInfo");
+      userInfo.innerHTML = userData ? `Вітаємо, ${userData.email}` : "Вітаємо";
+      console.log(result);
+      if (result) {
+        scoreResult.innerHTML = `<b>${userData.email}, <br>ви набрали ${result} балів.</b>`
+      }
+
+    </script>
   </body>
 </html>

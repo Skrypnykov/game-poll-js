@@ -1,7 +1,9 @@
 import { apiGet } from "./getData.js";
 import create from "./create.js";
-import { URL, questionMax } from "./constants.js";
+// import { URL, questionMax } from "./constants.js";
+import { URL } from "./constants.js";
 import start from "./timer.js";
+
 
 const questionsQuantity = document.getElementById("questionsQuantity"),
   questionsScore = document.getElementById("questionsScore"),
@@ -17,6 +19,7 @@ const questionsQuantity = document.getElementById("questionsQuantity"),
   fullUrl = URL + "questions/all";
 
 let questionNum = 1,
+  questionMax = 20,
   scores = 0,
   trueAnswer = "",
   trueAnswerBlock = {},
@@ -27,6 +30,7 @@ async function handler() {
     const questions = responseData;
     if (questions) {
       setQuestion(questions);
+      // questionMax = questions.length;
     }
     setUserInfo();
   });
@@ -37,11 +41,12 @@ async function handler() {
 }
 
 const seeResult = () => {
-  console.log("you result");
+  localStorage.setItem("result", scores)
+  setTimeout(() => location.href = "./result.html", 1000);
 };
 
 const nextQuestion = () => {
-  if (questionNum === questionMax) seeResult();
+  if (questionNum >= questionMax) seeResult();
   else {
     questionNum = questionNum + 1;
     questionText.innerText = "";
@@ -259,11 +264,6 @@ const setRange = (answers) => {
   };
 };
 
-export function toggleShow(op, vis) {
-  document.getElementById("rangeModal").style.opacity = op;
-  document.getElementById("rangeModal").style.visibility = vis;
-}
-
 const setList = (answers) => {
   let answer;
 
@@ -275,7 +275,7 @@ const setList = (answers) => {
     ["type", "button"],
     ["id", "skip"]
   );
-  btnSkip.addEventListener("click", () => answerIsWrong());
+  btnSkip.addEventListener("click", () => serTimeout(() => answerIsWrong(), 1000));
 
   const selectDivs = [];
   answers.forEach((answer, i) => {
