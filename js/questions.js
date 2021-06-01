@@ -1,6 +1,7 @@
 import { apiGet } from "./getData.js";
 import create from "./create.js";
-import { URL, questionMax } from "./constants.js";
+// import { URL, questionMax } from "./constants.js";
+import { URL } from "./constants.js";
 import start from "./timer.js";
 
 const questionsQuantity = document.getElementById("questionsQuantity"),
@@ -10,22 +11,25 @@ const questionsQuantity = document.getElementById("questionsQuantity"),
   headerBlock = document.querySelector(".header-wrapper"),
   userInfo = document.getElementById("userInfo"),
   questionText = document.getElementById("question"),
+  modalText = document.getElementById("modalText"),
   goals = document.querySelector(".goals"),
   bg = document.querySelector(".page"),
+  timer = document.getElementById("timer"),
   fullUrl = URL + "questions/all";
 
 let questionNum = 1,
+  questionMax = 20,
   scores = 0,
   trueAnswer = "",
   trueAnswerBlock = {},
   questionsArr = [];
-let elem = document.getElementById("timer");
 
 async function handler() {
   apiGet(fullUrl).then((responseData) => {
     const questions = responseData;
     if (questions) {
       setQuestion(questions);
+      questionMax = questions.length;
     }
     setUserInfo();
   });
@@ -36,17 +40,18 @@ async function handler() {
 }
 
 const seeResult = () => {
-  console.log("you result");
+  localStorage.setItem("result", scores);
+  setTimeout(() => (location.href = "./result.html"), 1000);
 };
 
 const nextQuestion = () => {
-  if (questionNum === questionMax) seeResult();
+  if (questionNum >= questionMax) seeResult();
   else {
     questionNum = questionNum + 1;
     questionText.innerText = "";
     answersBlock.innerText = "";
-    elem.value = 90;
-    start(elem.value);
+    timer.value = 90;
+    start(timer.value);
     setQuestion();
   }
 };
@@ -95,10 +100,9 @@ const questionsScoreUpdate = () => {
 
 const setUserInfo = () => {
   const userData = JSON.parse(localStorage.getItem("userData"));
-  console.log(userData.email)
+  console.log(userData.email);
 
   if (userData) userInfo.innerText = "Вітаємо " + userData.email;
-
 };
 
 const setQuestion = (questions) => {
@@ -142,13 +146,15 @@ const setButtons = (answers) => {
     let btn;
     if (answers.length > 2) btn = create("button", `item${i}`, answer);
     else btn = create("button", `i${i + 1} item${i + 1}`, answer);
-    btn.addEventListener("click", (e) => verifyAnswer(e.target));
-    if(answer === trueAnswer) trueAnswerBlock = btn;
+    btn.addEventListener("click", (e) => verifyAnswer(e.target), {
+      once: true,
+    });
+    if (answer === trueAnswer) trueAnswerBlock = btn;
     btnsArr.push(btn);
   });
 
   const skipClass = answers.length > 2 ? "item3" : "i3 item3 skip-answer";
-  
+
   const btnSkip = create(
     "button",
     skipClass,
@@ -157,13 +163,15 @@ const setButtons = (answers) => {
     ["type", "button"],
     ["id", "skip"]
   );
-  btnSkip.addEventListener("click", (e) => verifyAnswer(e.target));
+  btnSkip.addEventListener("click", (e) => verifyAnswer(e.target), {
+    once: true,
+  });
   btnsArr.push(btnSkip);
   let itemBlock1;
   let itemBlock2;
 
   if (answers.length > 2) {
-    console.log(btnsArr.slice(0, 2))
+    console.log(btnsArr.slice(0, 2));
     itemBlock1 = create("div", "item-block1", btnsArr.slice(0, 2), naviButtons);
     itemBlock2 = create("div", "item-block2", btnsArr.slice(2), naviButtons);
   } else
@@ -174,12 +182,15 @@ const setButtons = (answers) => {
 };
 
 const setRange = (answers) => {
-  const nr = 20; //правильный ответ из базы данных
-  const nd = 18; //правильный нижний диапазон числа из базы данных
-  const nu = 22; //правильный верхний диапазон числа из базы данных
-  const ed = "%"; //единицы измерения из базы данных
+  // const nr = 20; //правильный ответ из базы данных
   console.log(answers);
-  const { max, min } = answers;
+  const trueAnswerArr = trueAnswer.split("-");
+  const nr = trueAnswer; //правильный ответ из базы данных
+  const nd = trueAnswerArr[0]; //правильный нижний диапазон числа из базы данных
+  const nu = trueAnswerArr[1]; //правильный верхний диапазон числа из базы данных
+  const ed = answers[2]; //единицы измерения из базы данных
+  const min = answers[0];
+  const max = answers[1];
   let answer = "";
   const p = create("p", "myRange", "", null, ["id", "gen"]);
 
@@ -232,7 +243,7 @@ const setRange = (answers) => {
     p.innerText = answer;
   });
 
-  btnEnter.addEventListener("click", () => verifyRange(p));
+  btnEnter.addEventListener("click", () => verifyRange(p), { once: true });
   btnSkip.addEventListener("click", () => answerIsWrong());
 
   const verifyRange = () => {
@@ -241,26 +252,33 @@ const setRange = (answers) => {
 
     if (p.innerHTML === "") {
       $("#modalRange").modal("show");
+      btnEnter.addEventListener("click", () => verifyRange(p), { once: true });
     } else {
-      if (rng.valueAsNumber >= nd && rng.valueAsNumber <= nu) {
+      if (inputRange.valueAsNumber >= nd && inputRange.valueAsNumber <= nu) {
         enter.style.backgroundColor = "rgba(76, 161, 70, 0.6)"; //правильный ответ - зеленая кнопка
+        setTimeout(() => answerIsTrue(), 2000);
       } else {
         enter.style.backgroundColor = "rgba(229, 35, 61, 0.6)"; //неправильный ответ - красная кнопка
+        setTimeout(() => answerIsWrong(), 3000);
       }
-      sms = nr + ed + " (від " + nd + " до " + nu + ")"; //правильный ответ
+      sms = trueAnswer + ed + " (від " + nd + " до " + nu + ")"; //правильный ответ
       enter.innerHTML = sms; //вывод правильного ответа в кнопку
     }
   };
 };
 
-export function toggleShow(op, vis) {
-  document.getElementById("rangeModal").style.opacity = op;
-  document.getElementById("rangeModal").style.visibility = vis;
-}
-
 const setList = (answers) => {
   let answer;
 
+  const btnEnter = create(
+    "button",
+    "i2 item2",
+    "Дати відповідь",
+    null,
+    ["type", "submit"],
+    ["form", "listup"],
+    ["id", "enter"]
+  );
   const btnSkip = create(
     "button",
     "i3 item3",
@@ -269,7 +287,11 @@ const setList = (answers) => {
     ["type", "button"],
     ["id", "skip"]
   );
-  btnSkip.addEventListener("click", () => answerIsWrong());
+
+  btnSkip.addEventListener("click", () => {
+    setTimeout(() => answerIsWrong(), 1000);
+    btnEnter.style.backgroundColor = "rgba(229, 35, 61, 0.6)";
+  });
 
   const selectDivs = [];
   answers.forEach((answer, i) => {
@@ -317,15 +339,6 @@ const setList = (answers) => {
     null,
     ["id", "listup"]
   );
-  const btnEnter = create(
-    "button",
-    "i2 item2",
-    "Дати відповідь",
-    null,
-    ["type", "submit"],
-    ["form", "listup"],
-    ["id", "enter"]
-  );
   const listBlock = create("div", "list-block", [listup], null);
   const itemBlock1 = create(
     "div",
@@ -348,7 +361,7 @@ const setList = (answers) => {
     formArray.forEach((value) => {
       if (value.checked) answer.push(value.value);
     });
-    if(answer.length < 1) $("#modalRange").modal("show");
+    if (answer.length < 1) $("#modalRange").modal("show");
     else verifyAnswer(answer);
   });
 
