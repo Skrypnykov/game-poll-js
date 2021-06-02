@@ -46,7 +46,6 @@ async function handler() {
 }
 
 const quit = () => {
-  stop();
   $("#modalQuit").modal("show");
 };
 
