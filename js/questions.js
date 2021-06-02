@@ -10,6 +10,7 @@ const questionsQuantity = document.getElementById("questionsQuantity"),
   answersBlock = document.getElementById("answersBlock"),
   headerBlock = document.querySelector(".header-wrapper"),
   userInfo = document.getElementById("userInfo"),
+  quitBtn = document.getElementById("quit"),
   questionText = document.getElementById("question"),
   modalText = document.getElementById("modalText"),
   goals = document.querySelector(".goals"),
@@ -38,6 +39,13 @@ async function handler() {
   // console.log(error.message);
   // });
 }
+
+const quit = () => {
+  start();
+  $("#modalQuit").modal("show");
+};
+
+quitBtn.addEventListener("click", quit);
 
 const seeResult = () => {
   localStorage.setItem("result", scores);
@@ -82,10 +90,8 @@ const verifyAnswer = (target) => {
   } else {
     if (target === trueAnswer) {
       setTimeout(() => answerIsTrue(), 1000);
-      console.log("true");
     } else {
       setTimeout(() => answerIsWrong(), 1000);
-      console.log("Wrong");
     }
   }
 };
@@ -100,8 +106,6 @@ const questionsScoreUpdate = () => {
 
 const setUserInfo = () => {
   const userData = JSON.parse(localStorage.getItem("userData"));
-  console.log(userData.email);
-
   if (userData) userInfo.innerText = "Вітаємо " + userData.email;
 };
 
@@ -171,7 +175,6 @@ const setButtons = (answers) => {
   let itemBlock2;
 
   if (answers.length > 2) {
-    console.log(btnsArr.slice(0, 2));
     itemBlock1 = create("div", "item-block1", btnsArr.slice(0, 2), naviButtons);
     itemBlock2 = create("div", "item-block2", btnsArr.slice(2), naviButtons);
   } else
@@ -182,15 +185,12 @@ const setButtons = (answers) => {
 };
 
 const setRange = (answers) => {
-  // const nr = 20; //правильный ответ из базы данных
-  console.log(answers);
   const trueAnswerArr = trueAnswer.split("-");
-  const nr = trueAnswer; //правильный ответ из базы данных
   const nd = trueAnswerArr[0]; //правильный нижний диапазон числа из базы данных
   const nu = trueAnswerArr[1]; //правильный верхний диапазон числа из базы данных
-  const ed = answers[2]; //единицы измерения из базы данных
   const min = answers[0];
   const max = answers[1];
+  const ed = answers[2]; //единицы измерения из базы данных
   let answer = "";
   const p = create("p", "myRange", "", null, ["id", "gen"]);
 
@@ -256,10 +256,10 @@ const setRange = (answers) => {
     } else {
       if (inputRange.valueAsNumber >= nd && inputRange.valueAsNumber <= nu) {
         enter.style.backgroundColor = "rgba(76, 161, 70, 0.6)"; //правильный ответ - зеленая кнопка
-        setTimeout(() => answerIsTrue(), 2000);
+        setTimeout(() => answerIsTrue(), 1000);
       } else {
         enter.style.backgroundColor = "rgba(229, 35, 61, 0.6)"; //неправильный ответ - красная кнопка
-        setTimeout(() => answerIsWrong(), 3000);
+        setTimeout(() => answerIsWrong(), 2000);
       }
       sms = trueAnswer + ed + " (від " + nd + " до " + nu + ")"; //правильный ответ
       enter.innerHTML = sms; //вывод правильного ответа в кнопку
@@ -364,8 +364,6 @@ const setList = (answers) => {
     if (answer.length < 1) $("#modalRange").modal("show");
     else verifyAnswer(answer);
   });
-
-  console.log(answers);
 
   function listshow() {
     let list = document.getElementById("dropup");
