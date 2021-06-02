@@ -24,6 +24,7 @@ const questionsQuantity = document.getElementById("questionsQuantity"),
 let questionNum = 1,
   catchAnswer = false,
   questionMax = 5,
+  qtyWrong = 0,
   scores = 0,
   trueAnswer = "",
   question = {},
@@ -85,11 +86,14 @@ const answerIsTrue = (target) => {
   stop();
   scores = scores + 5;
   console.log("true");
-  setTimeout(() => nextQuestion(), 2500); 
+  qtyWrong = 0;
+  setTimeout(() => nextQuestion(), 2500);
 };
 
 export const answerIsWrong = (target) => {
   stop();
+  qtyWrong++;
+  if (qtyWrong > 1) scores--;
   console.log("wrong", trueAnswer);
   if(question.tip) {
     setTimeout(() => nextQuestion(), 6500); 
