@@ -59,21 +59,36 @@ export async function register(userData) {
 
 const setSignIn = () => {
   localStorage.clear();
-  userInfo.innerText = "";
-  signInOutButton.innerText = "Вхiд";
-  signInOutButton.dataset.bsToggle = "modal";
-  signInOutButton.dataset.bsTarget = "#modalSignIn";
-  registerButton.classList.remove("hidden");
-  startButton.classList.add("hidden");
+  if(userInfo && signInOutButton && registerButton && startButton) {
+    userInfo.innerText = "";
+    signInOutButton.innerText = "Вхiд";
+    signInOutButton.dataset.bsToggle = "modal";
+    signInOutButton.dataset.bsTarget = "#modalSignIn";
+    registerButton.classList.remove("hidden");
+    startButton.classList.add("hidden");
+  }
 };
 
 const setSignOut = () => {
-  signInOutButton.innerText = "Вихiд";
-  signInOutButton.addEventListener("click", setSignIn);
-  delete signInOutButton.dataset.bsToggle;
-  delete signInOutButton.dataset.bsTarget;
-  registerButton.classList.add("hidden");
-  startButton.classList.remove("hidden");
+  if(signInOutButton && registerButton && startButton) {
+    signInOutButton.innerText = "Вихiд";
+    signInOutButton.addEventListener("click", setSignIn);
+    delete signInOutButton.dataset.bsToggle;
+    delete signInOutButton.dataset.bsTarget;
+    registerButton.classList.add("hidden");
+    startButton.classList.remove("hidden");
+  }
+};
+
+const setLocalData = (responseData) => {
+  const data = responseData;
+  if(data.token) localStorage.setItem("token", data.token);
+  if(data.refreshToken) localStorage.setItem("refreshToken", data.refreshToken);
+  if(data.userId) localStorage.setItem("userId", data.userId);
+  delete data.token;
+  delete data.refreshToken;
+  delete data.userId;
+  localStorage.setItem("userData", JSON.stringify(data));
 };
 
 export async function signIn(userData) {
@@ -85,14 +100,9 @@ export async function signIn(userData) {
         statusTextSignIn.innerText = "Вхід виконано";
         userInfo.innerText = "Вітаємо " + responseData.email;
         setTimeout(() => $("#modalSignIn").modal("hide"), 1000);
+        console.log(responseData)
+        setLocalData(responseData);
         setSignOut();
-        localStorage.setItem("token", responseData.token);
-        localStorage.setItem("refreshToken", responseData.refreshToken);
-        localStorage.setItem("userId", responseData.userId);
-        delete responseData.token;
-        delete responseData.refreshToken;
-        delete responseData.userId;
-        localStorage.setItem("userData", JSON.stringify(responseData));
       } else { statusTextSignIn.innerText = "Неверни данни" };
       setTimeout(() => statusTextSignIn.innerText = "Введіть реєстраційні дані.", 3000);
     })
@@ -132,6 +142,8 @@ export async function verifyAuth() {
     setSignIn();
   } else {
     const body = await res.json();
+    console.log(body)
+    setLocalData(body);
     setSignOut();
     userInfo.innerText = "Вітаємо " + body.email;
   }

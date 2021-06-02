@@ -2,6 +2,8 @@ import { apiGet } from "./getData.js";
 import create from "./create.js";
 // import { URL, questionMax } from "./constants.js";
 import { URL } from "./constants.js";
+import { verifyAuth } from "./users.js";
+import setData from "./setData.js";
 import { start, stop } from "./timer.js";
 
 const questionsQuantity = document.getElementById("questionsQuantity"),
@@ -20,7 +22,9 @@ const questionsQuantity = document.getElementById("questionsQuantity"),
   fullUrl = URL + "questions/all";
 
 let questionNum = 1,
-  questionMax = 20,
+  catchAnswer = false,
+  questionMax = 5,
+  qtyWrong = 0,
   scores = 0,
   trueAnswer = "",
   question = {},
@@ -35,7 +39,7 @@ async function handler() {
     const questions = responseData;
     if (questions) {
       setQuestion(questions);
-      questionMax = questions.length;
+      // questionMax = questions.length;
     }
     setUserInfo();
   });
@@ -52,6 +56,16 @@ const quit = () => {
 quitBtn.addEventListener("click", quit);
 
 const seeResult = () => {
+  const token = localStorage.getItem("token");
+  const userId = localStorage.getItem("userId");
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  if(token && userId && userData) {
+    const fullUrl = URL + "users/" + userId;
+    setData(fullUrl, token, {score: userData.score + scores}).then((res) => {
+      if(res.status) newPassText.innerText = "Пароль встановлений";
+    })
+    .catch((error) => {console.log(error)});
+  }
   localStorage.setItem("result", scores);
   setTimeout(() => (location.href = "./result.html"), 1000);
 };
@@ -72,11 +86,14 @@ const answerIsTrue = (target) => {
   stop();
   scores = scores + 5;
   console.log("true");
-  setTimeout(() => nextQuestion(), 2500); 
+  qtyWrong = 0;
+  setTimeout(() => nextQuestion(), 2500);
 };
 
 export const answerIsWrong = (target) => {
   stop();
+  qtyWrong++;
+  if (qtyWrong > 1) scores--;
   console.log("wrong", trueAnswer);
   if(question.tip) {
     setTimeout(() => nextQuestion(), 6500); 
@@ -90,6 +107,8 @@ export const answerIsWrong = (target) => {
 };
 
 const verifyAnswer = (target) => {
+  if(catchAnswer) return;
+  catchAnswer = true;
   if (!Array.isArray(target)) {
     const answer = target.innerText;
     console.log(answer);
@@ -103,7 +122,7 @@ const verifyAnswer = (target) => {
     }
   } else {
     if (target === trueAnswer) {
-     answerIsTrue();
+      answerIsTrue();
     } else {
       answerIsWrong();
     }
@@ -120,12 +139,15 @@ const questionsScoreUpdate = () => {
 
 const setUserInfo = () => {
   const userData = JSON.parse(localStorage.getItem("userData"));
+  if (userData) verifyAuth();
+    else location.href = "/";
   if (userData) userInfo.innerText = "Вітаємо " + userData.email;
 };
 
 const setQuestion = (questions) => {
   if (questions) questionsArr = questions;
   if (questionsArr) {
+    catchAnswer = false;
     questionsQuantityUpdate();
     questionsScoreUpdate();
     question = questionsArr[questionNum - 1];
@@ -258,9 +280,11 @@ const setRange = (answers) => {
   });
 
   btnEnter.addEventListener("click", () => verifyRange(p), { once: true });
-  btnSkip.addEventListener("click", () => answerIsWrong());
+  btnSkip.addEventListener("click", () => verifyRange("wrong"), { once: true });
 
   const verifyRange = () => {
+    if(catchAnswer) return;
+    catchAnswer = true;
     let sms = "";
     let enter = document.getElementById("enter");
 
