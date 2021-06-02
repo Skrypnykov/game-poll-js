@@ -14,22 +14,22 @@ function Timer() {
   }
 }
 
-export default function start(elem) {
+export function start(elem) {
   // функция запуска таймера
   stop(); //убедимся, что все интервалы очищены, это предотвращает их удвоение
   // elem.value = 90;
   window.TimerId = window.setInterval(Timer, 1000);
   time = 2;
   toggleElement.innerText = "Пауза";
-  showEarth("0", "hidden");
+  showEarth(false);
 }
 
-function stop() {
+export function stop(earthVis) {
   // функция остановки таймера
   window.clearInterval(window.TimerId);
   time = 1;
-  toggleElement.innerText = "Старт";
-  showEarth("1", "visible");
+  if(earthVis) toggleElement.innerText = "Старт";
+  showEarth(earthVis);
 }
 function event_click_startpause(event) {
   if (time === 1) {
@@ -47,7 +47,9 @@ toggleElement.click();
 start();
 
 //modal window
-function showEarth(op, vis) {
+function showEarth(prop) {
+  const op = prop ? "1" : "0";
+  const vis = prop ? "visible" : "hidden";
   document.getElementById("pauseModal").style.opacity = op;
   document.getElementById("pauseModal").style.visibility = vis;
 }

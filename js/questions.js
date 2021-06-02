@@ -2,7 +2,7 @@ import { apiGet } from "./getData.js";
 import create from "./create.js";
 // import { URL, questionMax } from "./constants.js";
 import { URL } from "./constants.js";
-import start from "./timer.js";
+import { start, stop } from "./timer.js";
 
 const questionsQuantity = document.getElementById("questionsQuantity"),
   questionsScore = document.getElementById("questionsScore"),
@@ -16,14 +16,19 @@ const questionsQuantity = document.getElementById("questionsQuantity"),
   goals = document.querySelector(".goals"),
   bg = document.querySelector(".page"),
   timer = document.getElementById("timer"),
+  emptyAnswerText = "Необхідно дати відповідь :-)",
   fullUrl = URL + "questions/all";
 
 let questionNum = 1,
   questionMax = 20,
   scores = 0,
   trueAnswer = "",
+  question = {},
   trueAnswerBlock = {},
   questionsArr = [];
+
+// Переход на главную при переключении вкладок браузера
+// document.addEventListener("visibilitychange", () => { if(document.hidden) location.href = "/" });
 
 async function handler() {
   apiGet(fullUrl).then((responseData) => {
@@ -41,7 +46,7 @@ async function handler() {
 }
 
 const quit = () => {
-  start();
+  stop();
   $("#modalQuit").modal("show");
 };
 
@@ -65,14 +70,24 @@ const nextQuestion = () => {
 };
 
 const answerIsTrue = (target) => {
+  stop();
   scores = scores + 5;
   console.log("true");
-  nextQuestion();
+  setTimeout(() => nextQuestion(), 2500); 
 };
 
 export const answerIsWrong = (target) => {
+  stop();
   console.log("wrong", trueAnswer);
-  nextQuestion();
+  if(question.tip) {
+    setTimeout(() => nextQuestion(), 4500); 
+    modalText.innerText = question.tip;
+    $("#modalRange").modal("show"); 
+    setTimeout(() => $("#modalRange").modal("hide"), 4000); 
+    setTimeout(() => modalText.innerText = emptyAnswerText, 4500); 
+  } else { 
+    setTimeout(() => nextQuestion(), 2000); 
+   };
 };
 
 const verifyAnswer = (target) => {
@@ -80,18 +95,18 @@ const verifyAnswer = (target) => {
     const answer = target.innerText;
     console.log(answer);
     if (answer === trueAnswer) {
-      setTimeout(() => answerIsTrue(target), 1000);
+      answerIsTrue(target);
       target.style.backgroundColor = "rgba(76, 161, 70, 0.6)";
     } else {
-      setTimeout(() => answerIsWrong(target), 1000);
+      answerIsWrong(target);
       target.style.backgroundColor = "rgba(229, 35, 61, 0.6)";
       trueAnswerBlock.style.backgroundColor = "rgba(76, 161, 70, 0.6)";
     }
   } else {
     if (target === trueAnswer) {
-      setTimeout(() => answerIsTrue(), 1000);
+     answerIsTrue();
     } else {
-      setTimeout(() => answerIsWrong(), 1000);
+      answerIsWrong();
     }
   }
 };
@@ -114,7 +129,7 @@ const setQuestion = (questions) => {
   if (questionsArr) {
     questionsQuantityUpdate();
     questionsScoreUpdate();
-    const question = questionsArr[questionNum - 1];
+    question = questionsArr[questionNum - 1];
     trueAnswer = question.trueAnswer;
     console.log(question);
     questionBlock.classList = `questions_page${question.category} questions`;
