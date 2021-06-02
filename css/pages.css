@@ -85,7 +85,6 @@
   display: grid;
   display: -ms-grid;
   grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
-  -ms-grid-columns: repeat(auto-fit, minmax(8rem, 1fr));
 }
 .btn-pause,
 .btn-quit,
@@ -136,7 +135,6 @@
   display: grid;
   display: -ms-grid;
   grid-template-columns: repeat(auto-fit, minmax(13rem, 35rem));
-  -ms-grid-columns: repeat(auto-fit, minmax(13rem, 35rem));
   justify-content: space-around;
   align-items: flex-end;
   z-index: 1;
@@ -206,7 +204,6 @@
   display: grid;
   display: -ms-grid;
   grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
-  -ms-grid-columns: repeat(auto-fit, minmax(40%, 1fr));
 }
 
 .range-block1,
@@ -216,7 +213,6 @@
   display: grid;
   display: -ms-grid;
   grid-template-columns: repeat(auto-fit, minmax(241px, 1fr));
-  -ms-grid-columns: repeat(auto-fit, minmax(241px, 1fr));
   gap: 0.6rem;
 }
 
@@ -530,7 +526,6 @@
     display: grid;
     display: -ms-grid;
     grid-template-columns: repeat(3, 1fr);
-    -ms-grid-columns: repeat(3, 1fr);
   }
   .btn-control {
     grid-template-areas:
@@ -554,7 +549,6 @@
     display: grid;
     display: -ms-grid;
     grid-template-columns: repeat(auto-fit, minmax(7.7rem, 1fr));
-    -ms-grid-columns: repeat(auto-fit, minmax(7.7rem, 1fr));
     gap: 0.6rem;
   }
 
@@ -617,7 +611,6 @@
   }
   .questions-block {
     grid-template-columns: repeat(auto-fit, minmax(10rem, 25rem));
-    -ms-grid-columns: repeat(auto-fit, minmax(10rem, 25rem));
   }
   .tablo,
   .btn-control {
@@ -674,14 +667,15 @@
 
   .questions-block {
     grid-template-columns: repeat(auto-fit, minmax(10rem, 20rem));
-    -ms-grid-columns: repeat(auto-fit, minmax(10rem, 20rem));
   }
   .item-block1,
   .item-block2,
   .range-block1,
   .range-block2 {
     grid-template-columns: repeat(auto-fit, minmax(127px, 45vw));
-    -ms-grid-columns: repeat(auto-fit, minmax(127px, 45vw));
+  }
+  .three-buttons .item-block1 {
+    grid-template-columns: repeat(2, minmax(127px, 45vw));
   }
 
   .navi-buttons button,
@@ -704,14 +698,15 @@
   }
   .questions-block {
     grid-template-columns: repeat(auto-fit, minmax(10rem, 16rem));
-    -ms-grid-columns: repeat(auto-fit, minmax(10rem, 16rem));
   }
   .item-block1,
   .item-block2,
   .range-block1,
   .range-block2 {
     grid-template-columns: repeat(auto-fit, minmax(120px, 45vw));
-    -ms-grid-columns: repeat(auto-fit, minmax(120px, 45vw));
+  }
+  .three-buttons .item-block1 {
+    grid-template-columns: repeat(2, minmax(120px, 45vw));
   }
   .questions {
     font: normal 500 0.7rem/1rem Roboto;
@@ -736,7 +731,6 @@
   .range-block1,
   .range-block2 {
     grid-template-columns: repeat(auto-fit, minmax(100px, 45vw));
-    -ms-grid-columns: repeat(auto-fit, minmax(100px, 45vw));
   }
   .navi-buttons,
   .three-buttons,
@@ -748,7 +742,6 @@
 @media (max-width: 280px) {
   .content {
     grid-template-rows: 30% calc(50vh - 5.7rem) 1fr;
-    -ms-grid-rows: 30% calc(50vh - 5.7rem) 1fr;
   }
   .pause {
     grid-template-columns: 1fr;
@@ -773,7 +766,6 @@
   }
   .questions-block {
     grid-template-columns: repeat(auto-fit, minmax(10rem, 14rem));
-    -ms-grid-columns: repeat(auto-fit, minmax(10rem, 14rem));
   }
   .progres:hover span.info-que {
     margin-left: -20%;
