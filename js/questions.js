@@ -46,7 +46,6 @@ async function handler() {
 }
 
 const quit = () => {
-  stop();
   $("#modalQuit").modal("show");
 };
 
@@ -80,11 +79,11 @@ export const answerIsWrong = (target) => {
   stop();
   console.log("wrong", trueAnswer);
   if(question.tip) {
-    setTimeout(() => nextQuestion(), 4500); 
+    setTimeout(() => nextQuestion(), 6500); 
     modalText.innerText = question.tip;
     $("#modalRange").modal("show"); 
-    setTimeout(() => $("#modalRange").modal("hide"), 4000); 
-    setTimeout(() => modalText.innerText = emptyAnswerText, 4500); 
+    setTimeout(() => $("#modalRange").modal("hide"), 6000); 
+    setTimeout(() => modalText.innerText = emptyAnswerText, 6500); 
   } else { 
     setTimeout(() => nextQuestion(), 2000); 
    };
