@@ -756,6 +756,9 @@ button.close {
   }
 }
 @media (max-width: 375px) {
+  .control-panel {
+    width: 12rem;
+  }
   .main {
     grid-template-rows: 4rem 1fr;
     -ms-grid-rows: 4rem 1fr;
