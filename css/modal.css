@@ -66,6 +66,25 @@
     margin: 2rem auto 1rem auto;
   }
 
+  .btnlnk {
+    -webkit-writing-mode: horizontal-tb !important;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    padding-top: 4px;
+  }
+
+  .btnlnk:hover {
+    color: black;
+  }
+
   .img__close:hover,
 .button__close:hover {
   background: #fff;
