@@ -713,6 +713,9 @@
     grid-template-columns: repeat(auto-fit, minmax(120px, 45vw));
     -ms-grid-columns: repeat(auto-fit, minmax(120px, 45vw));
   }
+  .questions {
+    font: normal 500 0.7rem/1rem Roboto;
+  }
 }
 
 @media (max-width: 320px) {
