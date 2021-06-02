@@ -61,7 +61,7 @@ const seeResult = () => {
   const userData = JSON.parse(localStorage.getItem("userData"));
   if(token && userId && userData) {
     const fullUrl = URL + "users/" + userId;
-    setData(fullUrl, token, {score: userData.score + scores}).then((res) => {
+    setData(fullUrl, token, {score: scores}).then((res) => {
       if(res.status) newPassText.innerText = "Пароль встановлений";
     })
     .catch((error) => {console.log(error)});
