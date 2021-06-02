@@ -162,7 +162,7 @@ const setButtons = (answers) => {
   const btnSkip = create(
     "button",
     skipClass,
-    "Наступне питання",
+    "Пропустити питання",
     null,
     ["type", "button"],
     ["id", "skip"]
@@ -220,7 +220,7 @@ const setRange = (answers) => {
   const btnSkip = create(
     "button",
     "myRange",
-    "Наступне питання",
+    "Пропустити питання",
     null,
     ["type", "button"],
     ["id", "skip"]
@@ -282,7 +282,7 @@ const setList = (answers) => {
   const btnSkip = create(
     "button",
     "i3 item3",
-    "Наступне питання",
+    "Пропустити питання",
     null,
     ["type", "button"],
     ["id", "skip"]
