@@ -10,6 +10,7 @@
   -ms-grid-columns: 5% 27% 36% 27% 5%;
   -ms-grid-rows: 20% 60% 20%;
   -ms-grid-row: 2;
+  grid-row: 2;
   width: 100%;
   align-content: space-evenly;
   align-items: center;

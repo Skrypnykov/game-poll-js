@@ -51,6 +51,7 @@ embed {
   -ms-grid-rows: 20% 1fr;
   -ms-grid-columns: 5% 27% 36% 27% 5%;
   -ms-grid-row: 2;
+  grid-row: 2;
   align-items: center;
   justify-items: center;
   position: relative;
@@ -71,6 +72,7 @@ embed {
 }
 .header-logo2 {
   -ms-grid-column: 2;
+  grid-column: 2;
 }
 
 .down-left {
@@ -214,6 +216,7 @@ embed {
 }
 .btn-sign-in {
   -ms-grid-row: 2;
+  grid-row: 2;
   -ms-grid-row-span: 2;
 }
 
