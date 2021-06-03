@@ -1,6 +1,23 @@
 .modal-dialog-in {
   max-width: 600px;
 }
+.modal-dialog-width {
+  max-width: 700px;
+}
+.modal-auto {
+  width: auto;
+}
+.modal-body-info {
+  text-align: justify;
+  color: aliceblue;
+  font-weight: bold;
+}
+.modal-body-info a{
+  color: antiquewhite;
+  text-decoration: none;
+}
+
+
 .text-change-color{
   color: white;
 }
