@@ -257,6 +257,9 @@ embed {
   background: #68d9f4;
   border: 4px solid #cbcaca;
 }
+.smallfont {
+  font: italic 500 0.7rem/1rem Roboto;
+}
 
 .buttons area:focus,
 .btn-main-dropdown:focus,
