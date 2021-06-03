@@ -1,12 +1,13 @@
 import { apiGet } from "./getData.js";
 import create from "./create.js";
-// import { URL, questionMax } from "./constants.js";
-import { URL } from "./constants.js";
+// import { URL, questionMax, wrongColor, trueColor } from "./constants.js";
+import { URL, wrongColor, trueColor } from "./constants.js";
 import { verifyAuth } from "./users.js";
 import setData from "./setData.js";
 import { start, stop } from "./timer.js";
 
 const questionsQuantity = document.getElementById("questionsQuantity"),
+  // URL = "http://127.0.0.1:3000/",
   questionsScore = document.getElementById("questionsScore"),
   questionBlock = document.getElementById("questionBlock"),
   answersBlock = document.getElementById("answersBlock"),
@@ -19,14 +20,14 @@ const questionsQuantity = document.getElementById("questionsQuantity"),
   bg = document.querySelector(".page"),
   timer = document.getElementById("timer"),
   emptyAnswerText = "Необхідно дати відповідь :-)",
-  fullUrl = URL + "questions/all";
+  fullUrl = URL + "questions/list";
 
 let questionNum = 1,
   catchAnswer = false,
   questionMax = 5,
   qtyWrong = 0,
   scores = 0,
-  trueAnswer = "",
+  trueAnswer,
   question = {},
   trueAnswerBlock = {},
   questionsArr = [];
@@ -39,7 +40,7 @@ async function handler() {
     const questions = responseData;
     if (questions) {
       setQuestion(questions);
-      // questionMax = questions.length;
+      questionMax = questions.length;
     }
     setUserInfo();
   });
@@ -111,20 +112,13 @@ const verifyAnswer = (target) => {
   catchAnswer = true;
   if (!Array.isArray(target)) {
     const answer = target.innerText;
-    console.log(answer);
     if (answer === trueAnswer) {
       answerIsTrue(target);
-      target.style.backgroundColor = "rgba(76, 161, 70, 0.6)";
+      target.style.backgroundColor = trueColor;
     } else {
       answerIsWrong(target);
-      target.style.backgroundColor = "rgba(229, 35, 61, 0.6)";
-      trueAnswerBlock.style.backgroundColor = "rgba(76, 161, 70, 0.6)";
-    }
-  } else {
-    if (target === trueAnswer) {
-      answerIsTrue();
-    } else {
-      answerIsWrong();
+      target.style.backgroundColor = wrongColor;
+      trueAnswerBlock.style.backgroundColor = trueColor;
     }
   }
 };
@@ -151,8 +145,8 @@ const setQuestion = (questions) => {
     questionsQuantityUpdate();
     questionsScoreUpdate();
     question = questionsArr[questionNum - 1];
-    trueAnswer = question.trueAnswer;
-    console.log(question);
+    trueAnswer = question.view === "checklist" ? question.trueAnswer : question.trueAnswer.join();
+    console.log(question, typeof trueAnswer, trueAnswer);
     questionBlock.classList = `questions_page${question.category} questions`;
     headerBlock.classList = `header-wrapper header-logo-bg${question.category}`;
     goals.src = `../img/questions/GOALS_Ukr${question.category}.png`;
@@ -293,10 +287,10 @@ const setRange = (answers) => {
       btnEnter.addEventListener("click", () => verifyRange(p), { once: true });
     } else {
       if (inputRange.valueAsNumber >= nd && inputRange.valueAsNumber <= nu) {
-        enter.style.backgroundColor = "rgba(76, 161, 70, 0.6)"; //правильный ответ - зеленая кнопка
+        enter.style.backgroundColor = trueColor; //правильный ответ - зеленая кнопка
         setTimeout(() => answerIsTrue(), 1000);
       } else {
-        enter.style.backgroundColor = "rgba(229, 35, 61, 0.6)"; //неправильный ответ - красная кнопка
+        enter.style.backgroundColor = wrongColor; //неправильный ответ - красная кнопка
         setTimeout(() => answerIsWrong(), 2000);
       }
       sms = trueAnswer + ed + " (від " + nd + " до " + nu + ")"; //правильный ответ
@@ -328,7 +322,7 @@ const setList = (answers) => {
 
   btnSkip.addEventListener("click", () => {
     setTimeout(() => answerIsWrong(), 1000);
-    btnEnter.style.backgroundColor = "rgba(229, 35, 61, 0.6)";
+    btnEnter.style.backgroundColor = wrongColor;
   });
 
   const selectDivs = [];
@@ -400,7 +394,7 @@ const setList = (answers) => {
       if (value.checked) answer.push(value.value);
     });
     if (answer.length < 1) $("#modalRange").modal("show");
-    else verifyAnswer(answer);
+    else verifyList(answer);
   });
 
   function listshow() {
@@ -409,6 +403,22 @@ const setList = (answers) => {
     list.classList.remove("hover");
     list.classList.toggle("showList");
   }
+
+  const verifyList = (answer) => {
+    let count = 0;
+    answer.forEach((ans) => {
+      if(trueAnswer.indexOf(ans) !== -1) count++;
+    });
+    console.log(count, answer, trueAnswer);
+
+    if (count >= answer.length) {
+      answerIsTrue();
+      btnEnter.style.backgroundColor = trueColor;
+    } else {
+      answerIsWrong();
+      btnEnter.style.backgroundColor = wrongColor;
+    }
+  };
 };
 
 handler();
