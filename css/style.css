@@ -277,10 +277,10 @@ embed {
   display: grid;
   display: -ms-grid;
 }
-.modal-body {
+/* .modalbody {
   display: grid;
   display: -ms-grid;
-}
+} */
 button.close {
   justify-self: end;
 }
