@@ -302,7 +302,7 @@ button.close {
   cursor: pointer;
 }
 .wrapper-dropdown-2 button {
-  padding: 0.2em 0 0.24rem;
+  padding: 0.1rem 0 0.1rem;
   background: rgba(53, 196, 232, 1);
   border: 4px solid rgba(147, 146, 146, 0.8);
   color: #fff;
@@ -479,7 +479,7 @@ button.close {
   .navi-left .btn-sign-in,
   .navi-right .btn-start,
   .navi-right .btn-group-game {
-    padding: 0.125rem 0;
+    padding: 0.1rem 0;
   }
 }
 @media (max-width: 1200px) {
