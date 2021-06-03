@@ -317,7 +317,7 @@ button.close {
   font: bold 1.35rem Roboto;
   text-align: center;
   width: 100%;
-  z-index: 2001;
+  z-index: 1039;
 }
 .wrapper-dropdown-2 ul {
   z-index: 2000;
