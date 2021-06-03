@@ -10,6 +10,7 @@
   -ms-grid-columns: 5% 27% 36% 27% 5%;
   -ms-grid-rows: 20% 60% 20%;
   -ms-grid-row: 2;
+  grid-row: 2;
   width: 100%;
   align-content: space-evenly;
   align-items: center;
@@ -164,7 +165,7 @@ grid-template-areas:
 #rules,
 #go,
 .btn-bottom-res {
-  padding: 0.2rem;
+  padding: 0.1rem;
   display: inline-block;
 }
 .btn-best {
@@ -437,12 +438,6 @@ grid-template-areas:
     border-radius: 0;
     right: 0;
     font-weight: 400;
-    font-size: 0.8rem;
-  }
-}
-
-@media (max-width: 280px) {
-  .btn-bottom-bl {
     font-size: 0.8rem;
   }
 }

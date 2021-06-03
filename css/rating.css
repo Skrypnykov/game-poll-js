@@ -181,9 +181,9 @@ p.advice {
   .display-result-block {
     /* grid-area: res; */
     grid-column: 1/2;
-    grid-row: 4;
+    grid-row: 6;
     -ms-grid-column-span: 1;
-    -ms-grid-row: 4;
+    -ms-grid-row: 6;
   }
   .rating .go {
     /* grid-area: go; */
