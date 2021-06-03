@@ -51,6 +51,7 @@ embed {
   -ms-grid-rows: 20% 1fr;
   -ms-grid-columns: 5% 27% 36% 27% 5%;
   -ms-grid-row: 2;
+  grid-row: 2;
   align-items: center;
   justify-items: center;
   position: relative;
@@ -71,6 +72,7 @@ embed {
 }
 .header-logo2 {
   -ms-grid-column: 2;
+  grid-column: 2;
 }
 
 .down-left {
@@ -214,6 +216,7 @@ embed {
 }
 .btn-sign-in {
   -ms-grid-row: 2;
+  grid-row: 2;
   -ms-grid-row-span: 2;
 }
 
@@ -254,12 +257,16 @@ embed {
   background: #68d9f4;
   border: 4px solid #cbcaca;
 }
+.smallfont {
+  font: italic 500 0.7rem/1rem Roboto;
+}
 
 .buttons area:focus,
 .btn-main-dropdown:focus,
 .btn-bottom-res:focus,
 .form-account-control:focus,
-.header-wrapper img:focus {
+.header-wrapper img:focus,
+#go:focus {
   outline: none;
 }
 
@@ -302,7 +309,7 @@ button.close {
   cursor: pointer;
 }
 .wrapper-dropdown-2 button {
-  padding: 0.2em 0 0.24rem;
+  padding: 0.1rem 0 0.1rem;
   background: rgba(53, 196, 232, 1);
   border: 4px solid rgba(147, 146, 146, 0.8);
   color: #fff;
@@ -479,7 +486,7 @@ button.close {
   .navi-left .btn-sign-in,
   .navi-right .btn-start,
   .navi-right .btn-group-game {
-    padding: 0.125rem 0;
+    padding: 0.1rem 0;
   }
 }
 @media (max-width: 1200px) {
