@@ -265,7 +265,8 @@ embed {
 .btn-main-dropdown:focus,
 .btn-bottom-res:focus,
 .form-account-control:focus,
-.header-wrapper img:focus {
+.header-wrapper img:focus,
+#go:focus {
   outline: none;
 }
 
