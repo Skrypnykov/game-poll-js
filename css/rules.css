@@ -113,7 +113,7 @@ grid-template-areas:
 }
 .btn-bottom-bl,
 .btn-bottom-res {
-  cursor: pointer;
+  cursor: default;
   font: normal 600 1.1rem/1.6rem Roboto;
   color: #ffffff;
   background: rgba(53, 196, 232, 0.8);
@@ -121,7 +121,9 @@ grid-template-areas:
   border-radius: 3vh;
   text-align: center;
 }
-
+.btn-bottom-res {
+  cursor: pointer;
+}
 .rules .best {
   /* grid-area: best; */
   grid-column: 1/4;

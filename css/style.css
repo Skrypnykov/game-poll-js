@@ -260,7 +260,7 @@ embed {
   border: 4px solid #cbcaca;
 }
 .smallfont {
-  font: italic 500 0.7rem/1rem Roboto;
+  font: italic 500 .9rem/1rem Roboto;
 }
 .browser {
   font-size: 0.8rem;

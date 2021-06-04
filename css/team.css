@@ -10,6 +10,7 @@
   -ms-grid-column: 1;
   -ms-grid-column-span: 5;
 }
+
 .team-wrapper {
   grid-template-columns: repeat(auto-fit, minmax(7rem, 100vw));
   -ms-grid-columns: 1fr;
@@ -136,10 +137,9 @@ p.email {
 .partners-img {
   justify-self: center;
   align-self: center;
-  width: 60%;
+  width: 65%;
 }
-.partners-img:first-child,
-.partners-img:last-child {
+.partners-img:first-child {
   align-self: flex-end;
 }
 .partners-img img {
