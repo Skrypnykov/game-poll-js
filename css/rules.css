@@ -431,6 +431,9 @@ grid-template-areas:
     height: 1.5rem;
     font: italic 500 1rem/1.5rem Roboto;
   }
+  .browser {
+    font-size: 0.8rem;
+  }
 
   .best {
     max-width: 100%;

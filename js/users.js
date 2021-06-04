@@ -3,7 +3,8 @@ import { URL } from "./constants.js";
 const statusTextSignIn = document.getElementById("statusTextSignIn");
 const statusTextRegister = document.getElementById("statusTextRegister");
 const statusTextRecovery = document.getElementById("statusTextRecovery");
-const modalSignIn = document.getElementById("modalSignIn");
+const dropdown = document.getElementById("dropdown");
+const profile = document.getElementById("profile");
 const signInOutButton = document.getElementById("signInOutButton");
 const registerButton = document.getElementById("registerButton");
 const startButton = document.getElementById("click");
@@ -75,6 +76,7 @@ const setSignIn = () => {
     signInOutButton.dataset.bsTarget = "#modalSignIn";
     registerButton.classList.remove("hidden");
     startButton.classList.add("hidden");
+    dropdown.removeChild(profile);
   }
 };
 
@@ -86,6 +88,7 @@ const setSignOut = () => {
     delete signInOutButton.dataset.bsTarget;
     registerButton.classList.add("hidden");
     startButton.classList.remove("hidden");
+    dropdown.appendChild(profile);
   }
 };
 
@@ -111,7 +114,7 @@ export async function signIn(userData) {
         userInfo.classList.remove("smallfont");
         userInfo.innerText = "Вітаємо " + responseData.email;
         setTimeout(() => $("#modalSignIn").modal("hide"), 1000);
-        console.log(responseData);
+        setTimeout(() => $("#modalInfo").modal("show"), 1500);
         setLocalData(responseData);
         setSignOut();
       } else {

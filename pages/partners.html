@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Game Poll</title>
+    <title>SDG Game</title>
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
@@ -11,6 +11,8 @@
       integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
       crossorigin="anonymous"
     />
+    <!-- favicon for Apple -->
+    <link rel="apple-touch-icon" href="https://game-globalcompact.org.ua/favicon-32x32.png" />
     <!-- CSS style-->
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <link href="../css/forms.css" rel="stylesheet" type="text/css" />
@@ -38,8 +40,8 @@
 
       <div class="rules team">
         <div class="welcome-main">
-          <span class="welcome-rules infospan top"
-            >Вітаємо,&nbsp;Fighter@gmail.com</span
+          <span class="welcome-rules infospan top browser" id="userInfo"
+            >Рекомендовані браузери: Chrome або Firefox</span
           >
         </div>
         <div class="field-block title">
@@ -51,9 +53,9 @@
           <button class="btn-main-dropdown btn-main-border up-menu">
             <span>Меню</span>
           </button>
-          <ul class="dropdown">
+          <ul class="dropdown" id="dropdown">
             <li><a href="rules.html">Навіщо грати</a></li>
-            <li><a href="account.html">Профіль</a></li>
+            <li id="profile"><a href="account.html">Профіль</a></li>
             <li><a href="rating.html">Рейтинг</a></li>
             <li><a href="partners.html">Партнери гри</a></li>
             <li><a href="links.html">Корисні посилання</a></li>
@@ -78,20 +80,20 @@
                   /></a>
                 </div>
                 <div class="partners-img p2">
+                  <a href="https://dtek.com" target="_blank"
+                    ><img src="../img/partners/DTEK_FINAL_LOGO_EN_1.png" alt=""
+                  /></a>
+                </div>
+                <div class="partners-img p3">
                   <a href="https://www.basf.com/ua/uk.html" target="_blank"
                     ><img src="../img/partners/BASFw_wh100rd_4c.png" alt=""
                   /></a>
                 </div>
-                <div class="partners-img p3">
+                <div class="partners-img p4">
                   <a href="https://carlsbergukraine.com" target="_blank"
                     ><img
                       src="../img/partners/For_PR_PJSC-carlsberg.png"
                       alt=""
-                  /></a>
-                </div>
-                <div class="partners-img p4">
-                  <a href="https://dtek.com" target="_blank"
-                    ><img src="../img/partners/DTEK_FINAL_LOGO_EN_1.png" alt=""
                   /></a>
                 </div>
               </div>
@@ -116,5 +118,18 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="../js/dropdown.js"></script>
+    <script>
+      const userData = JSON.parse(localStorage.getItem("userData"));
+      const startButton = document.getElementById("go");
+      const userInfo = document.getElementById("userInfo");
+      const profile = document.getElementById("profile");
+      const dropdown = document.getElementById("dropdown");
+      if(!userData) dropdown.removeChild(profile);
+      startButton.addEventListener("click", () => {
+        if(userData) location.href = "./question.html";
+          else location.href = "/";
+      })
+      userInfo.innerHTML = userData ? `Вітаємо, ${userData.email}` : "Вітаємо";
+    </script>
   </body>
 </html>

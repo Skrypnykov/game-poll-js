@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Game Poll</title>
+    <title>SDG Game</title>
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
@@ -11,6 +11,8 @@
       integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
       crossorigin="anonymous"
     />
+    <!-- favicon for Apple -->
+    <link rel="apple-touch-icon" href="https://game-globalcompact.org.ua/favicon-32x32.png" />
     <!-- CSS style-->
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <link href="../css/forms.css" rel="stylesheet" type="text/css" />
@@ -36,7 +38,10 @@
       </div>
 
       <div class="rules result">
-        <span class="welcome-main welcome-rules infospan top" id="userInfo"></span>
+        <span
+          class="welcome-main welcome-rules infospan top"
+          id="userInfo"
+        ></span>
         <div class="field-block title">
           <span id="rules" class="btn-bottom-bl">Ваш результат</span>
         </div>
@@ -96,11 +101,9 @@
       const scoreResult = document.getElementById("scoreResult");
       const userInfo = document.getElementById("userInfo");
       userInfo.innerHTML = userData ? `Вітаємо, ${userData.email}` : "Вітаємо";
-      console.log(result);
       if (result) {
-        scoreResult.innerHTML = `<b>${userData.email}, <br>ви набрали ${result} балів.</b>`
+        scoreResult.innerHTML = `<b>${userData.email}, <br>ви набрали ${result} балів.</b>`;
       }
-
     </script>
   </body>
 </html>

@@ -5,15 +5,18 @@
   max-width: 700px;
 }
 .modal-body-info {
-  text-align: justify;
+  /* text-align: justify; */
   color: aliceblue;
   font-weight: bold;
 }
 .modal-body-info a{
-  color: antiquewhite;
+  color: #27408B;
   text-decoration: none;
 }
 
+.btn-group {
+  text-align: center;
+}
 
 .text-change-color{
   color: white;

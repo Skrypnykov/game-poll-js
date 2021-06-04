@@ -260,7 +260,9 @@ embed {
 .smallfont {
   font: italic 500 0.7rem/1rem Roboto;
 }
-
+.browser {
+  font-size: 0.8rem;
+}
 .buttons area:focus,
 .btn-main-dropdown:focus,
 .btn-bottom-res:focus,
@@ -658,7 +660,7 @@ button.close {
   }
 
   .welcome-main {
-    width: 15rem;
+    /* width: 15rem; */
     border-radius: 3.2vh;
     display: block;
     margin: 0 auto;
