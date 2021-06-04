@@ -5,7 +5,9 @@ const fullUrl = URL + "users";
 
 const ratingOl = document.getElementById("rating-ol");
 
-const welcomeInfo = document.getElementById("welcomeInfo");
+const dropdown = document.getElementById("dropdown");
+const profile = document.getElementById("profile");
+const userInfo = document.getElementById("userInfo");
 const advice = document.getElementById("advice");
 const startButton = document.getElementById("go");
 const accountButton = document.getElementById("result");
@@ -19,13 +21,14 @@ async function rating() {
 
       if (!userLocalData) {
         advice.classList.add("hidden");
-        welcomeInfo.innerText = "";
-        if (startButton || accountButton) {
+        userInfo.innerText = "Вітаємо";
+        if(dropdown) dropdown.removeChild(profile);
+        if (startButton && accountButton) {
           startButton.classList.add("hidden");
           accountButton.classList.add("hidden");
         }
       } else {
-        welcomeInfo.innerText = `Вітаємо, ${userLocalData.email}`;
+        userInfo.innerText = `Вітаємо, ${userLocalData.email}`;
         startButton.classList.remove("hidden");
         if (!userLocalData.rated) {
           accountButton.classList.remove("hidden");
@@ -52,5 +55,7 @@ async function rating() {
       console.log(error.message);
     });
 }
+
+startButton.addEventListener("click", () => location.href = "./question.html")
 
 rating();
