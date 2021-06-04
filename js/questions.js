@@ -273,8 +273,8 @@ const setRange = (answers) => {
     p.innerText = answer;
   });
 
-  btnEnter.addEventListener("click", () => verifyRange(p));
-  btnSkip.addEventListener("click", () => verifyRange("wrong"));
+  btnEnter.addEventListener("click", () => verifyRange(p), { once: true });
+  btnSkip.addEventListener("click", () => verifyRange("wrong"), { once: true });
 
   const verifyRange = (range) => {
     if(catchAnswer) return;
@@ -284,8 +284,10 @@ const setRange = (answers) => {
 
     if (p.innerHTML === "" && range !== "wrong") {
       $("#modalRange").modal("show");
-      btnEnter.addEventListener("click", () => verifyRange(p));
-      btnSkip.addEventListener("click", () => verifyRange("wrong"));
+      setTimeout(() => $("#modalRange").modal("hide"), 3000);
+      catchAnswer = false;
+      btnEnter.addEventListener("click", () => verifyRange(p), { once: true });
+      btnSkip.addEventListener("click", () => verifyRange("wrong"), { once: true });
     } else {
       if (inputRange.valueAsNumber >= nd && inputRange.valueAsNumber <= nu) {
         enter.style.backgroundColor = trueColor; //правильный ответ - зеленая кнопка
