@@ -167,7 +167,7 @@ embed {
   align-self: center;
   justify-self: start;
 }
-.blue {
+.modal-body-info .blue {
   color: blue;
 }
 .newpassform {
