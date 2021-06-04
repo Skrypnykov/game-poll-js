@@ -177,10 +177,15 @@
     <script src="../js/dropdown.js"></script>
     <script>
       const userData = JSON.parse(localStorage.getItem("userData"));
+      const startButton = document.getElementById("go");
       const userInfo = document.getElementById("userInfo");
       const profile = document.getElementById("profile");
       const dropdown = document.getElementById("dropdown");
       if(!userData) dropdown.removeChild(profile);
+      startButton.addEventListener("click", () => {
+        if(userData) location.href = "./question.html";
+          else location.href = "/";
+      })
       userInfo.innerHTML = userData ? `Вітаємо, ${userData.email}` : "Вітаємо";
     </script>
   </body>
