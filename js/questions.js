@@ -94,10 +94,10 @@ const showModal = (showText) => {
 const answerIsTrue = () => {
   stop();
   qtyCorrect++;
-  console.log(qtyCorrect % 4)
   if(qtyCorrect % 4 === 0) {
     const qty = qtyCorrect / 4;
     showModal(wonPhrases[qty]);
+    if(qtyCorrect === 20) qtyCorrect = 0;
   };
   scores = scores + 5;
   console.log("true");
@@ -108,6 +108,7 @@ const answerIsTrue = () => {
 export const answerIsWrong = (target) => {
   stop();
   qtyWrong++;
+  qtyCorrect = 0;
   if (qtyWrong > 1) scores--;
   console.log("wrong", trueAnswer);
   if(question.tip) {
