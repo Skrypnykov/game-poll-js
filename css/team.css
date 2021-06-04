@@ -188,17 +188,7 @@ p.email {
     -ms-grid-columns: repeat(auto-fit, 95%);
     justify-content: center;
   }
-}
-@media (max-width: 520px) {
-  /* .team {
-    grid-template-areas:
-      "wel "
-      "title"
-      "info "
-      "go"
-      "nav "
-      "best ";
-  } */
+
   .partners-block {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -220,5 +210,9 @@ p.email {
   .partners-img:first-child,
   .partners-img:last-child {
     align-self: center;
+  }
+  .p3 {
+    -ms-grid-column: 1;
+    grid-column: 1;
   }
 }
