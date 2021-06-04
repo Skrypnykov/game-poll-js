@@ -101,7 +101,6 @@
       const scoreResult = document.getElementById("scoreResult");
       const userInfo = document.getElementById("userInfo");
       userInfo.innerHTML = userData ? `Вітаємо, ${userData.email}` : "Вітаємо";
-      console.log(result);
       if (result) {
         scoreResult.innerHTML = `<b>${userData.email}, <br>ви набрали ${result} балів.</b>`;
       }
