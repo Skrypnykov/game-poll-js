@@ -105,7 +105,7 @@
                   Цілей сталого розвитку в&nbsp;Україні
                 </a>
                 <a
-                  href="https://info.unglobalcompact.org/globalgoals"
+                  href="https://www.me.gov.ua/Documents/Detail?lang=uk-UA&id=a0fc2a99-ada3-4a6d-b65b-cb542c3d5b77&title=DobrovilniiNatsionalniiOgliadSchodoTsileiStalogoRozvitkuVUkraini"
                   class="a-button"
                   target="_blank"
                   >Перейти</a
@@ -122,7 +122,7 @@
                   у&nbsp;досягненні Цілей сталого розвитку
                 </a>
                 <a
-                  href="https://info.unglobalcompact.org/globalgoals"
+                  href="https://globalcompact.org.ua/wp-content/uploads/2020/07/globalcompact.-dobrovilnij-ogljad-1.pdf"
                   class="a-button"
                   target="_blank"
                   >Перейти</a
@@ -140,10 +140,7 @@
                   та використання достовірних інформаційних джерел по&nbsp;ЦСР
                   для прийняття рішень та адвокації на&nbsp;основі фактів.
                 </a>
-                <a
-                  href="https://info.unglobalcompact.org/globalgoals"
-                  class="a-button"
-                  target="_blank"
+                <a href="https://www.sdg.org" class="a-button" target="_blank"
                   >Перейти</a
                 >
               </div>
@@ -161,7 +158,7 @@
                   у&nbsp;понад 160&nbsp;країнах та 70&nbsp;локальних мережах.
                 </a>
                 <a
-                  href="https://info.unglobalcompact.org/globalgoals"
+                  href="https://www.unglobalcompact.org"
                   class="a-button"
                   target="_blank"
                   >Перейти</a
@@ -180,7 +177,7 @@
                   ООН, яка поєднує ООН та компанії по&nbsp;всьому світу
                 </a>
                 <a
-                  href="https://info.unglobalcompact.org/globalgoals"
+                  href="https://globalcompact.org.ua"
                   class="a-button"
                   target="_blank"
                   >Перейти</a
@@ -196,7 +193,7 @@
                   7) Дослідження компанії EY «Розрив в&nbsp;оплаті праці»
                 </a>
                 <a
-                  href="https://info.unglobalcompact.org/globalgoals"
+                  href="https://assets.ey.com/content/dam/ey-sites/ey-com/en_uk/about-us/annual-results/ey-2020-pay-gap-report.pdf"
                   class="a-button"
                   target="_blank"
                   >Перейти</a
@@ -229,11 +226,11 @@
       const userInfo = document.getElementById("userInfo");
       const profile = document.getElementById("profile");
       const dropdown = document.getElementById("dropdown");
-      if(!userData) dropdown.removeChild(profile);
+      if (!userData) dropdown.removeChild(profile);
       startButton.addEventListener("click", () => {
-        if(userData) location.href = "./question.html";
-          else location.href = "/";
-      })
+        if (userData) location.href = "./question.html";
+        else location.href = "/";
+      });
       userInfo.innerHTML = userData ? `Вітаємо, ${userData.email}` : "Вітаємо";
     </script>
   </body>
