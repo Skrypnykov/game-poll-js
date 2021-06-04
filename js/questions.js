@@ -20,7 +20,7 @@ const questionsQuantity = document.getElementById("questionsQuantity"),
   bg = document.querySelector(".page"),
   timer = document.getElementById("timer"),
   emptyAnswerText = "Необхідно дати відповідь :-)",
-  fullUrl = URL + "questions/list";
+  fullUrl = URL + "questions/all";
 
 let questionNum = 1,
   catchAnswer = false,
@@ -273,18 +273,19 @@ const setRange = (answers) => {
     p.innerText = answer;
   });
 
-  btnEnter.addEventListener("click", () => verifyRange(p), { once: true });
-  btnSkip.addEventListener("click", () => verifyRange("wrong"), { once: true });
+  btnEnter.addEventListener("click", () => verifyRange(p));
+  btnSkip.addEventListener("click", () => verifyRange("wrong"));
 
-  const verifyRange = () => {
+  const verifyRange = (range) => {
     if(catchAnswer) return;
     catchAnswer = true;
     let sms = "";
     let enter = document.getElementById("enter");
 
-    if (p.innerHTML === "") {
+    if (p.innerHTML === "" && range !== "wrong") {
       $("#modalRange").modal("show");
-      btnEnter.addEventListener("click", () => verifyRange(p), { once: true });
+      btnEnter.addEventListener("click", () => verifyRange(p));
+      btnSkip.addEventListener("click", () => verifyRange("wrong"));
     } else {
       if (inputRange.valueAsNumber >= nd && inputRange.valueAsNumber <= nu) {
         enter.style.backgroundColor = trueColor; //правильный ответ - зеленая кнопка

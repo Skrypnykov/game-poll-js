@@ -3,7 +3,7 @@ import { URL } from "./constants.js";
 const statusTextSignIn = document.getElementById("statusTextSignIn");
 const statusTextRegister = document.getElementById("statusTextRegister");
 const statusTextRecovery = document.getElementById("statusTextRecovery");
-const modalSignIn = document.getElementById("modalSignIn");
+const modalInfo = document.getElementById("modalInfo");
 const signInOutButton = document.getElementById("signInOutButton");
 const registerButton = document.getElementById("registerButton");
 const startButton = document.getElementById("click");
@@ -111,6 +111,7 @@ export async function signIn(userData) {
         userInfo.classList.remove("smallfont");
         userInfo.innerText = "Вітаємо " + responseData.email;
         setTimeout(() => $("#modalSignIn").modal("hide"), 1000);
+        setTimeout(() => $("#modalInfo").modal("show"), 1500);
         console.log(responseData);
         setLocalData(responseData);
         setSignOut();
