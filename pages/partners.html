@@ -40,7 +40,7 @@
 
       <div class="rules team">
         <div class="welcome-main">
-          <span class="welcome-rules infospan top browser"
+          <span class="welcome-rules infospan top browser" id="userInfo"
             >Рекомендовані браузери: Chrome або Firefox</span
           >
         </div>
@@ -53,9 +53,9 @@
           <button class="btn-main-dropdown btn-main-border up-menu">
             <span>Меню</span>
           </button>
-          <ul class="dropdown">
+          <ul class="dropdown" id="dropdown">
             <li><a href="rules.html">Навіщо грати</a></li>
-            <li><a href="account.html">Профіль</a></li>
+            <li id="profile"><a href="account.html">Профіль</a></li>
             <li><a href="rating.html">Рейтинг</a></li>
             <li><a href="partners.html">Партнери гри</a></li>
             <li><a href="links.html">Корисні посилання</a></li>
@@ -118,5 +118,18 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="../js/dropdown.js"></script>
+    <script>
+      const userData = JSON.parse(localStorage.getItem("userData"));
+      const startButton = document.getElementById("go");
+      const userInfo = document.getElementById("userInfo");
+      const profile = document.getElementById("profile");
+      const dropdown = document.getElementById("dropdown");
+      if(!userData) dropdown.removeChild(profile);
+      startButton.addEventListener("click", () => {
+        if(userData) location.href = "./question.html";
+          else location.href = "/";
+      })
+      userInfo.innerHTML = userData ? `Вітаємо, ${userData.email}` : "Вітаємо";
+    </script>
   </body>
 </html>
