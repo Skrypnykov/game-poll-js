@@ -69,7 +69,7 @@ const setSignIn = () => {
   localStorage.clear();
   if (userInfo && signInOutButton && registerButton && startButton) {
     userInfo.innerText =
-      "Рекомендовано використовувати браузери Chrome або Firefox";
+      "Рекомендовано використовувати\nбраузери Chrome або Firefox";
     userInfo.classList.add("smallfont");
     signInOutButton.innerText = "Вхiд";
     signInOutButton.dataset.bsToggle = "modal";
