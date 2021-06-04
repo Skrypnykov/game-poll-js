@@ -1,7 +1,7 @@
 import { apiGet } from "./getData.js";
 import create from "./create.js";
 // import { URL, questionMax, wrongColor, trueColor } from "./constants.js";
-import { URL, wrongColor, trueColor } from "./constants.js";
+import { URL, wrongColor, trueColor, wonPhrases } from "./constants.js";
 import { verifyAuth } from "./users.js";
 import setData from "./setData.js";
 import { start, stop } from "./timer.js";
@@ -26,6 +26,7 @@ let questionNum = 1,
   catchAnswer = false,
   questionMax = 5,
   qtyWrong = 0,
+  qtyCorrect = 0,
   scores = 0,
   trueAnswer,
   question = {},
@@ -83,8 +84,21 @@ const nextQuestion = () => {
   }
 };
 
-const answerIsTrue = (target) => {
+const showModal = (showText) => {
+  modalText.innerText = showText;
+  $("#modalRange").modal("show"); 
+  setTimeout(() => $("#modalRange").modal("hide"), 6000); 
+  setTimeout(() => modalText.innerText = emptyAnswerText, 6500);
+};
+
+const answerIsTrue = () => {
   stop();
+  qtyCorrect++;
+  if(qtyCorrect % 4 === 0) {
+    const qty = qtyCorrect / 4;
+    showModal(wonPhrases[qty]);
+    if(qtyCorrect === 20) qtyCorrect = 0;
+  };
   scores = scores + 5;
   console.log("true");
   qtyWrong = 0;
@@ -94,14 +108,12 @@ const answerIsTrue = (target) => {
 export const answerIsWrong = (target) => {
   stop();
   qtyWrong++;
+  qtyCorrect = 0;
   if (qtyWrong > 1) scores--;
   console.log("wrong", trueAnswer);
   if(question.tip) {
     setTimeout(() => nextQuestion(), 6500); 
-    modalText.innerText = question.tip;
-    $("#modalRange").modal("show"); 
-    setTimeout(() => $("#modalRange").modal("hide"), 6000); 
-    setTimeout(() => modalText.innerText = emptyAnswerText, 6500); 
+    showModal(question.tip);
   } else { 
     setTimeout(() => nextQuestion(), 2000); 
    };
