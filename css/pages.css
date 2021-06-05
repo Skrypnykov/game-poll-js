@@ -173,7 +173,7 @@
   }
 }
 .text-wrapper::before {
-  display: inline-block;
+  display: block;
   content: "";
   width: 5em;
   margin-top: -0.6rem;
