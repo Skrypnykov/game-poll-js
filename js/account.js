@@ -6,14 +6,16 @@ const result = document.getElementById("result");
 const fullUr = "https://pollgame-be.herokuapp.com/users";
 const accountForm = document.getElementById( "accountForm" );
 const startButton = document.getElementById("go");
-let userData = JSON.parse(localStorage.getItem("userData"));
+const userLocalData = localStorage.getItem("userData");
+if(!userLocalData) location.href = "/";
+let userData = JSON.parse(userLocalData);
 
 $(function(){
   $("#phone").mask("+38 (0**) ***-**-**");
 });
 
 const chngForm = (data) => {
-  const datas= data ? data : userLocalData; 
+  const datas= data ? data : userData; 
   if (datas) {
     accountForm.elements[0].value = datas.nickname;
     accountForm.elements[1].value = datas.fullname;
@@ -39,11 +41,12 @@ accountForm.addEventListener( 'submit', function ( event ) {
     formArray.forEach((value) => {
       if(value.id) formData[value.id] = value.value;
   })
-  formData.rated = true;
+  formData.rated = userData.rated;
   setData(userUrl, token, formData).then((data) => {
     userData = JSON.parse(localStorage.getItem("userData"));
     const datas = data ? data : userData;
       chngForm(datas);
+      chngButton(datas);
       rating();
     }).catch((err) => console.log(err))
   };
