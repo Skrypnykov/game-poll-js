@@ -731,6 +731,7 @@
     padding: 0.4rem 0.5rem;
   }
   .item-block1,
+  .three-buttons .item-block1,
   .item-block2,
   .range-block1,
   .range-block2 {
@@ -738,7 +739,6 @@
   }
   .navi-buttons,
   .three-buttons,
-  .three-buttons .item-block1,
   .navi-list,
   #rangeBlock {
     max-width: 320px;
