@@ -44,7 +44,7 @@ async function handler() {
  //     questionMax = questions.length;
     }
     setUserInfo();
-  });
+  })
   // ПОСЛЕ РАЗРАБОТКИ РАСКОММЕНТИРОВАТЬ
    .catch((error) => {
    console.log(error.message);
