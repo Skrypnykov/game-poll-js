@@ -53,10 +53,10 @@
           </button>
           <ul class="dropdown">
             <li><a href="rules.html">Навіщо грати</a></li>
-            <li><a href="account.html">Профіль</a></li>
             <li><a href="rating.html">Рейтинг</a></li>
             <li><a href="partners.html">Партнери гри</a></li>
             <li><a href="links.html">Корисні посилання</a></li>
+            <li><a href="account.html">Профіль</a></li>
             <li>
               <a href="https://globalcompact.org.ua/contacts/" target="_blank"
                 >Контакти</a
@@ -95,15 +95,6 @@
     <!-- end main -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="../js/dropdown.js"></script>
-    <script>
-      const result = localStorage.getItem("result");
-      const userData = JSON.parse(localStorage.getItem("userData"));
-      const scoreResult = document.getElementById("scoreResult");
-      const userInfo = document.getElementById("userInfo");
-      userInfo.innerHTML = userData ? `Вітаємо, ${userData.email}` : "Вітаємо";
-      if (result) {
-        scoreResult.innerHTML = `<b>${userData.email}, <br>ви набрали ${result} балів.</b>`;
-      }
-    </script>
+    <script type="module" src="../js/result.js"></script>
   </body>
 </html>

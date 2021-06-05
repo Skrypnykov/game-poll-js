@@ -14,7 +14,7 @@ const accountButton = document.getElementById("result");
 
 const userLocalData = JSON.parse(localStorage.getItem("userData"));
 
-async function rating() {
+export async function rating() {
   apiGet(fullUrl)
     .then((responseData) => {
       const ratingArr = responseData;
@@ -23,20 +23,19 @@ async function rating() {
         advice.classList.add("hidden");
         userInfo.innerText = "Вітаємо";
         if(dropdown) dropdown.removeChild(profile);
-        if (startButton && accountButton) {
-          startButton.classList.add("hidden");
-          accountButton.classList.add("hidden");
-        }
+        if (startButton) startButton.classList.add("hidden");
+        if (accountButton) accountButton.classList.add("hidden");
       } else {
         userInfo.innerText = `Вітаємо, ${userLocalData.email}`;
         startButton.classList.remove("hidden");
         if (!userLocalData.rated) {
-          accountButton.classList.remove("hidden");
-          advice.classList.remove("hidden");
+          if (accountButton) accountButton.classList.remove("hidden");
+          if (advice) advice.classList.remove("hidden");
         }
       }
 
       if (ratingArr) {
+        ratingOl.innerHTML = "";
         ratingArr
           .sort((a, b) => b.score - a.score)
           .forEach((user, i) => {
@@ -51,9 +50,9 @@ async function rating() {
           });
       }
     })
-    .catch((error) => {
-      console.log(error.message);
-    });
+    // .catch((error) => {
+    //   console.log(error.message);
+    // });
 }
 
 startButton.addEventListener("click", () => location.href = "./question.html")
