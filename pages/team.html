@@ -57,7 +57,6 @@
           </button>
           <ul class="dropdown" id="dropdown">
             <li><a href="rules.html">Навіщо грати</a></li>
-            <li id="profile"><a href="account.html">Профіль</a></li>
             <li><a href="rating.html">Рейтинг</a></li>
             <li><a href="partners.html">Партнери гри</a></li>
             <li><a href="links.html">Корисні посилання</a></li>
@@ -67,6 +66,7 @@
               >
             </li>
             <li><a href="team.html">Наша команда</a></li>
+            <li id="profile"><a href="account.html">Профіль</a></li>
           </ul>
         </div>
         <!-- end Navbar -->
@@ -185,7 +185,8 @@
       const userInfo = document.getElementById("userInfo");
       const profile = document.getElementById("profile");
       const dropdown = document.getElementById("dropdown");
-      if (!userData) dropdown.removeChild(profile);
+      if (!userData) profile.classList.add("hidden");
+        else profile.classList.remove("hidden");
       startButton.addEventListener("click", () => {
         if (userData) location.href = "./question.html";
         else location.href = "/";

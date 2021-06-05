@@ -34,7 +34,7 @@ async function apiPost(url, userData) {
 export async function register(userData) {
   statusTextRegister.innerText = "Виконується реєстрація ...";
   const fullUrl = `${URL}users`;
-  console.log(userData);
+  // console.log(userData);
   if (userData.password !== userData.password1) {
     statusTextRegister.innerText = "Пароль і його повтор не збігаються";
     return;
@@ -51,7 +51,7 @@ export async function register(userData) {
       );
     })
     .catch((error) => {
-      console.log(error.message);
+      // console.log(error.message);
       if (error.message === "417 Expectation Failed") {
         statusTextRegister.innerText =
           "Такий email або телефон вже зареєстрований";
@@ -164,7 +164,7 @@ export async function verifyAuth() {
     setSignIn();
   } else {
     const body = await res.json();
-    console.log(body);
+    // console.log(body);
     setLocalData(body);
     setSignOut();
     userInfo.innerText = "Вітаємо " + body.email;

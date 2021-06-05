@@ -4,8 +4,6 @@ import { URL } from "./constants.js";
 const fullUrl = URL + "users";
 
 const ratingOl = document.getElementById("rating-ol");
-
-const dropdown = document.getElementById("dropdown");
 const profile = document.getElementById("profile");
 const userInfo = document.getElementById("userInfo");
 const advice = document.getElementById("advice");
@@ -14,7 +12,7 @@ const accountButton = document.getElementById("result");
 
 const userLocalData = JSON.parse(localStorage.getItem("userData"));
 
-async function rating() {
+export async function rating() {
   apiGet(fullUrl)
     .then((responseData) => {
       const ratingArr = responseData;
@@ -22,21 +20,21 @@ async function rating() {
       if (!userLocalData) {
         advice.classList.add("hidden");
         userInfo.innerText = "Вітаємо";
-        if(dropdown) dropdown.removeChild(profile);
-        if (startButton && accountButton) {
-          startButton.classList.add("hidden");
-          accountButton.classList.add("hidden");
-        }
+      if (!userLocalData) profile.classList.add("hidden");
+        else profile.classList.remove("hidden");
+      if (startButton) startButton.classList.add("hidden");
+        if (accountButton) accountButton.classList.add("hidden");
       } else {
         userInfo.innerText = `Вітаємо, ${userLocalData.email}`;
         startButton.classList.remove("hidden");
         if (!userLocalData.rated) {
-          accountButton.classList.remove("hidden");
-          advice.classList.remove("hidden");
+          if (accountButton) accountButton.classList.remove("hidden");
+          if (advice) advice.classList.remove("hidden");
         }
       }
 
       if (ratingArr) {
+        ratingOl.innerHTML = "";
         ratingArr
           .sort((a, b) => b.score - a.score)
           .forEach((user, i) => {
