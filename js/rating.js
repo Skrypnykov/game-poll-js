@@ -25,7 +25,7 @@ export async function rating() {
       if (startButton) startButton.classList.add("hidden");
         if (accountButton) accountButton.classList.add("hidden");
       } else {
-        userInfo.innerText = `Вітаємо, ${userLocalData.email}`;
+        userInfo.innerText = `Вітаємо, ${userLocalData.nickname}`;
         startButton.classList.remove("hidden");
         if (!userLocalData.rated) {
           if (accountButton) accountButton.classList.remove("hidden");

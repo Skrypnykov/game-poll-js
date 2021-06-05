@@ -145,7 +145,7 @@ const setUserInfo = () => {
   const userData = JSON.parse(localStorage.getItem("userData"));
   if (userData) verifyAuth();
     else location.href = "/";
-  if (userData) userInfo.innerText = "Вітаємо " + userData.email;
+  if (userData) userInfo.innerText = "Вітаємо, " + userData.nickname;
 };
 
 const setQuestion = (questions) => {

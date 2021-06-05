@@ -7,9 +7,9 @@ const result = document.getElementById("result");
 const scoreResult = document.getElementById("scoreResult");
 const startButton = document.getElementById("go");
 const userInfo = document.getElementById("userInfo");
-userInfo.innerHTML = userData ? `Вітаємо, ${userData.email}` : "Вітаємо";
+userInfo.innerHTML = userData ? `Вітаємо, ${userData.nickname}` : "Вітаємо";
 if (results) {
-  scoreResult.innerHTML = `<b>${userData.email}, <br>ви набрали ${results} балів.</b>`;
+  scoreResult.innerHTML = `<b>${userData.nickname}, <br>ви набрали ${results} балів.</b>`;
 }
 
 const chngButton = (userData) => {

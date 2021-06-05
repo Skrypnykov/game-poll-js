@@ -3,7 +3,6 @@ import { rating } from "./rating.js";
 import setData from "./setData.js";
 
 const result = document.getElementById("result");
-const fullUr = "https://pollgame-be.herokuapp.com/users";
 const accountForm = document.getElementById( "accountForm" );
 const startButton = document.getElementById("go");
 const userLocalData = localStorage.getItem("userData");
