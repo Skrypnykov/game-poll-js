@@ -40,7 +40,7 @@ export async function rating() {
           .forEach((user, i) => {
             let liEl = document.createElement("li");
             liEl.innerText = `${user.score} - ${user.fullname}`;
-            if (userLocalData && user.email === userLocalData.email) {
+            if (userLocalData && user.fullname === userLocalData.fullname) {
               liEl.classList.add("current-user");
             } else if (i % 2 !== 0) {
               liEl.classList.add("gray-user");

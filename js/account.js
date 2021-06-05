@@ -2,10 +2,12 @@ import { URL } from "./constants.js";
 import { rating } from "./rating.js";
 import setData from "./setData.js";
 
-const result = document.getElementById("result");
-const accountForm = document.getElementById( "accountForm" );
-const startButton = document.getElementById("go");
-const userLocalData = localStorage.getItem("userData");
+const result = document.getElementById("result"),
+  accountForm = document.getElementById( "accountForm" ),
+  userBall = document.getElementById("ball"),
+  startButton = document.getElementById("go"),
+  userLocalData = localStorage.getItem("userData");
+
 if(!userLocalData) location.href = "/";
 let userData = JSON.parse(userLocalData);
 
@@ -21,6 +23,7 @@ const chngForm = (data) => {
     accountForm.elements[2].value = datas.organization;
     accountForm.elements[3].value = datas.position;
     accountForm.elements[4].value = datas.phone;
+    userBall.innerText = datas.score;
   }
 };
 
