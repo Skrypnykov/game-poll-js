@@ -167,7 +167,7 @@ export async function verifyAuth() {
     // console.log(body);
     setLocalData(body);
     setSignOut();
-    userInfo.innerText = "Вітаємо " + body.nickname;
+    userInfo.innerText = "Вітаємо, " + body.nickname;
   }
 }
 
