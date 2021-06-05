@@ -12,7 +12,10 @@
       crossorigin="anonymous"
     />
     <!-- favicon for Apple -->
-    <link rel="apple-touch-icon" href="https://game-globalcompact.org.ua/favicon-32x32.png" />
+    <link
+      rel="apple-touch-icon"
+      href="https://game-globalcompact.org.ua/favicon-32x32.png"
+    />
     <!-- CSS style-->
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <link href="../css/forms.css" rel="stylesheet" type="text/css" />
@@ -72,7 +75,7 @@
           <div class="content-rules-description content-team">
             <div class="scroll team-window">
               <div class="team-block team-block-ie">
-                <div class="persona i1">
+                <div class="persona">
                   <div class="persona-img">
                     <img src="../img/team/saharuk_tatyana.jpg" alt="" />
                   </div>
@@ -84,7 +87,7 @@
                     <p class="email">tsakharuk@globalcompact.org.ua</p>
                   </div>
                 </div>
-                <div class="persona i2">
+                <div class="persona">
                   <div class="persona-img">
                     <img src="../img/team/kavtish_oksana.jpg" alt="" />
                   </div>
@@ -94,7 +97,7 @@
                     <p class="email">itnation@ukr.net</p>
                   </div>
                 </div>
-                <div class="persona i3">
+                <div class="persona">
                   <div class="persona-img">
                     <img src="../img/team/sniginko_marina.jpg" alt="" />
                   </div>
@@ -104,7 +107,7 @@
                     <p class="email">m.snizhynska@globalcompact.org.ua</p>
                   </div>
                 </div>
-                <div class="persona i4">
+                <div class="persona">
                   <div class="persona-img">
                     <img src="../img/team/konovalchenko_alina.jpg" alt="" />
                   </div>
@@ -114,7 +117,7 @@
                     <p class="email">a.konovalchenko@globalcompact.org.ua</p>
                   </div>
                 </div>
-                <div class="persona i5">
+                <div class="persona">
                   <div class="persona-img">
                     <img src="../img/team/pogorilko_oksana.jpg" alt="" />
                   </div>
@@ -124,7 +127,7 @@
                     <p class="email">o.pohorilko@globalcompact.org.ua</p>
                   </div>
                 </div>
-                <div class="persona i6">
+                <div class="persona">
                   <div class="persona-img">
                     <img src="../img/team/kibnovskii_akim.jpg" alt="" />
                   </div>
@@ -134,7 +137,7 @@
                     <p class="email">a.kibnovskiy@globalcompact.org.ua</p>
                   </div>
                 </div>
-                <div class="persona i7">
+                <div class="persona">
                   <div class="persona-img">
                     <img src="../img/team/didik_mariya.jpg" alt="" />
                   </div>
@@ -144,7 +147,7 @@
                     <p class="email">communications@globalcompact.org.ua</p>
                   </div>
                 </div>
-                <div class="persona i8">
+                <div class="persona">
                   <div class="persona-img">
                     <img src="../img/team/onishenko_aleksandra.jpg" alt="" />
                   </div>
@@ -182,11 +185,11 @@
       const userInfo = document.getElementById("userInfo");
       const profile = document.getElementById("profile");
       const dropdown = document.getElementById("dropdown");
-      if(!userData) dropdown.removeChild(profile);
+      if (!userData) dropdown.removeChild(profile);
       startButton.addEventListener("click", () => {
-        if(userData) location.href = "./question.html";
-          else location.href = "/";
-      })
+        if (userData) location.href = "./question.html";
+        else location.href = "/";
+      });
       userInfo.innerHTML = userData ? `Вітаємо, ${userData.email}` : "Вітаємо";
     </script>
   </body>
