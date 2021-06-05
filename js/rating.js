@@ -4,8 +4,6 @@ import { URL } from "./constants.js";
 const fullUrl = URL + "users";
 
 const ratingOl = document.getElementById("rating-ol");
-
-const dropdown = document.getElementById("dropdown");
 const profile = document.getElementById("profile");
 const userInfo = document.getElementById("userInfo");
 const advice = document.getElementById("advice");
@@ -22,8 +20,9 @@ export async function rating() {
       if (!userLocalData) {
         advice.classList.add("hidden");
         userInfo.innerText = "Вітаємо";
-        if(dropdown) dropdown.removeChild(profile);
-        if (startButton) startButton.classList.add("hidden");
+      if (!userLocalData) profile.classList.add("hidden");
+        else profile.classList.remove("hidden");
+      if (startButton) startButton.classList.add("hidden");
         if (accountButton) accountButton.classList.add("hidden");
       } else {
         userInfo.innerText = `Вітаємо, ${userLocalData.email}`;
@@ -50,9 +49,9 @@ export async function rating() {
           });
       }
     })
-    // .catch((error) => {
-    //   console.log(error.message);
-    // });
+    .catch((error) => {
+      console.log(error.message);
+    });
 }
 
 startButton.addEventListener("click", () => location.href = "./question.html")
