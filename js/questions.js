@@ -1,7 +1,7 @@
 import { apiGet } from "./getData.js";
 import create from "./create.js";
 // import { URL, questionMax, wrongColor, trueColor } from "./constants.js";
-import { URL, wrongColor, trueColor, wonPhrases } from "./constants.js";
+import { URL, questionMax, wrongColor, trueColor, wonPhrases } from "./constants.js";
 import { verifyAuth } from "./users.js";
 import setData from "./setData.js";
 import { start, stop } from "./timer.js";
@@ -20,11 +20,11 @@ const questionsQuantity = document.getElementById("questionsQuantity"),
   bg = document.querySelector(".page"),
   timer = document.getElementById("timer"),
   emptyAnswerText = "Необхідно дати відповідь :-)",
-  fullUrl = URL + "questions/all";
+  fullUrl = URL + "questions";
 
 let questionNum = 1,
   catchAnswer = false,
-  questionMax = 5,
+ // questionMax = 5,
   qtyWrong = 0,
   qtyCorrect = 0,
   scores = 0,
@@ -41,14 +41,14 @@ async function handler() {
     const questions = responseData;
     if (questions) {
       setQuestion(questions);
-      questionMax = questions.length;
+ //     questionMax = questions.length;
     }
     setUserInfo();
   });
   // ПОСЛЕ РАЗРАБОТКИ РАСКОММЕНТИРОВАТЬ
-  // .catch((error) => {
-  // console.log(error.message);
-  // });
+   .catch((error) => {
+   console.log(error.message);
+   });
 }
 
 const quit = () => {
@@ -100,7 +100,6 @@ const answerIsTrue = () => {
     if(qtyCorrect === 20) qtyCorrect = 0;
   };
   scores = scores + 5;
-  console.log("true");
   qtyWrong = 0;
   setTimeout(() => nextQuestion(), 2500);
 };
@@ -110,7 +109,6 @@ export const answerIsWrong = (target) => {
   qtyWrong++;
   qtyCorrect = 0;
   if (qtyWrong > 1) scores--;
-  console.log("wrong", trueAnswer);
   if(question.tip) {
     setTimeout(() => nextQuestion(), 6500); 
     showModal(question.tip);
@@ -158,7 +156,7 @@ const setQuestion = (questions) => {
     questionsScoreUpdate();
     question = questionsArr[questionNum - 1];
     trueAnswer = question.view === "checklist" ? question.trueAnswer : question.trueAnswer.join();
-    console.log(question, typeof trueAnswer, trueAnswer);
+    // console.log(question, typeof trueAnswer, trueAnswer);
     questionBlock.classList = `questions_page${question.category} questions`;
     headerBlock.classList = `header-wrapper header-logo-bg${question.category}`;
     goals.src = `../img/questions/GOALS_Ukr${question.category}.png`;
@@ -424,7 +422,7 @@ const setList = (answers) => {
     answer.forEach((ans) => {
       if(trueAnswer.indexOf(ans) !== -1) count++;
     });
-    console.log(count, answer, trueAnswer);
+    // console.log(count, answer, trueAnswer);
 
     if (count >= answer.length) {
       answerIsTrue();
