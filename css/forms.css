@@ -1,3 +1,26 @@
+.modal-dialog-in {
+  max-width: 600px;
+}
+.modal-dialog-width {
+  max-width: 700px;
+}
+.modal-body-info {
+  /* text-align: justify; */
+  color: aliceblue;
+  font-weight: bold;
+}
+.modal-body-info a{
+  color: #27408B;
+  text-decoration: none;
+}
+
+.btn-group {
+  text-align: center;
+}
+
+.text-change-color{
+  color: white;
+}
 .form-bg {
     background: #61808A;
     padding: 1rem 2rem;
@@ -47,6 +70,14 @@ form .mb-1 .col-form-label {
     border-color: green;
   }
   
+  @media (max-width: 414px) {
+    .modal-body-info {
+      font-size: .9rem;
+    }
+    .form-bg {
+      padding: 1rem;
+    }
+  }
   @media (max-width: 375px) {
     .form-account-item{
       line-height: 1;
@@ -56,9 +87,5 @@ form .mb-1 .col-form-label {
       font-size: .75rem;
     }
   }
-  @media (max-width: 280px) {
-    .form-bg {
-      padding: 1rem;
-    }
-  }
+
   

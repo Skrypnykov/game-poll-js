@@ -3,13 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Game Poll</title>
+    <title>SDG Game</title>
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
       crossorigin="anonymous"
+    />
+    <!-- favicon for Apple -->
+    <link
+      rel="apple-touch-icon"
+      href="https://game-globalcompact.org.ua/favicon-32x32.png"
     />
     <!-- CSS style-->
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
@@ -36,10 +41,11 @@
       </div>
 
       <div class="rules team">
-        <div class="welcome-main" >
-          <span class="welcome-rules infospan top"
-            >Вітаємо,&nbsp;Fighter@gmail.com</span
-          ></div>
+        <div class="welcome-main">
+          <span class="welcome-rules infospan top browser" id="userInfo"
+            >Рекомендовані браузери: Chrome або Firefox</span
+          >
+        </div>
         <div class="field-block title">
           <span id="rules" class="btn-bottom-bl">Наша команда</span>
         </div>
@@ -49,13 +55,18 @@
           <button class="btn-main-dropdown btn-main-border up-menu">
             <span>Меню</span>
           </button>
-          <ul class="dropdown">
+          <ul class="dropdown" id="dropdown">
             <li><a href="rules.html">Навіщо грати</a></li>
-          <li><a href="account.html">Профіль</a></li>
-          <li><a href="rating.html">Рейтинг</a></li>
-          <li><a href="partners.html">Партнери гри</a></li>
-          <li><a href="https://globalcompact.org.ua/contacts/" target="_blank">Контакти</a></li>          
-          <li><a href="team.html">Наша команда</a></li>
+            <li id="profile"><a href="account.html">Профіль</a></li>
+            <li><a href="rating.html">Рейтинг</a></li>
+            <li><a href="partners.html">Партнери гри</a></li>
+            <li><a href="links.html">Корисні посилання</a></li>
+            <li>
+              <a href="https://globalcompact.org.ua/contacts/" target="_blank"
+                >Контакти</a
+              >
+            </li>
+            <li><a href="team.html">Наша команда</a></li>
           </ul>
         </div>
         <!-- end Navbar -->
@@ -64,7 +75,7 @@
           <div class="content-rules-description content-team">
             <div class="scroll team-window">
               <div class="team-block team-block-ie">
-                <div class="persona i1">
+                <div class="persona">
                   <div class="persona-img">
                     <img src="../img/team/saharuk_tatyana.jpg" alt="" />
                   </div>
@@ -76,7 +87,7 @@
                     <p class="email">tsakharuk@globalcompact.org.ua</p>
                   </div>
                 </div>
-                <div class="persona i2">
+                <div class="persona">
                   <div class="persona-img">
                     <img src="../img/team/kavtish_oksana.jpg" alt="" />
                   </div>
@@ -86,7 +97,7 @@
                     <p class="email">itnation@ukr.net</p>
                   </div>
                 </div>
-                <div class="persona i3">
+                <div class="persona">
                   <div class="persona-img">
                     <img src="../img/team/sniginko_marina.jpg" alt="" />
                   </div>
@@ -96,7 +107,7 @@
                     <p class="email">m.snizhynska@globalcompact.org.ua</p>
                   </div>
                 </div>
-                <div class="persona i4">
+                <div class="persona">
                   <div class="persona-img">
                     <img src="../img/team/konovalchenko_alina.jpg" alt="" />
                   </div>
@@ -106,7 +117,7 @@
                     <p class="email">a.konovalchenko@globalcompact.org.ua</p>
                   </div>
                 </div>
-                <div class="persona i5">
+                <div class="persona">
                   <div class="persona-img">
                     <img src="../img/team/pogorilko_oksana.jpg" alt="" />
                   </div>
@@ -116,7 +127,7 @@
                     <p class="email">o.pohorilko@globalcompact.org.ua</p>
                   </div>
                 </div>
-                <div class="persona i6">
+                <div class="persona">
                   <div class="persona-img">
                     <img src="../img/team/kibnovskii_akim.jpg" alt="" />
                   </div>
@@ -126,7 +137,7 @@
                     <p class="email">a.kibnovskiy@globalcompact.org.ua</p>
                   </div>
                 </div>
-                <div class="persona i7">
+                <div class="persona">
                   <div class="persona-img">
                     <img src="../img/team/didik_mariya.jpg" alt="" />
                   </div>
@@ -136,7 +147,7 @@
                     <p class="email">communications@globalcompact.org.ua</p>
                   </div>
                 </div>
-                <div class="persona i8">
+                <div class="persona">
                   <div class="persona-img">
                     <img src="../img/team/onishenko_aleksandra.jpg" alt="" />
                   </div>
@@ -150,10 +161,13 @@
             </div>
           </div>
         </div>
-        <div class="best infospan" >
+        <div class="best infospan">
           <span class="bottom"
-            ><a href="bestapp.html">Web-розробник сайту: команда BestApp</a></span
-          ></div>
+            ><a href="bestapp.html"
+              >Web-розробник сайту: команда BestApp</a
+            ></span
+          >
+        </div>
 
         <div class="field-block go">
           <button id="go" class="btn-bottom-bl">Почати гру</button>
@@ -163,9 +177,20 @@
     </div>
     <!-- end main -->
 
-    <script
-      src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"
-    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="../js/dropdown.js"></script>
+    <script>
+      const userData = JSON.parse(localStorage.getItem("userData"));
+      const startButton = document.getElementById("go");
+      const userInfo = document.getElementById("userInfo");
+      const profile = document.getElementById("profile");
+      const dropdown = document.getElementById("dropdown");
+      if (!userData) dropdown.removeChild(profile);
+      startButton.addEventListener("click", () => {
+        if (userData) location.href = "./question.html";
+        else location.href = "/";
+      });
+      userInfo.innerHTML = userData ? `Вітаємо, ${userData.email}` : "Вітаємо";
+    </script>
   </body>
 </html>

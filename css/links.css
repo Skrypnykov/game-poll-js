@@ -1,0 +1,43 @@
+.link-window {
+  padding: 0.5rem 1.5rem 0.5rem 1rem;
+}
+
+.link-text {
+  font: normal 500 0.7rem/1rem Roboto;
+  color: #000;
+  text-decoration: none;
+}
+.link-div {
+  margin-bottom: 0.5rem;
+}
+
+.a-button {
+  display: inline-block;
+  text-shadow: 1px 1px #fff;
+  text-decoration: none;
+  padding: 0.3em 1em;
+  border: 1px solid #aaa;
+  border-radius: 100px;
+  outline: none;
+  background: #d6dbbf no-repeat;
+  background-image: linear-gradient(to left, #aaa, #aaa),
+    linear-gradient(to left, #feffe8, #feffe8),
+    linear-gradient(#feffe8, #d6dbbf);
+  background-size: 1px 100%, 1px 100%, auto auto;
+  overflow: hidden;
+  font: normal 500 0.7rem Roboto;
+  color: #aaa;
+  vertical-align: text-top;
+  margin-left: 1rem;
+}
+
+.a-button:hover {
+  background-color: #c4cefc;
+  background-image: linear-gradient(to left, #aaa, #aaa),
+    linear-gradient(to left, #feffe8, #feffe8),
+    linear-gradient(#e7ebff, #c7d3fa);
+}
+.a-button:active:after {
+  bottom: -1.2em;
+  transition: 0.3s;
+}

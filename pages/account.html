@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Game Poll</title>
+    <title>SDG Game</title>
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
@@ -11,6 +11,8 @@
       integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
       crossorigin="anonymous"
     />
+    <!-- favicon for Apple -->
+    <link rel="apple-touch-icon" href="https://game-globalcompact.org.ua/favicon-32x32.png" />
     <!-- CSS style-->
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <link href="../css/forms.css" rel="stylesheet" type="text/css" />
@@ -37,10 +39,12 @@
       </div>
 
       <div class="rules account">
-        <div class="welcome-main" >
-          <span class="welcome-rules infospan top"
-            >Вітаємо,&nbsp;Fighter@gmail.com</span
-          ></div>
+        <div class="welcome-main">
+          <span
+            class="welcome-rules infospan top hidden"
+            id="userInfo"
+          ></span>
+        </div>
         <div class="field-block title">
           <span id="rules" class="btn-bottom-bl">Особистий кабінет</span>
         </div>
@@ -55,6 +59,7 @@
             <li><a href="account.html">Профіль</a></li>
             <li><a href="rating.html">Рейтинг</a></li>
             <li><a href="partners.html">Партнери гри</a></li>
+            <li><a href="links.html">Корисні посилання</a></li>
             <li>
               <a href="https://globalcompact.org.ua/contacts/" target="_blank"
                 >Контакти</a
@@ -69,11 +74,11 @@
           <div class="rating-window rating-account">
             <div class="content-rules-description content-account">
               <h4 class="rating-window-title">Рейтинг гравців</h4>
-              <p class="advice">
+              <p class="advice hidden" id="advice">
                 Для відображення ваших результатів у рейтингу, заповніть профіль
               </p>
               <div class="rating-scroll">
-                <ol class="rating-window-list"  id="rating-ol"></ol>
+                <ol class="rating-window-list" id="rating-ol"></ol>
               </div>
             </div>
           </div>
@@ -92,7 +97,8 @@
                     class="form-account-control"
                     placeholder="Нікнейм"
                     title="Будь ласка, заповніть це поле"
-                    minlength="3" maxlength="25"
+                    minlength="3"
+                    maxlength="25"
                     required
                   />
                 </div>
@@ -107,7 +113,8 @@
                     placeholder="ПІБ"
                     title="Будь ласка, заповніть це поле"
                     pattern="[\D\s]+"
-                    minlength="3" maxlength="30"
+                    minlength="3"
+                    maxlength="30"
                     required
                   />
                 </div>
@@ -121,7 +128,8 @@
                     title="Будь ласка, заповніть це поле"
                     class="form-account-control"
                     id="organization"
-                    minlength="1" maxlength="30"
+                    minlength="1"
+                    maxlength="30"
                     required
                   />
                 </div>
@@ -135,7 +143,8 @@
                     class="form-account-control"
                     id="position"
                     title="Будь ласка, заповніть це поле"
-                    minlength="3" maxlength="30"
+                    minlength="3"
+                    maxlength="30"
                     required
                   />
                 </div>
@@ -150,7 +159,8 @@
                     class="form-account-control"
                     placeholder="+38 (050) 111-11-11"
                     title="Будь ласка, заповніть це поле"
-                    autocorrect="off" autocapitalize="off" 
+                    autocorrect="off"
+                    autocapitalize="off"
                     pattern="[\+]\d{1}\d{1}\s[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}"
                     minlength="19"
                     maxlength="19"
@@ -176,22 +186,25 @@
             </div>
           </div>
         </div>
-        <div class="display-result-block">
-          <button id="result" class="btn-bottom-res">Відображати мої результати у загальному рейтингу</button>
+        <div class="display-result-block hidden">
+          <button id="result" class="btn-bottom-res">
+            Відображати мої результати у загальному рейтингу
+          </button>
         </div>
 
         <div class="field-block go">
-          <button id="go" class="btn-bottom-bl">Почати гру</button>
+          <button id="go" class="btn-bottom-bl hidden">Почати гру</button>
         </div>
       </div>
       <!-- end content-wrapper -->
     </div>
     <!-- end main -->
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="../js/dropdown.js"></script>
     <script src="../js/jquery.maskedinput.min.js"></script>
     <script type="module" src="../js/account.js"></script>
     <script type="module" src="../js/rating.js"></script>
+    <script src="../js/valid.js"></script>
   </body>
 </html>

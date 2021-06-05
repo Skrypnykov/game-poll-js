@@ -1,43 +1,46 @@
-import {register, signIn} from "./users.js"
+import { verifyAuth, register, signIn, recovery } from "./users.js";
 
-const registerForm = document.getElementById( "signUpForm" );
-const signInForm = document.getElementById( "signInForm" );
+const registerForm = document.getElementById("signUpForm");
+const signInForm = document.getElementById("signInForm");
+const recoveryForm = document.getElementById("recoveryForm");
+const btnStart = document.querySelector(".btn-start");
 
-function GetIntRandom(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+btnStart.addEventListener("click", onClickSpin);
 
 function onClickSpin() {
-    document.getElementById('buttons-animate').classList.toggle('animated');
-    setTimeout(function () {
-        handler()
-    }, 1000);
+  document.getElementById("buttons-animate").classList.toggle("animated");
+  setTimeout(() => location.href = "pages/question.html", 1000);
 }
 
-function handler() {
-    location.href = "pages/" + "page" + GetIntRandom(1, 16) + ".html";
-}
-
-registerForm.addEventListener( 'submit', function ( event ) {
-
+registerForm.addEventListener("submit", function (event) {
   event.preventDefault();
   const formArray = Array.from(event.target);
   let userData = {};
   formArray.forEach((value) => {
-    userData[value.id] = value.value;
-  }) 
+    userData[value.name] = value.value;
+  });
   register(userData);
-
 });
 
-signInForm.addEventListener( 'submit', function ( event ) {
-
+signInForm.addEventListener("submit", function (event) {
   event.preventDefault();
   const formArray = Array.from(event.target);
   let userData = {};
   formArray.forEach((value) => {
-    userData[value.id] = value.value;
-  }) 
+    userData[value.name] = value.value;
+  });
   signIn(userData);
-  
 });
+
+recoveryForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const formArray = Array.from(event.target);
+  let userData = {};
+  formArray.forEach((value) => {
+    userData[value.name] = value.value;
+  });
+  
+  recovery(userData);  
+});
+
+verifyAuth();

@@ -1,32 +1,21 @@
-const url = 'https://pollgame-be.herokuapp.com/'
+import { URL } from "./constants.js";
 
-export async function apiGet(url) {
+export async function apiGet(URL) {
   const requestProp = {
-    method: 'GET',
+    method: "GET",
     headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    }
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
   };
 
-  const response = await fetch(url, requestProp);
-    
+  const response = await fetch(URL, requestProp);
+
   if (!response.ok) {
-    const error = response.status + " " + response.statusText;
-    throw new Error(error)
-    }
+    const error = {status: response.status, statusText: response.statusText};
+    return error
+    throw new Error(error);
+  }
   const body = await response.json();
-  return body
+  return body;
 }
-
-export async function question () {
-  const fullUrl = `${url}question`;
-
-  apiGet(fullUrl).then(( responseData ) => {
-    console.log(responseData);
-  })
-  .catch(error => {
-    console.log(error.message)
-  })
-};
-
