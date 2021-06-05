@@ -10,9 +10,9 @@ const advice = document.getElementById("advice");
 const startButton = document.getElementById("go");
 const accountButton = document.getElementById("result");
 
-const userLocalData = JSON.parse(localStorage.getItem("userData"));
 
 export async function rating() {
+  const userLocalData = JSON.parse(localStorage.getItem("userData"));
   apiGet(fullUrl)
     .then((responseData) => {
       const ratingArr = responseData;
@@ -27,7 +27,7 @@ export async function rating() {
       } else {
         userInfo.innerText = `Вітаємо, ${userLocalData.nickname}`;
         startButton.classList.remove("hidden");
-        if (!userLocalData.rated) {
+        if (!userLocalData.verified) {
           if (accountButton) accountButton.classList.remove("hidden");
           if (advice) advice.classList.remove("hidden");
         }

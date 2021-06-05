@@ -108,16 +108,45 @@
       </div>
     </div>
   </div>
-  <div class="modal fade" id="modalRange" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal fade" 
+    id="modalTip"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true" >
     <div class="modal-dialog modal-dialog-centered modal-dialog-in">
       <div class="modal-content">
-        <button type="button" class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="modal"
-          aria-label="Close"></button>
+        <button 
+          type="button" 
+          class="btn-close position-absolute top-0 end-0 m-2" 
+          data-bs-dismiss="modal"
+          aria-label="Close" id="modalClose">
+        </button>
 
         <div class="modalbody form-bg">
+          <p class="modal-body-info mt-4" id="modalTipText"></p>
+          <button 
+            class="button__close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            id="modalOk">OK
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" 
+    id="modalRange"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true" >
+    <div class="modal-dialog modal-dialog-centered modal-dialog-in">
+      <div class="modal-content">
+        <div class="modalbody form-bg">
           <p class="modal-body-info mt-4" id="modalText">Необхідно дати відповідь :-)</p>
-          <button class="button__close" data-bs-dismiss="modal" aria-label="Close">OK</button>
         </div>
       </div>
     </div>
@@ -126,13 +155,18 @@
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-in">
       <div class="modal-content">
-        <button type="button" class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="modal"
+        <button type="button" 
+          class="btn-close position-absolute top-0 end-0 m-2" 
+          data-bs-dismiss="modal"
           aria-label="Close"></button>
         <div class="modal-body form-bg">
           <p class="modal-body-info m-1" id="modalText">Ви впевнені?<br>Ваши результати будуть втрачені</p>
           <div class="btn-group">
             <a class="button__close btnlnk" href="/" role="link">Так</a>
-            <button class="button__close" data-bs-dismiss="modal" aria-label="Close">Ні</button>
+            <button 
+              class="button__close"
+              data-bs-dismiss="modal"
+              aria-label="Close">Ні</button>
           </div>
         </div>
       </div>

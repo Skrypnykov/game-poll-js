@@ -15,7 +15,9 @@ const questionsQuantity = document.getElementById("questionsQuantity"),
   userInfo = document.getElementById("userInfo"),
   quitBtn = document.getElementById("quit"),
   questionText = document.getElementById("question"),
-  modalText = document.getElementById("modalText"),
+  modalClose = document.getElementById("modalClose"),
+  modalOk = document.getElementById("modalOk"),
+  modalTipText = document.getElementById("modalTipText"),
   goals = document.querySelector(".goals"),
   bg = document.querySelector(".page"),
   timer = document.getElementById("timer"),
@@ -64,7 +66,7 @@ const seeResult = () => {
   if(token && userId && userData) {
     const fullUrl = URL + "users/" + userId;
     setData(fullUrl, token, {score: scores}).then((res) => {
-      if(res.status) newPassText.innerText = "Пароль встановлений";
+      if(res.status) console.log("Ok");
     })
     .catch((error) => {console.log(error)});
   }
@@ -84,19 +86,29 @@ const nextQuestion = () => {
   }
 };
 
-const showModal = (showText) => {
-  modalText.innerText = showText;
-  $("#modalRange").modal("show"); 
-  setTimeout(() => $("#modalRange").modal("hide"), 6000); 
-  setTimeout(() => modalText.innerText = emptyAnswerText, 6500);
+const showModal = (showText, time) => {
+  if(showText) modalTipText.innerText = showText;
+  $("#modalTip").modal("show");
+  if(time) setTimeout(() => $("#modalTip").modal("hide"), time);
+  modalClose.addEventListener("click", () => nextQuestion(), { once: true });
+  modalOk.addEventListener("click", () => nextQuestion(), { once: true });
 };
+
+const showModalEmptyAnswer = () => {
+  $("#modalRange").modal("show");
+  setTimeout(() => $("#modalRange").modal("hide"), 2000);
+};
+
+
+
+// $('#modalRange').on('hidden.bs.modal', () => nextQuestion());
 
 const answerIsTrue = () => {
   stop();
   qtyCorrect++;
   if(qtyCorrect % 4 === 0) {
     const qty = qtyCorrect / 4;
-    showModal(wonPhrases[qty]);
+    showModal(wonPhrases[qty], 2500);
     if(qtyCorrect === 20) qtyCorrect = 0;
   };
   scores = scores + 5;
@@ -110,7 +122,6 @@ export const answerIsWrong = (target) => {
   qtyCorrect = 0;
   if (qtyWrong > 1) scores--;
   if(question.tip) {
-    setTimeout(() => nextQuestion(), 6500); 
     showModal(question.tip);
   } else { 
     setTimeout(() => nextQuestion(), 2000); 
@@ -293,8 +304,7 @@ const setRange = (answers) => {
     let enter = document.getElementById("enter");
 
     if (p.innerHTML === "" && range !== "wrong") {
-      $("#modalRange").modal("show");
-      setTimeout(() => $("#modalRange").modal("hide"), 3000);
+      showModalEmptyAnswer();
       catchAnswer = false;
       btnEnter.addEventListener("click", () => verifyRange(p), { once: true });
       btnSkip.addEventListener("click", () => verifyRange("wrong"), { once: true });
@@ -406,7 +416,7 @@ const setList = (answers) => {
     formArray.forEach((value) => {
       if (value.checked) answer.push(value.value);
     });
-    if (answer.length < 1) $("#modalRange").modal("show");
+    if (answer.length < 1) showModalEmptyAnswer();
     else verifyList(answer);
   });
 
