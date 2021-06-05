@@ -1,6 +1,6 @@
 .page {
   height: 100vh;
-  transition: background-image .15s linear;
+  transition: background-image 0.15s linear;
 }
 
 .page-hover {
@@ -139,7 +139,7 @@
   justify-content: space-around;
   align-items: flex-end;
   z-index: 1;
-  transition: all .3s linear;
+  transition: all 0.3s linear;
 }
 
 .questions {
@@ -157,7 +157,7 @@
 }
 
 .goals {
-  width: 16%;
+  width: 5em;
   position: absolute;
   top: -0.6rem;
   left: -0.6rem;
@@ -175,7 +175,7 @@
 .text-wrapper::before {
   display: inline-block;
   content: "";
-  width: 16%;
+  width: 5em;
   margin-top: -0.6rem;
   margin-left: -0.5rem;
   float: left;
@@ -216,7 +216,7 @@
   display: -ms-grid;
   grid-template-columns: repeat(auto-fit, minmax(241px, 1fr));
   gap: 0.6rem;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
 #rangeBlock,
@@ -228,7 +228,7 @@
   width: 100%;
   height: 100%;
   font: normal 500 0.75rem/1rem Roboto;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 .item1:hover {
   border-color: #7f8c8d;
@@ -738,6 +738,7 @@
   }
   .navi-buttons,
   .three-buttons,
+  .three-buttons .item-block1,
   .navi-list,
   #rangeBlock {
     max-width: 320px;
