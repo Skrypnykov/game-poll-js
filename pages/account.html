@@ -12,7 +12,10 @@
       crossorigin="anonymous"
     />
     <!-- favicon for Apple -->
-    <link rel="apple-touch-icon" href="https://game-globalcompact.org.ua/favicon-32x32.png" />
+    <link
+      rel="apple-touch-icon"
+      href="https://game-globalcompact.org.ua/favicon-32x32.png"
+    />
     <!-- CSS style-->
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <link href="../css/forms.css" rel="stylesheet" type="text/css" />
@@ -40,10 +43,7 @@
 
       <div class="rules account">
         <div class="welcome-main">
-          <span
-            class="welcome-rules infospan top hidden"
-            id="userInfo"
-          ></span>
+          <span class="welcome-rules infospan top hidden" id="userInfo"></span>
         </div>
         <div class="field-block title">
           <span id="rules" class="btn-bottom-bl">Особистий кабінет</span>
@@ -89,8 +89,11 @@
               <form class="form-account" id="accountForm">
                 <div class="form-account-item f1">
                   <label for="nickname" class="form-account-label"
-                    >Нікнейм: <span class="text-red">*</span></label
-                  >
+                    >Нікнейм
+                  </label>
+                  <label for="ball" class="form-account-label l1"
+                    >Кількість балів
+                  </label>
                   <input
                     type="text"
                     id="nickname"
@@ -101,11 +104,11 @@
                     maxlength="25"
                     required
                   />
+
+                  <span id="ball"></span>
                 </div>
                 <div class="form-account-item f2">
-                  <label for="name" class="form-account-label"
-                    >ПІБ: <span class="text-red">*</span></label
-                  >
+                  <label for="name" class="form-account-label">ПІБ </label>
                   <input
                     type="text"
                     id="fullname"
@@ -120,8 +123,8 @@
                 </div>
                 <div class="form-account-item f3">
                   <label for="organization" class="form-account-label"
-                    >Назва організації: <span class="text-red">*</span></label
-                  >
+                    >Назва організації
+                  </label>
                   <input
                     type="text"
                     placeholder="Назва організації"
@@ -135,8 +138,8 @@
                 </div>
                 <div class="form-account-item f4">
                   <label for="position" class="form-account-label"
-                    >Посада: <span class="text-red">*</span></label
-                  >
+                    >Посада
+                  </label>
                   <input
                     type="text"
                     placeholder="Посада"
@@ -149,9 +152,7 @@
                   />
                 </div>
                 <div class="form-account-item f5">
-                  <label for="phone" class="form-account-label"
-                    >Телефон: <span class="text-red">*</span></label
-                  >
+                  <label for="phone" class="form-account-label">Телефон </label>
                   <input
                     type="tel"
                     name="phone"
