@@ -76,7 +76,7 @@ const setSignIn = () => {
     signInOutButton.dataset.bsTarget = "#modalSignIn";
     registerButton.classList.remove("hidden");
     startButton.classList.add("hidden");
-    dropdown.removeChild(profile);
+    profile.classList.add("hidden");
   }
 };
 
@@ -88,7 +88,7 @@ const setSignOut = () => {
     delete signInOutButton.dataset.bsTarget;
     registerButton.classList.add("hidden");
     startButton.classList.remove("hidden");
-    dropdown.appendChild(profile);
+    profile.classList.remove("hidden");
   }
 };
 
