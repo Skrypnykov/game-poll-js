@@ -18,6 +18,7 @@ const questionsQuantity = document.getElementById("questionsQuantity"),
   modalClose = document.getElementById("modalClose"),
   modalOk = document.getElementById("modalOk"),
   modalTipText = document.getElementById("modalTipText"),
+  modalText = document.getElementById("modalText"),
   goals = document.querySelector(".goals"),
   bg = document.querySelector(".page"),
   timer = document.getElementById("timer"),
@@ -94,7 +95,8 @@ const showModal = (showText, time) => {
   modalOk.addEventListener("click", () => nextQuestion(), { once: true });
 };
 
-const showModalEmptyAnswer = () => {
+const showModalEmptyAnswer = (showText) => {
+  modalText.innerText = showText ? showText : emptyAnswerText;
   $("#modalRange").modal("show");
   setTimeout(() => $("#modalRange").modal("hide"), 2000);
 };
@@ -107,8 +109,8 @@ const answerIsTrue = () => {
   stop();
   qtyCorrect++;
   if(qtyCorrect % 4 === 0) {
-    const qty = qtyCorrect / 4;
-    showModal(wonPhrases[qty], 2500);
+    const qty = Math.floor(Math.random() * wonPhrases.length);
+    showModalEmptyAnswer(wonPhrases[qty], 2500);
     if(qtyCorrect === 20) qtyCorrect = 0;
   };
   scores = scores + 5;
