@@ -58,7 +58,7 @@ grid-template-areas:
 }
 .content-rules-description {
   display: grid;
-  grid-template-rows: 0.1fr 0.1fr 1fr;
+  grid-template-rows: 10% 10% 80%;
   justify-content: center;
   justify-self: center;
   align-items: center;
