@@ -162,7 +162,7 @@
         if (userData) location.href = "./question.html";
         else location.href = "/";
       });
-      userInfo.innerHTML = userData ? `Вітаємо, ${userData.nickname}` : "Вітаємо";
+      userInfo.innerHTML = userData ? `Вітаємо, <a href='/pages/account.html'>${userData.nickname}</a>` : "Вітаємо";
     </script>
   </body>
 </html>

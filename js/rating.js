@@ -25,7 +25,7 @@ export async function rating() {
       if (startButton) startButton.classList.add("hidden");
         if (accountButton) accountButton.classList.add("hidden");
       } else {
-        userInfo.innerText = `Вітаємо, ${userLocalData.nickname}`;
+        userInfo.innerHTML = `Вітаємо, <a href='/pages/account.html'>${userLocalData.nickname}</a>`;
         startButton.classList.remove("hidden");
         if (!userLocalData.verified) {
           if (accountButton) accountButton.classList.remove("hidden");

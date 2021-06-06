@@ -7,7 +7,7 @@ const result = document.getElementById("result");
 const scoreResult = document.getElementById("scoreResult");
 const startButton = document.getElementById("go");
 const userInfo = document.getElementById("userInfo");
-userInfo.innerHTML = userData ? `Вітаємо, ${userData.nickname}` : "Вітаємо";
+userInfo.innerHTML = userData ? `Вітаємо, <a href='/pages/account.html'>${userData.nickname}</a>` : "Вітаємо";
 if (results) {
   scoreResult.innerHTML = `<b>${userData.nickname}, <br>ви набрали ${results} балів.</b>`;
 }

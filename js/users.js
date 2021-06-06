@@ -112,7 +112,7 @@ export async function signIn(userData) {
       if (responseData.email) {
         statusTextSignIn.innerText = "Вхід виконано";
         userInfo.classList.remove("smallfont");
-        userInfo.innerText = "Вітаємо " + responseData.nickname;
+        userInfo.innerHTML = "Вітаємо, " + "<a href='/pages/account.html'>" + responseData.nickname + "</a>"; 
         setTimeout(() => $("#modalSignIn").modal("hide"), 1000);
         setTimeout(() => $("#modalInfo").modal("show"), 1500);
         setLocalData(responseData);
@@ -167,7 +167,7 @@ export async function verifyAuth() {
     // console.log(body);
     setLocalData(body);
     setSignOut();
-    userInfo.innerText = "Вітаємо, " + body.nickname;
+    userInfo.innerHTML = "Вітаємо, " + "<a href='/pages/account.html'>" + body.nickname + "</a>"; 
   }
 }
 

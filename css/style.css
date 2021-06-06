@@ -167,6 +167,16 @@ embed {
   align-self: center;
   justify-self: start;
 }
+.infospan a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.infospan a:hover {
+  text-decoration: none;
+  color: rgba(76, 161, 70, 0.6);
+}
+
 .modal-body-info .blue {
   color: blue;
 }
