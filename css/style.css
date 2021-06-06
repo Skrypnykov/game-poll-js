@@ -255,7 +255,7 @@ embed {
 .btn-group-game {
   padding: 0.26rem 0;
   font: bold 1.35rem/1.7rem Roboto;
-  border: 4px solid rgba(147, 146, 146, 0.8);
+  border: 0.6vh solid rgba(147, 146, 146, 0.8);
   border-radius: 1rem;
 }
 
@@ -267,10 +267,10 @@ embed {
 .btn-quit:hover,
 .btn-bottom-res:hover {
   background: #68d9f4;
-  border: 4px solid #cbcaca;
+  border: 0.6vh solid #cbcaca;
 }
 .smallfont {
-  font: italic 500 .9rem/1rem Roboto;
+  font: italic 500 0.9rem/1rem Roboto;
 }
 .browser {
   font-size: 0.8rem;
@@ -325,7 +325,7 @@ button.close {
 .wrapper-dropdown-2 button {
   padding: 0.1rem 0 0.1rem;
   background: rgba(53, 196, 232, 1);
-  border: 4px solid rgba(147, 146, 146, 0.8);
+  border: 0.6vh solid rgba(147, 146, 146, 0.8);
   color: #fff;
   border-radius: 1rem;
   font: bold 1.35rem Roboto;
@@ -375,7 +375,7 @@ button.close {
   width: 100%;
 
   background: rgba(53, 196, 232, 1);
-  border: 4px solid rgba(147, 146, 146, 0.8);
+  border: 0.6vh solid rgba(147, 146, 146, 0.8);
   border-top: none;
   color: #fff;
   border-radius: 0 0 1rem 1rem;
@@ -710,7 +710,7 @@ button.close {
     top: -21rem;
     padding-bottom: 15%;
     border-bottom: none;
-    border-top: 4px solid rgba(147, 146, 146, 0.8);
+    border-top: 0.6vh solid rgba(147, 146, 146, 0.8);
     border-radius: 1rem 1rem 0 0;
   }
 
