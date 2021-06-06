@@ -111,7 +111,7 @@
 .btn-quit,
 .tablo1,
 .tablo2 {
-  border: 0.6vh solid rgba(147, 146, 146, 0.8);
+  border: 4px solid rgba(147, 146, 146, 0.8);
   border-radius: 3vh;
   padding: 0.5rem 0.5rem;
   background: rgba(53, 196, 232, 0.8);
@@ -254,7 +254,7 @@
 .three-buttons form input {
   width: 100%;
   height: 3.5rem;
-  border: 0.6vh solid #939292;
+  border: 4px solid #939292;
   border-radius: 3vh;
   background: #c4c4c4;
   display: block;
