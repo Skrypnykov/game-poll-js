@@ -12,7 +12,10 @@
       crossorigin="anonymous"
     />
     <!-- favicon for Apple -->
-    <link rel="apple-touch-icon" href="https://game-globalcompact.org.ua/favicon-32x32.png" />
+    <link
+      rel="apple-touch-icon"
+      href="https://game-globalcompact.org.ua/favicon-32x32.png"
+    />
     <!-- CSS style-->
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <link href="../css/forms.css" rel="stylesheet" type="text/css" />
@@ -64,6 +67,9 @@
               >
             </li>
             <li><a href="team.html">Наша команда</a></li>
+            <li>
+              <a href="#">Технічна підтримка</a>
+            </li>
             <li id="profile"><a href="account.html">Профіль</a></li>
           </ul>
         </div>
@@ -73,29 +79,74 @@
           <div class="content-rules-description content-team">
             <div class="scroll team-window">
               <div class="team-block partners-block">
-                <div class="partners-img p1">
-                  <p>Інформаційний партнер</p>
-                  <a href="https://slm.ua" target="_blank"
-                    ><img src="../img/partners/logo-SLM-short.png" alt=""
-                  /></a>
+                <div class="partners-noinfo">
+                  <div class="partners-img">
+                    <a href="https://dtek.com" target="_blank"
+                      ><img
+                        src="../img/partners/DTEK_FINAL_LOGO_EN_1.png"
+                        alt=""
+                    /></a>
+                  </div>
+
+                  <div class="partners-img">
+                    <a href="https://www.basf.com/ua/uk.html" target="_blank"
+                      ><img src="../img/partners/BASFw_wh100rd_4c.png" alt=""
+                    /></a>
+                  </div>
+
+                  <div class="partners-img">
+                    <a href="https://carlsbergukraine.com" target="_blank"
+                      ><img
+                        src="../img/partners/For_PR_PJSC-carlsberg.png"
+                        alt=""
+                    /></a>
+                  </div>
                 </div>
-                <div class="partners-img p2">
-                  <a href="https://dtek.com" target="_blank"
-                    ><img src="../img/partners/DTEK_FINAL_LOGO_EN_1.png" alt=""
-                  /></a>
-                </div>
-                <div class="partners-img p3">
-                  <a href="https://www.basf.com/ua/uk.html" target="_blank"
-                    ><img src="../img/partners/BASFw_wh100rd_4c.png" alt=""
-                  /></a>
-                </div>
-                <div class="partners-img p4">
-                  <a href="https://carlsbergukraine.com" target="_blank"
-                    ><img
-                      src="../img/partners/For_PR_PJSC-carlsberg.png"
-                      alt=""
-                  /></a>
-                </div>
+                <form>
+                  <fieldset class="groupbox-border">
+                    <legend class="groupbox-border">
+                      Інформаційні партнери
+                    </legend>
+                    <div class="partners-info">
+                      <div class="partners-img">
+                        <a href="https://apostrophe.ua/tv" target="_blank"
+                          ><img
+                            src="../img/partners/photo_apostrophe_tv.jpg"
+                            alt=""
+                        /></a>
+                      </div>
+                      <div class="partners-img">
+                        <a href="https://apostrophe.ua/ua" target="_blank"
+                          ><img
+                            src="../img/partners/photo_apostrophe_ua.jpg"
+                            alt=""
+                        /></a>
+                      </div>
+                      <div class="partners-img">
+                        <a href="https://slm.ua" target="_blank"
+                          ><img src="../img/partners/logo-SLM-short.png" alt=""
+                        /></a>
+                      </div>
+                      <div class="partners-img">
+                        <a href="https://delo.ua/" target="_blank"
+                          ><img src="../img/partners/delo.jpg" alt=""
+                        /></a>
+                      </div>
+                      <div class="partners-img">
+                        <a href="https://agrokebety.com/" target="_blank"
+                          ><img
+                            src="../img/partners/Agrokebety_logo.png"
+                            alt=""
+                        /></a>
+                      </div>
+                      <div class="partners-img">
+                        <a href="https://dengi.ua/" target="_blank"
+                          ><img src="../img/partners/korr_logo.png" alt=""
+                        /></a>
+                      </div>
+                    </div>
+                  </fieldset>
+                </form>
               </div>
             </div>
           </div>
@@ -125,12 +176,14 @@
       const profile = document.getElementById("profile");
       const dropdown = document.getElementById("dropdown");
       if (!userData) profile.classList.add("hidden");
-        else profile.classList.remove("hidden");
+      else profile.classList.remove("hidden");
       startButton.addEventListener("click", () => {
-        if(userData) location.href = "./question.html";
-          else location.href = "/";
-      })
-      userInfo.innerHTML = userData ? `Вітаємо, <a href='/pages/account.html'>${userData.nickname}</a>` : "Вітаємо";
+        if (userData) location.href = "./question.html";
+        else location.href = "/";
+      });
+      userInfo.innerHTML = userData
+        ? `Вітаємо, <a href='/pages/account.html'>${userData.nickname}</a>`
+        : "Вітаємо";
     </script>
   </body>
 </html>
