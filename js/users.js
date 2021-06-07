@@ -3,7 +3,6 @@ import { URL } from "./constants.js";
 const statusTextSignIn = document.getElementById("statusTextSignIn");
 const statusTextRegister = document.getElementById("statusTextRegister");
 const statusTextRecovery = document.getElementById("statusTextRecovery");
-const dropdown = document.getElementById("dropdown");
 const profile = document.getElementById("profile");
 const signInOutButton = document.getElementById("signInOutButton");
 const registerButton = document.getElementById("registerButton");
