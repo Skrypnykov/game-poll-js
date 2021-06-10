@@ -81,7 +81,16 @@ grid-template-areas:
   display: -ms-grid;
   overflow: hidden;
   padding: 0;
-  padding: 1rem 0.4rem 1rem 1rem;
+  padding: 0.1em 0.4em 0.4em;
+}
+.scroll-result h2 {
+  font-size: 1.8em;
+}
+.scroll-result p.scores-result {
+  font-size: 1.1em;
+}
+.scroll-result p {
+  font-size: 0.8em;
 }
 .scores-result {
   font: italic 500 1rem Roboto;
@@ -260,7 +269,7 @@ grid-template-areas:
     padding: 1rem 1.5rem 1rem 1rem;
   }
   .scroll-result {
-    padding: 1rem 0.4rem 1rem 1rem;
+    padding: 0.4em;
   }
 }
 
