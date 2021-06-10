@@ -1,7 +1,7 @@
 import { apiGet } from "./getData.js";
 import create from "./create.js";
 // import { URL, questionMax, wrongColor, trueColor } from "./constants.js";
-import { URL, questionMax, wrongColor, trueColor, wonPhrases } from "./constants.js";
+import { URL, questionMax, wrongColor, trueColor } from "./constants.js";
 import { verifyAuth } from "./users.js";
 import setData from "./setData.js";
 import { start, stop } from "./timer.js";
@@ -36,10 +36,9 @@ let questionNum = 1,
   questionsArr = [];
 
 // Переход на главную при переключении вкладок браузера
-document.addEventListener("visibilitychange", () => { if(document.hidden) location.href = "/" });
+// document.addEventListener("visibilitychange", () => { if(document.hidden) location.href = "/" });
 
 let userData = JSON.parse(localStorage.getItem("userData"));
-
 
 async function handler() {
   apiGet(fullUrl).then((responseData) => {
