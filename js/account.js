@@ -1,6 +1,6 @@
 import { URL } from "./constants.js";
-import { rating } from "./rating.js";
-import setData from "./setData.js";
+import { rating } from "./rating.min.js";
+import setData from "./setData.min.js";
 
 const result = document.getElementById("result"),
   accountForm = document.getElementById( "accountForm" ),

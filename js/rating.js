@@ -22,11 +22,11 @@ export async function rating() {
         userInfo.innerText = "Вітаємо";
       if (!userLocalData) profile.classList.add("hidden");
         else profile.classList.remove("hidden");
-      if (startButton) startButton.classList.add("hidden");
+        // if (startButton) startButton.classList.add("hidden");
         if (accountButton) accountButton.classList.add("hidden");
       } else {
         userInfo.innerHTML = `Вітаємо, <a href='/pages/account.html'>${userLocalData.nickname}</a>`;
-        startButton.classList.remove("hidden");
+        // startButton.classList.remove("hidden");
         if (!userLocalData.verified) {
           if (accountButton) accountButton.classList.remove("hidden");
           if (advice) advice.classList.remove("hidden");

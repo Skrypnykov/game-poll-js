@@ -181,7 +181,7 @@
     <!-- end main -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="../js/dropdown.js"></script>
+    <script src="../js/dropdown.min.js"></script>
     <script>
       const userData = JSON.parse(localStorage.getItem("userData"));
       const startButton = document.getElementById("go");
@@ -191,8 +191,7 @@
       if (!userData) profile.classList.add("hidden");
       else profile.classList.remove("hidden");
       startButton.addEventListener("click", () => {
-        if (userData) location.href = "./question.html";
-        else location.href = "/";
+        location.href = "./question.html";
       });
       userInfo.innerHTML = userData
         ? `Вітаємо, <a href='/pages/account.html'>${userData.nickname}</a>`

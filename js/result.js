@@ -10,7 +10,7 @@ const startButton = document.getElementById("go");
 const userInfo = document.getElementById("userInfo");
 userInfo.innerHTML = userData ? `Вітаємо, <a href='/pages/account.html'>${userData.nickname}</a>` : "";
 if (results) {
-  if(userData) scoreResult.innerHTML = `<b>, ${userData.nickname}, <br>ви набрали ${results} балів.</b>`;
+  if(userData) scoreResult.innerHTML = `<b>${userData.nickname}, <br>ви набрали ${results} балів.</b>`;
     else scoreResult.innerHTML = `<b>ви набрали ${results} балів.</b>`;
 }
 
