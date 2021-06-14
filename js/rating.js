@@ -1,4 +1,4 @@
-import { apiGet } from "./getData.js";
+import { apiGet } from "./getData.min.js";
 import { URL } from "./constants.js";
 
 const fullUrl = URL + "users";

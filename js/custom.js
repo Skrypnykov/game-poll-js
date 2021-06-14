@@ -1,4 +1,4 @@
-import { verifyAuth, register, signIn, recovery } from "./users.js";
+import { verifyAuth, register, signIn, recovery } from "./users.min.js";
 
 const registerForm = document.getElementById("signUpForm");
 const signInForm = document.getElementById("signInForm");

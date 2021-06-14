@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SDG Game</title>
+    <title>SDG Game Statistics</title>
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
@@ -17,36 +17,22 @@
       href="https://game-globalcompact.org.ua/favicon-32x32.png"
     />
     <!-- CSS style-->
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="css/forms.css" rel="stylesheet" type="text/css" />
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../css/forms.css" rel="stylesheet" type="text/css" />
   </head>
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '798886734353905');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=798886734353905&ev=PageView&noscript=1"
-  /></noscript>
+
   <body>
     <div class="main overflow-hidden">
       <div class="header-logo-mt header-logo-wrapper">
         <div class="header-wrapper">
           <div class="header-logo1">
-            <a href="index.html">
-              <img src="img/logo_gc.png" alt="" class="img-fluid" />
+            <a href="/">
+              <img src="../img/logo_gc.png" alt="" class="img-fluid" />
             </a>
           </div>
           <div class="header-logo2">
-            <a href="index.html">
-              <img src="img/logo_goals.png" alt="" class="img-fluid" />
+            <a href="/">
+              <img src="../img/logo_goals.png" alt="" class="img-fluid" />
             </a>
           </div>
         </div>
@@ -56,52 +42,7 @@
         <div class="welcome-main">
           <span class="welcome-rules infospan top" id="userInfo"></span>
         </div>
-        <!-- Navbar -->
-        <div id="dd" class="wrapper-dropdown-2 dropdown-navbar">
-          <button class="btn-main-dropdown btn-main-border">
-            <span>Меню</span>
-          </button>
-          <ul class="dropdown" id="dropdown">
-            <li><a href="./pages/rules.html">Навіщо грати</a></li>
-            <li><a href="./pages/rating.html">Рейтинг</a></li>
-            <li><a href="./pages/partners.html">Партнери гри</a></li>
-            <li><a href="./pages/links.html">Корисні посилання</a></li>
-            <li>
-              <a href="https://globalcompact.org.ua/contacts/" target="_blank"
-                >Контакти</a
-              >
-            </li>
-            <li><a href="./pages/team.html">Наша команда</a></li>
-            <li>
-              <a href="mailto:service@game-globalcompact.org.ua">Технічна підтримка</a>
-            </li>
-            <li id="profile"><a href="./pages/account.html">Профіль</a></li>
-          </ul>
-        </div>
-        <!-- end Navbar -->
-        <div class="down-left dropdown-index">
-          <div class="navi-left">
-            <button
-              type="button"
-              class="btn btn-primary btn-sign-up hidden"
-              data-bs-toggle="modal"
-              data-bs-target="#modalSignUp"
-              id="registerButton"
-            >
-              Реєстрація
-            </button>
-            <button
-              type="button"
-              class="btn btn-primary btn-sign-in"
-              data-bs-toggle="modal"
-              data-bs-target="#modalSignIn"
-              id="signInOutButton"
-            >
-              Вхід
-            </button>
-          </div>
-        </div>
-
+		
         <div class="control-panel">
           <div class="control-panel-buttons" id="buttons-animate">
             <img src="img/buttons.png" alt="" />
@@ -111,23 +52,6 @@
           </div>
         </div>
         <!-- end control-panel -->
-
-        <div class="down-right dropdown-index">
-          <div class="navi-right">
-            <button
-              type="button"
-              class="btn btn-secondary btn-start"
-              id="click"
-            >
-              Старт
-            </button>
-            <button type="button" class="btn btn-secondary btn-group-game">
-              Групове змагання
-            </button>
-          </div>
-        </div>
-      </div>
-      <!-- end content-wrapper -->
     </div>
     <!-- end main -->
 
@@ -490,16 +414,11 @@
         </div>
       </div>
     </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="js/custom.js"></script>
-    <script src="js/dropdown.js"></script>
-    <script src="js/jquery.maskedinput.min.js"></script>
-    <script src="js/valid.js"></script>
+    <script type="module" src="index.js"></script>
   </body>
 </html>

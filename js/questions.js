@@ -1,10 +1,9 @@
-import { apiGet } from "./getData.js";
-import create from "./create.js";
-// import { URL, questionMax, wrongColor, trueColor } from "./constants.js";
 import { URL, questionMax, wrongColor, trueColor } from "./constants.js";
-import { verifyAuth } from "./users.js";
-import setData from "./setData.js";
-import { start, stop } from "./timer.js";
+import { apiGet } from "./getData.min.js";
+import create from "./create.min.js";
+import { verifyAuth } from "./users.min.js";
+import setData from "./setData.min.js";
+import { start, stop } from "./timer.min.js";
 
 const questionsQuantity = document.getElementById("questionsQuantity"),
   // URL = "http://127.0.0.1:3000/",
@@ -26,7 +25,6 @@ const questionsQuantity = document.getElementById("questionsQuantity"),
 
 let questionNum = 1,
   catchAnswer = false,
- // questionMax = 5,
   qtyWrong = 0,
   qtyCorrect = 0,
   scores = 0,
@@ -78,14 +76,14 @@ const seeResult = () => {
 
 const nextQuestion = () => {
   if (questionNum >= questionMax) seeResult();
-  else {
-    questionNum = questionNum + 1;
-    questionText.innerText = "";
-    answersBlock.innerText = "";
-    timer.value = 90;
-    start(timer.value);
-    setQuestion();
-  }
+    else {
+      questionNum = questionNum + 1;
+      questionText.innerText = "";
+      answersBlock.innerText = "";
+      timer.value = 90;
+      start(timer.value);
+      setQuestion();
+    };
 };
 
 const showModal = (showText, time) => {
@@ -154,7 +152,7 @@ const questionsScoreUpdate = () => {
 
 const setUserInfo = () => {
   if (userData) verifyAuth();
-    else location.href = "/";
+    // else location.href = "/";
 };
 
 const setQuestion = (questions) => {
@@ -183,7 +181,7 @@ const setQuestion = (questions) => {
         break;
       default:
         setButtons(question.answers);
-    }
+    };
   }
 };
 

@@ -74,7 +74,7 @@ const setSignIn = () => {
     signInOutButton.dataset.bsToggle = "modal";
     signInOutButton.dataset.bsTarget = "#modalSignIn";
     registerButton.classList.remove("hidden");
-    startButton.classList.add("hidden");
+    // startButton.classList.add("hidden");
     profile.classList.add("hidden");
   }
 };
@@ -86,7 +86,7 @@ const setSignOut = () => {
     delete signInOutButton.dataset.bsToggle;
     delete signInOutButton.dataset.bsTarget;
     registerButton.classList.add("hidden");
-    startButton.classList.remove("hidden");
+    // startButton.classList.remove("hidden");
     profile.classList.remove("hidden");
   }
 };
