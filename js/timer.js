@@ -1,4 +1,4 @@
-import { answerIsWrong } from "./questions.js";
+import { answerIsWrong } from "./question.js";
 
 let elem = document.getElementById("timer");
 elem.value = 90;
