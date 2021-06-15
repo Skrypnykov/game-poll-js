@@ -3,7 +3,8 @@ import { URL } from "../js/constants.js";
 const ratingOl = document.getElementById("rating-ol");
 const total = document.getElementById("total");
 const totalGt0 = document.getElementById("totalGt0");
-let counterGt0 = 0;
+let counterGt0 = 0,
+  counterUnrated = 0;
 
 const userLocalData = JSON.parse(localStorage.getItem("userData"));
 const userId = localStorage.getItem("userId");
@@ -44,6 +45,7 @@ async function rating() {
             .sort((a, b) => b.score - a.score)
             .forEach((user, i) => {
               if(user.score !== 0) counterGt0++;
+              // if(!user.rated) counterUnrated++;
               let liEl = document.createElement("li");
               liEl.innerText = `${user.score} - ${user.nickname} - ${user.fullname} - ${user.position} - ${user.organization} 
                 ${user.phone} - ${user.email}`;
@@ -54,7 +56,7 @@ async function rating() {
               }
               ratingOl.appendChild(liEl);
             });
-          totalLi.innerText = `Усяго гравців: ${ratingArr.length} - score не 0: ${counterGt0}`;
+          totalLi.innerText = `Усяго гравців: ${ratingArr.length} - score не 0: ${counterGt0} - unrated: ${counterUnrated}`;
         }
       })
       .catch((error) => {
