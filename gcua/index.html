@@ -19,6 +19,8 @@
     <!-- CSS style-->
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <link href="../css/forms.css" rel="stylesheet" type="text/css" />
+    <link href="../css/rating.css" rel="stylesheet" type="text/css" />
+
   </head>
 
   <body>
@@ -39,342 +41,20 @@
       </div>
 
       <div class="new">
-        <div class="welcome-main">
-          <span class="welcome-rules infospan top" id="userInfo"></span>
+        <h4 class="rating-window-title">
+          <span>Усяго гравців:</span>
+          <span id="total"></span>
+          <span> - не 0:</span>
+          <span id="totalGt0"></span>
+        </h4>
+    <div class="rating-window">
+        <div class="rating-scroll allusers">
+          <ol class="rating-window-list" id="rating-ol"></ol>
         </div>
-		
-        <div class="control-panel">
-          <div class="control-panel-buttons" id="buttons-animate">
-            <img src="img/buttons.png" alt="" />
-          </div>
-          <div class="control-panel-earth">
-            <img src="img/earth.png" alt="" />
-          </div>
-        </div>
-        <!-- end control-panel -->
+      </div>
     </div>
     <!-- end main -->
-
-    <!-- Modal Sign Up -->
-    <div
-      class="modal fade"
-      id="modalSignUp"
-      data-bs-backdrop="static"
-      data-bs-keyboard="false"
-      tabindex="-1"
-      aria-labelledby="staticBackdropLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered modal-dialog-size">
-        <div class="modal-content">
-          <div class="modal-body form-bg">
-            <button
-              type="button"
-              class="btn-close position-absolute top-0 end-0 m-2"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-            <form id="signUpForm">
-              <div class="row">
-                <div class="col-12 col-sm-6">
-                  <div class="mb-1">
-                    <label for="nikName" class="col-form-label">Нікнейм</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Нікнейм"
-                      minlength="3"
-                      maxlength="25"
-                      id="nickname"
-                      name="nickname"
-                      required
-                      oninvalid="this.setCustomValidity('Будь ласка, заповніть це поле')"
-                      oninput="setCustomValidity('')"
-                    />
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6">
-                  <div class="mb-1">
-                    <label for="fullName" class="col-form-label">ПІБ</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="ПІБ"
-                      pattern="[\D\s]+"
-                      minlength="3"
-                      maxlength="30"
-                      id="fullname"
-                      name="fullname"
-                      required
-                      oninvalid="this.setCustomValidity('Будь ласка, заповніть це поле')"
-                      oninput="setCustomValidity('')"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-12 col-sm-6">
-                  <div class="mb-1">
-                    <label for="organization" class="col-form-label"
-                      >Назва організації</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Назва організації"
-                      minlength="1"
-                      maxlength="30"
-                      id="organization"
-                      name="organization"
-                      required
-                      oninvalid="this.setCustomValidity('Будь ласка, заповніть це поле')"
-                      oninput="setCustomValidity('')"
-                    />
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6">
-                  <div class="mb-1">
-                    <label for="position" class="col-form-label">Посада</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Посада"
-                      title="Будь ласка, заповніть це поле"
-                      minlength="3"
-                      maxlength="30"
-                      id="position"
-                      name="position"
-                      required
-                      oninvalid="this.setCustomValidity('Будь ласка, заповніть це поле')"
-                      oninput="setCustomValidity('')"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-12 col-sm-6">
-                  <div class="mb-1">
-                    <label for="email" class="col-form-label">e-mail</label>
-                    <input
-                      type="email"
-                      class="form-control"
-                      placeholder="nikname@gmail.com"
-                      minlength="10"
-                      maxlength="30"
-                      id="email"
-                      name="email"
-                      required
-                      oninvalid="this.setCustomValidity('Будь ласка, введіть адресу електронної пошти')"
-                      oninput="setCustomValidity('')"
-                    />
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6">
-                  <div class="mb-1">
-                    <label for="phone" class="col-form-label">Телефон</label>
-                    <input
-                      type="tel"
-                      class="form-control"
-                      placeholder="+38 (050) 111-11-11"
-                      pattern="[\+]\d{1}\d{1}\s[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}"
-                      minlength="19"
-                      maxlength="19"
-                      id="phone"
-                      name="phone"
-                      required
-                      oninvalid="this.setCustomValidity('Будь ласка, введіть свій телефон')"
-                      oninput="setCustomValidity('')"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <div class="mb-1">
-                    <label for="password" class="col-form-label">Пароль</label>
-                    <input
-                      type="password"
-                      class="form-control"
-                      placeholder="пароль"
-                      pattern=".{8,}$"
-                      id="password3"
-                      name="password"
-                      required
-                      oninvalid="this.setCustomValidity('Будь ласка, введіть свій пароль')"
-                      oninput="setCustomValidity('')"
-                    />
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="mb-1">
-                    <label for="password1" class="col-form-label"
-                      >Повторити</label
-                    >
-                    <input
-                      type="password"
-                      class="form-control"
-                      placeholder="пароль"
-                      id="password4"
-                      name="password1"
-                      required
-                      oninvalid="this.setCustomValidity('Будь ласка, повторно введіть свій пароль')"
-                      oninput="setCustomValidity('')"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div class="row text-center">
-                <div class="col">
-                  <div id="pd" class="form-account-item">
-                    <input
-                      type="checkbox"
-                      class="form-check-input"
-                      id="blankCheckbox"
-                      required
-                      oninvalid="this.setCustomValidity('Щоб продовжити, встановіть цей прапорець')"
-                      oninput="setCustomValidity('')"
-                    />
-                    <label
-                      for="blankCheckbox"
-                      class="form-check-label form-consent"
-                      >Я погоджуюсь на обробку персональних даних</label
-                    >
-                  </div>
-                </div>
-              </div>
-              <span class="badge badge-pill badge-info" id="statusTextRegister"
-                >Пароль не менше 8 символів</span
-              >
-              <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary btn-form-reg">
-                  Реєстрація
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal Sign In -->
-    <div
-      class="modal fade"
-      id="modalSignIn"
-      data-bs-backdrop="static"
-      data-bs-keyboard="false"
-      tabindex="-1"
-      aria-labelledby="staticBackdropLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered modal-dialog-in">
-        <div class="modal-content">
-          <div class="modal-body form-bg">
-            <button
-              type="button"
-              class="btn-close position-absolute top-0 end-0 m-2"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-            <form id="signInForm">
-              <legend class="text-change-color">Введіть дані</legend>
-              <div class="mb-1">
-                <label for="email" class="col-form-label">email</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email1"
-                  name="email"
-                  required
-                  oninvalid="this.setCustomValidity('Будь ласка, введіть адресу електронної пошти')"
-                  oninput="setCustomValidity('')"
-                />
-              </div>
-              <div class="mb-1">
-                <label for="password" class="col-form-label">Пароль</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="password2"
-                  name="password"
-                  required
-                  oninvalid="this.setCustomValidity('Будь ласка, введіть свій пароль')"
-                  oninput="setCustomValidity('')"
-                />
-              </div>
-              <span class="badge badge-pill badge-info" id="statusTextSignIn">
-                Введіть реєстраційні дані.
-              </span>
-              <span
-                class="badge"
-                role="button"
-                data-bs-toggle="modal"
-                data-bs-target="#modalRecovery"
-                data-bs-dismiss="modal"
-                >Забули пароль?
-              </span>
-              <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary btn-form-sign-in">
-                  Вхід
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal Password Recovery -->
-    <div
-      class="modal fade"
-      id="modalRecovery"
-      data-bs-backdrop="static"
-      data-bs-keyboard="false"
-      tabindex="-1"
-      aria-labelledby="staticBackdropLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered modal-dialog-in">
-        <div class="modal-content">
-          <div class="modal-body form-bg">
-            <button
-              type="button"
-              class="btn-close position-absolute top-0 end-0 m-2"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-            <form id="recoveryForm">
-              <legend class="text-change-color">Відновлення паролю</legend>
-              <div class="mb-1">
-                <label for="email" class="col-form-label">email</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="email2"
-                  name="email"
-                  required
-                />
-              </div>
-              <span class="badge badge-pill badge-info" id="statusTextRecovery"
-                >Введіть адресу електронної пошти</span
-              >
-              <div class="d-flex justify-content-center">
-                <button
-                  type="submit"
-                  class="btn btn-primary btn-form-sign-in"
-                  id="sendMailButton"
-                >
-                  Відновити
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
+   
     <!-- Modal Info -->
     <div
       class="modal fade"
@@ -401,7 +81,7 @@
                 короткий ознайомчий курс з ЦСР, щоб знайти вектор для своєї
                 організації та отримати сертифікат від ГД&nbsp;ООН. Курс
                 знаходиться у розділі<br />
-                <a href="./pages/links.html">"Корисні посилання"</a>
+                <a href="../pages/links.html">"Корисні посилання"</a>
                 або клікніть сюди
                 <a
                   href="https://info.unglobalcompact.org/globalgoals"

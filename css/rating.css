@@ -91,6 +91,11 @@ p.advice {
   white-space: normal;
 }
 
+.allusers {
+  height: 85%;
+  background-color: snow;
+}
+
 @media (max-width: 1024px) {
   .rating-best {
     display: none;
