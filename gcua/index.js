@@ -37,8 +37,9 @@ async function rating() {
       .then((responseData) => {
         const ratingArr = responseData;
         if (ratingArr) {
-          total.innerText = ratingArr.length;
           ratingOl.innerHTML = "";
+          let totalLi = document.createElement("li");
+          ratingOl.appendChild(totalLi);
           ratingArr
             .sort((a, b) => b.score - a.score)
             .forEach((user, i) => {
@@ -53,7 +54,7 @@ async function rating() {
               }
               ratingOl.appendChild(liEl);
             });
-          totalGt0.innerText = counterGt0;
+          totalLi.innerText = `Усяго гравців: ${ratingArr.length} - score не 0: ${counterGt0}`;
         }
       })
       .catch((error) => {
